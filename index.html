@@ -1,347 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neon AI Studio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Neon AI Studio | AI Video Packages</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Satisfy&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="icon" type="image/png" href="favicon.png">
-<style>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="neon_ai_studio_logo.png">
 
-/* ===== PRELOADER ===== */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #05050a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-#preloader.fade-out {
-    opacity: 0;
-    visibility: hidden;
-}
+    body {
+      background: #05050a;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
 
-.neon-loader {
-    position: relative;
-    width: 120px;
-    height: 120px;
-}
+    /* ----- PRELOADER (fixed) ----- */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #05050a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
 
-.neon-loader-inner {
-    width: 100%;
-    height: 100%;
-    border: 4px solid transparent;
-    border-top: 4px solid #0ff;
-    border-bottom: 4px solid #0ff;
-    border-radius: 50%;
-    animation: spin 1.5s linear infinite;
-    box-shadow: 0 0 20px #0ff, inset 0 0 20px rgba(0, 255, 255, 0.3);
-}
+    #preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
 
-.neon-loader::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border: 4px solid transparent;
-    border-left: 4px solid #ff00ff;
-    border-right: 4px solid #ff00ff;
-    border-radius: 50%;
-    animation: spinReverse 2s linear infinite;
-    box-shadow: 0 0 25px #ff00ff, inset 0 0 15px rgba(255, 0, 255, 0.2);
-}
+    .neon-loader {
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
 
-.neon-loader::after {
-    content: '';
-    position: absolute;
-    top: -16px;
-    left: -16px;
-    right: -16px;
-    bottom: -16px;
-    border: 4px solid transparent;
-    border-top: 4px solid #00ff9d;
-    border-bottom: 4px solid #00ff9d;
-    border-radius: 50%;
-    animation: spin 2.5s linear infinite;
-    box-shadow: 0 0 30px #00ff9d, inset 0 0 10px rgba(0, 255, 157, 0.2);
-}
+    .neon-loader-inner {
+      width: 100%;
+      height: 100%;
+      border: 4px solid transparent;
+      border-top: 4px solid #0ff;
+      border-bottom: 4px solid #0ff;
+      border-radius: 50%;
+      animation: spin 1.5s linear infinite;
+      box-shadow: 0 0 20px #0ff, inset 0 0 20px rgba(0, 255, 255, 0.3);
+    }
 
-.loader-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #0ff;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    text-shadow: 0 0 10px #0ff;
-    letter-spacing: 2px;
-    animation: textPulse 1.5s ease-in-out infinite alternate;
-}
+    .neon-loader::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border: 4px solid transparent;
+      border-left: 4px solid #ff00ff;
+      border-right: 4px solid #ff00ff;
+      border-radius: 50%;
+      animation: spinReverse 2s linear infinite;
+      box-shadow: 0 0 25px #ff00ff, inset 0 0 15px rgba(255, 0, 255, 0.2);
+    }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    .neon-loader::after {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      right: -16px;
+      bottom: -16px;
+      border: 4px solid transparent;
+      border-top: 4px solid #00ff9d;
+      border-bottom: 4px solid #00ff9d;
+      border-radius: 50%;
+      animation: spin 2.5s linear infinite;
+      box-shadow: 0 0 30px #00ff9d, inset 0 0 10px rgba(0, 255, 157, 0.2);
+    }
 
-@keyframes spinReverse {
-    0% { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }
-}
+    .loader-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #0ff;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      text-shadow: 0 0 10px #0ff;
+      letter-spacing: 2px;
+      animation: textPulse 1.5s ease-in-out infinite alternate;
+    }
 
-@keyframes textPulse {
-    0% { opacity: 0.5; text-shadow: 0 0 5px #0ff; }
-    100% { opacity: 1; text-shadow: 0 0 15px #0ff, 0 0 25px #0ff; }
-}
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes spinReverse {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
+    }
+    @keyframes textPulse {
+      0% { opacity: 0.5; text-shadow: 0 0 5px #0ff; }
+      100% { opacity: 1; text-shadow: 0 0 15px #0ff, 0 0 25px #0ff; }
+    }
 
+    /* ----- HERO SECTION (unchanged) ----- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .logo-wrap { margin-bottom: 28px; }
+    .logo-wrap img {
+      width: min(75vw, 300px);
+      height: auto;
+      filter: drop-shadow(0 0 28px #0ff);
+    }
+    .neon-text {
+      font-size: 2.6rem;
+      color: #0ff;
+      text-shadow: 0 0 22px #0ff;
+      animation: neonPulse 2.5s infinite alternate;
+    }
+    .tagline { margin-top: 10px; color: #aaa; letter-spacing: 1px; }
+    .sub { margin-bottom: 30px; color: #777; font-size: .95rem; }
+    .hero > div { animation: float 6s ease-in-out infinite; }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes neonPulse {
+      0% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+      50% { text-shadow: 0 0 25px #0ff, 0 0 50px #0ff; }
+      100% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+    }
 
-HTML: <div class="loader"></div> 
-.loader {
-  width: 50px;
-  aspect-ratio: 1;
-  display: grid;
-  animation: l14 4s infinite;
-}
-.loader::before,
-.loader::after {    
-  content: "";
-  grid-area: 1/1;
-  border: 8px solid;
-  border-radius: 50%;
-  border-color: red red #0000 #0000;
-  mix-blend-mode: darken;
-  animation: l14 1s infinite linear;
-}
-.loader::after {
-  border-color: #0000 #0000 blue blue;
-  animation-direction: reverse;
-}
-@keyframes l14{ 
-  100%{transform: rotate(1turn)}
-}
+    /* ----- BUTTONS ----- */
+    .btn {
+      position: relative;
+      display: inline-block;
+      margin: 12px;
+      padding: 16px 34px;
+      border-radius: 40px;
+      text-decoration: none;
+      color: #0ff;
+      border: 1px solid #0ff;
+      overflow: hidden;
+      background: transparent;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn.primary { background: #0ff; color: #000; font-weight: 600; }
+    .btn-text { position: relative; z-index: 2; }
+    .btn-glow { position: absolute; inset: 0; box-shadow: 0 0 30px #0ff; opacity: .65; }
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(120deg, #0ff, transparent, #0ff);
+      opacity: .6;
+      filter: blur(12px);
+      animation: neonFlow 3s linear infinite;
+    }
+    @keyframes neonFlow {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .btn:hover { transform: scale(1.02); box-shadow: 0 0 20px #0ff; }
 
+    /* ----- SECTION STYLES ----- */
+    .section { padding: 80px 20px; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .highlight { color: #0ff; text-shadow: 0 0 8px #0ff; }
 
+    /* ----- CAROUSEL (projects) ----- */
+    .carousel {
+      max-width: 520px;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.35);
+      animation: softGlow 4s infinite alternate;
+    }
+    @keyframes softGlow {
+      from { box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); }
+      to { box-shadow: 0 0 45px rgba(0, 255, 255, 0.6); }
+    }
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+    .slide {
+      min-width: 100%;
+      background: linear-gradient(145deg, #0b0b16, #030309);
+      padding: 28px 20px;
+      backdrop-filter: blur(2px);
+      border-radius: 24px;
+      text-align: center;
+    }
+    .project-card { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+    .project-icon { font-size: 4rem; color: #0ff; text-shadow: 0 0 15px #0ff; }
+    .project-title { font-size: 1.6rem; font-weight: 700; background: linear-gradient(135deg, #fff, #0ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .project-desc { color: #ccc; font-size: 0.9rem; max-width: 80%; margin: 0 auto; }
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #0ff;
+      color: #0ff;
+      font-size: 26px;
+      padding: 8px 14px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .nav:hover { background: #0ff; color: #000; box-shadow: 0 0 20px #0ff; }
+    .nav.prev { left: 12px; }
+    .nav.next { right: 12px; }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif}
-body{background:#05050a;color:#fff;overflow-x:hidden}
+    /* ----- WHY CHOOSE US ----- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .service-item {
+      background: #0b0b14;
+      padding: 28px 20px;
+      border-radius: 24px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: 0.4s ease;
+      cursor: default;
+    }
+    .service-item:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 0 25px #0ff; border-color: #0ff; }
 
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:40px 20px;
-}
+    /* ----- NEW PLANS SECTION (6-video packages, neon dark style) ----- */
+    .plans-section {
+      background: radial-gradient(circle at 20% 30%, #0a0f1c, #03050b);
+    }
+    .plans-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .rate-info {
+      background: rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 40px;
+      padding: 14px 20px;
+      margin-bottom: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #0ff;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+    .rate-info i { margin-right: 8px; color: #0ff; }
+    .rate-info span {
+      background: #0a0f1c;
+      padding: 4px 12px;
+      border-radius: 40px;
+      margin-left: 8px;
+      font-family: monospace;
+      font-weight: 600;
+      color: #0ff;
+      border: 1px solid #0ff44f;
+    }
+    .plans-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+    .plan-card {
+      background: linear-gradient(145deg, #0c0c18, #05050f);
+      border-radius: 32px;
+      flex: 1;
+      min-width: 280px;
+      max-width: 360px;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(4px);
+    }
+    .plan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+      border-color: #0ff;
+    }
+    .card-header {
+      padding: 24px 20px 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+    .badge-trial { background: #0e4b6e; color: #8dd0ff; box-shadow: 0 0 6px #0ff; }
+    .badge-growth { background: #1a5a2a; color: #b2ffc2; box-shadow: 0 0 6px #0f0; }
+    .badge-premium { background: #7a5a0e; color: #ffea9e; box-shadow: 0 0 6px #ffcc44; }
+    .card-header h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #0ff;
+      text-shadow: 0 0 8px #0ff;
+    }
+    .video-count {
+      font-size: 0.85rem;
+      background: rgba(0, 255, 255, 0.15);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 30px;
+      color: #ccc;
+    }
+    .price-section {
+      padding: 16px 20px 12px;
+      text-align: center;
+    }
+    .package-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0ff;
+    }
+    .package-price small {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #9ca3af;
+    }
+    .original-value {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      text-decoration: line-through;
+      margin-top: 4px;
+    }
+    .savings {
+      background: rgba(0, 255, 100, 0.2);
+      color: #7eff9e;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .divider {
+      height: 1px;
+      background: rgba(0, 255, 255, 0.2);
+      margin: 12px 20px;
+    }
+    .features {
+      padding: 0 20px 20px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      color: #e2e8f0;
+    }
+    .feature-item i {
+      width: 20px;
+      color: #0ff;
+      font-size: 0.9rem;
+    }
+    .video-mix {
+      background: rgba(0, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 12px;
+      margin: 16px 20px;
+      font-size: 0.8rem;
+    }
+    .video-mix p {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #0ff;
+    }
+    .mix-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    .mix-item {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 4px 8px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      color: #ddd;
+    }
+    .btn-plan {
+      display: block;
+      margin: 20px 20px 24px;
+      text-align: center;
+      background: #0ff;
+      color: #000;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+    .btn-plan:hover { background: #0cc; box-shadow: 0 0 20px #0ff; transform: scale(1.02); }
+    .trial .btn-plan { background: #1e88e5; color: white; }
+    .growth .btn-plan { background: #2e7d32; color: white; }
+    .premium .btn-plan { background: #f57c00; color: white; }
+    .trial .btn-plan:hover { background: #0b5e8a; box-shadow: 0 0 15px #1e88e5; }
+    .growth .btn-plan:hover { background: #1b5e20; box-shadow: 0 0 15px #2e7d32; }
+    .premium .btn-plan:hover { background: #bf5f00; box-shadow: 0 0 15px #f57c00; }
+    .footnote {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #aaa;
+      background: rgba(0, 255, 255, 0.05);
+      padding: 16px;
+      border-radius: 28px;
+      margin-top: 40px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
 
-/* LOGO */
-.logo-wrap{margin-bottom:28px}
-.logo-wrap img{
-  width:min(75vw,300px);
-  height:auto;
-  filter:drop-shadow(0 0 28px #0ff);
-}
+    /* ----- CONTACT SECTION & WHATSAPP ----- */
+    .contact { text-align: center; padding-bottom: 60px; }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      z-index: 999;
+      box-shadow: 0 0 20px #25D366;
+      transition: 0.2s;
+      animation: beat 1.8s infinite;
+    }
+    @keyframes beat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+    .whatsapp-float:hover { transform: scale(1.1); background: #20b859; }
 
-/* TEXT */
-.neon-text{font-size:2.6rem;color:#0ff;text-shadow:0 0 22px #0ff}
-.tagline{margin-top:10px;color:#aaa}
-.sub{margin-bottom:30px;color:#777;font-size:.95rem}
-
-/* BUTTONS */
-.btn{
-  position:relative;
-  display:inline-block;
-  margin:12px;
-  padding:16px 34px;
-  border-radius:40px;
-  text-decoration:none;
-  color:#0ff;
-  border:1px solid #0ff;
-  overflow:hidden;
-}
-.btn.primary{background:#0ff;color:#000;font-weight:600}
-.btn-text{position:relative;z-index:2}
-.btn-glow{position:absolute;inset:0;box-shadow:0 0 30px #0ff;opacity:.65}
-
-/* SECTION */
-.section{padding:80px 20px}
-.section-header{text-align:center;margin-bottom:40px}
-.highlight{color:#0ff}
-
-/* CAROUSEL */
-.carousel{
-  max-width:420px;
-  margin:auto;
-  position:relative;
-  overflow:hidden;
-  border-radius:18px;
-}
-.carousel-track{display:flex;transition:transform .4s ease}
-.slide{min-width:100%;background:#000;padding:10px}
-
-/* arrows */
-.nav{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,.6);
-  border:none;
-  color:#0ff;
-  font-size:26px;
-  padding:8px 14px;
-  cursor:pointer;
-}
-.nav.prev{left:8px}
-.nav.next{right:8px}
-
-/* Instagram fix */
-.instagram-media{min-width:100%!important}
-
-/* GRID (used everywhere – UI same) */
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-.service-item{
-  background:#0b0b14;
-  padding:20px;
-  border-radius:14px;
-  text-align:center;
-}
-
-/* CONTACT */
-.contact{text-align:center}
-
-/* FIXED WHATSAPP */
-.whatsapp-float{
-  position:fixed;
-  bottom:18px;
-  right:18px;
-  width:56px;
-  height:56px;
-  background:#25D366;
-  color:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  z-index:999;
-  box-shadow:0 0 20px #25D366;
-}
-
-/* ===== NEON PULSE ===== */
-@keyframes neonPulse {
-  0%   { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
-  50%  { text-shadow: 0 0 25px #0ff, 0 0 50px #0ff; }
-  100% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
-}
-
-.neon-text{
-  animation: neonPulse 2.5s infinite alternate;
-}
-
-/* ===== FLOATING HERO ===== */
-@keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
-}
-
-.hero > div{
-  animation: float 6s ease-in-out infinite;
-}
-
-/* ===== BUTTON NEON FLOW ===== */
-.btn::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background:linear-gradient(120deg,#0ff,transparent,#0ff);
-  opacity:.6;
-  filter:blur(12px);
-  animation: neonFlow 3s linear infinite;
-}
-
-@keyframes neonFlow{
-  0%{transform:translateX(-100%)}
-  100%{transform:translateX(100%)}
-}
-
-/* ===== CAROUSEL SOFT GLOW ===== */
-.carousel{
-  box-shadow:0 0 30px rgba(0,255,255,.35);
-  animation: softGlow 4s infinite alternate;
-}
-
-@keyframes softGlow{
-  from{box-shadow:0 0 15px rgba(0,255,255,.2)}
-  to{box-shadow:0 0 45px rgba(0,255,255,.6)}
-}
-
-/* ===== SERVICE CARD HOVER ===== */
-.service-item{
-  transition:.4s ease;
-}
-.service-item:hover{
-  transform:translateY(-10px) scale(1.04);
-  box-shadow:0 0 25px #0ff;
-}
-
-/* ===== WHATSAPP HEARTBEAT ===== */
-@keyframes beat{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.15)}
-  100%{transform:scale(1)}
-}
-
-.whatsapp-float{
-  animation: beat 1.8s infinite;
-}
-</style>
+    /* ----- FOOTER ----- */
+    .footer {
+      text-align: center;
+      padding: 40px 20px 30px;
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      margin-top: 20px;
+      color: #8fa1bc;
+      font-size: 0.85rem;
+    }
+    .footer a { color: #0ff; text-decoration: none; }
+    .credit-name {
+      font-family: 'Satisfy', cursive;
+      font-size: 15pt;
+      text-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
+      font-weight: normal;
+      text-align: center;
+      margin: 5px 0 10px;
+      color: #ffd966;
+    }
+    @media (max-width: 720px) {
+      .neon-text { font-size: 1.8rem; }
+      .btn { padding: 12px 24px; }
+      .section { padding: 50px 20px; }
+      .plans-grid { flex-direction: column; align-items: center; }
+      .plan-card { width: 100%; max-width: 400px; }
+      .rate-info { flex-direction: column; align-items: center; gap: 12px; }
+    }
+  </style>
 </head>
-
 <body>
+
 <!-- PRELOADER -->
 <div id="preloader">
-    <div class="neon-loader">
-        <div class="neon-loader-inner"></div>
-        
-        <div class="loader-text"><center>Neon Ai Studio</center></div>
-        
-    </div>
-</div>
-<div >
-<!-- Load the font from Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="stylesheet">
-
-<h4 class="neon-text" style="
-  font-family: 'Satisfy', cursive; 
-  font-size: 15pt; 
-  text-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
-  font-weight: normal;">
-  Moreshwar R. Bhonde
-  </h4>
-  
+  <div class="neon-loader">
+    <div class="neon-loader-inner"></div>
+    <div class="loader-text">NEON AI STUDIO</div>
   </div>
+</div>
+
+<div style="text-align: center; margin-top: 10px;">
+  <h4 class="credit-name">Moreshwar R. Bhonde</h4>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -349,33 +538,29 @@ body{background:#05050a;color:#fff;overflow-x:hidden}
     <div class="logo-wrap">
       <img src="neon_ai_studio_logo.png" alt="Neon AI Studio">
     </div>
-
     <h1 class="neon-text">NEON AI STUDIO</h1>
     <p class="tagline">Future-Ready Ads Powered by AI</p>
     <p class="sub">Posters • Video Ads • Reels • AI Visuals</p>
-
-    <a href="#projects" class="btn">
-      <span class="btn-text" style="font-size: 18pt; color:#00ff00 "><u><b>VIEW PROJECTS</b></u><br></span>
-      <span class="btn-glow"></span>
-      <button onclick="window.location.href='https://www.instagram.com/neon_ai_studio'" style="padding:14px 28px;font-size:18px;color:#fff;background:#0a0a0a;border:none;border-radius:12px;cursor:pointer;text-shadow:0 0 10px #0ff,0 0 20px #0ff;box-shadow:0 0 10px #0ff,0 0 20px #0ff inset,0 0 30px #0ff;transition:0.3s;transform:perspective(200px) translateZ(0);" onmouseover="this.style.boxShadow='0 0 20px #f0f,0 0 40px #f0f inset,0 0 60px #f0f';this.style.transform='perspective(200px) translateZ(10px)'" onmouseout="this.style.boxShadow='0 0 10px #0ff,0 0 20px #0ff inset,0 0 30px #0ff';this.style.transform='perspective(200px) translateZ(0)'">@Neon_Ai_Studio</button>
-    </a>
-
-    <a href="https://wa.me/917038821854" class="btn primary">
-      <span class="btn-text">ORDER ON WHATSAPP</span><span class="btn-glow"></span>
-    </a>
+    <a href="#projects" class="btn"><span class="btn-text" style="font-size: 18pt; color:#00ff00;"><u><b>VIEW PROJECTS</b></u></span><span class="btn-glow"></span></a>
+    <a href="https://wa.me/917038821854" class="btn primary"><span class="btn-text">ORDER ON WHATSAPP</span><span class="btn-glow"></span></a>
+    <div style="margin-top: 25px;">
+      <button onclick="window.location.href='https://www.instagram.com/neon_ai_studio'" style="padding:12px 28px; font-size:16px; color:#fff; background:#0a0a0a; border:none; border-radius:40px; cursor:pointer; text-shadow:0 0 8px #0ff; box-shadow:0 0 12px #0ff; transition:0.3s; font-weight:bold;">
+        <i class="fab fa-instagram"></i> @Neon_Ai_Studio
+      </button>
+    </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PROJECTS CAROUSEL -->
 <section id="projects" class="section">
   <div class="section-header">
-    <h2><span class="highlight">Featured Work</span></h2>
+    <h2><span class="highlight">⚡ Featured Creations</span></h2>
+    <p style="color: #aaa;">AI-powered visuals & motion magic</p>
   </div>
-
   <div class="carousel">
     <div class="carousel-track" id="carouselTrack"></div>
-    <button class="nav prev" onclick="moveSlide(-1)">❮</button>
-    <button class="nav next" onclick="moveSlide(1)">❯</button>
+    <button class="nav prev" id="prevSlide">❮</button>
+    <button class="nav next" id="nextSlide">❯</button>
   </div>
 </section>
 
@@ -384,637 +569,202 @@ body{background:#05050a;color:#fff;overflow-x:hidden}
   <div class="section-header">
     <h2><span class="highlight">Why Choose Us</span></h2>
   </div>
-
   <div class="services-grid">
-    <div class="service-item">⚡ Fast Delivery</div>
+    <div class="service-item">⚡ Lightning Fast Delivery</div>
     <div class="service-item">🎨 Unique AI Designs</div>
-    <div class="service-item">💎 Primium Quility</div>
+    <div class="service-item">💎 Premium Quality</div>
+    <div class="service-item">📈 Data-Driven Concepts</div>
   </div>
 </section>
 
-<!-- PRICING HINT -->
-<section class="section">
-  <div class="section-header">
-    <h2><span class="highlight">Pricing Starts From</span></h2>
-  </div>
+<!-- NEW PLANS SECTION (6‑Video Packages) -->
+<section class="section plans-section">
+  <div class="plans-container">
+    <div class="section-header">
+      <h2><span class="highlight">📹 6‑Video Packages</span></h2>
+      <p style="color: #aaa;">Choose the right plan – more videos, bigger savings. All packages include 6 videos.</p>
+    </div>
 
-  <div class="services-grid">
-    <div class="service-item">🖼️ Posters – ₹49+</div>
-    <div class="service-item">🎬 Reels – ₹599+</div>
-    <div class="service-item">💎 Premium Ads - ₹999</div>
-    <div class="service-item">📢 Brand Promo – Custom</div>
-    
+    <!-- Individual video rates reference -->
+    <div class="rate-info">
+      <div><i class="fas fa-video"></i> Standard: 30 sec <span>₹50</span> &nbsp;|&nbsp; 60 sec <span>₹100</span> &nbsp;|&nbsp; 90 sec <span>₹150</span></div>
+      <div><i class="fas fa-gem"></i> Premium: 60 sec <span>₹200</span> &nbsp;|&nbsp; 90 sec <span>₹300</span> &nbsp;|&nbsp; Reel/Story <span>₹150</span></div>
+    </div>
 
-<div class="service-item"
-     style="background: black;
-            padding: 12px;
-            text-align: center;
-            border: 3px dotted yellow;
-            box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;">
-            
-    <a href="#ratepage" style="text-decoration: none;">
-        <marquee behavior="alternate"
-                 scrollamount="100"
-                 scrolldelay="2000"
-                 style="color: yellow;
-                        font-weight: bold;
-                        cursor: pointer;
-                        text-shadow: 0 0 10px red, 0 0 20px red;">
-            👉_ Click Here for Price List _👈
-        </marquee>
-    </a>
-</div>
-<!--<div class="service-item" style="background: black; padding: 10px; text-align: center;">
-    <marquee behavior="alternate" scrollamount="100" scrolldelay="1500" style="color: yellow; font-weight: bold; text-shadow: 0 0 10px red, 0 0 20px red;">
-        ⏬ Scroll Down for Price list ⏬
-    </marquee>
-</div>-->
+    <div class="plans-grid">
+      <!-- TRIAL PACK -->
+      <div class="plan-card trial">
+        <div class="card-header">
+          <div class="badge badge-trial">⭐ TRIAL PACK</div>
+          <h3>₹420</h3>
+          <div class="video-count">6 videos • ₹70 per video</div>
+        </div>
+        <div class="price-section">
+          <div class="package-price">₹420 <small>total</small></div>
+          <div class="original-value">Individual value: ₹450</div>
+          <div class="savings"><i class="fas fa-tag"></i> Save ₹30 (6.7% off)</div>
+        </div>
+        <div class="video-mix">
+          <p><i class="fas fa-film"></i> Video mix (Standard quality)</p>
+          <div class="mix-detail">
+            <span class="mix-item">3 x 30 sec</span>
+            <span class="mix-item">3 x 60 sec</span>
+          </div>
+        </div>
+        <div class="features">
+          <div class="feature-item"><i class="fas fa-user"></i> Me (Default) model</div>
+          <div class="feature-item"><i class="fas fa-paint-brush"></i> 1 revision per video</div>
+          <div class="feature-item"><i class="fas fa-water"></i> Large watermark</div>
+          <div class="feature-item"><i class="fas fa-chart-line"></i> Best for testing / first-time</div>
+        </div>
+        <a href="#" class="btn-plan">Choose Trial Pack</a>
+      </div>
 
+      <!-- GROWTH PACK -->
+      <div class="plan-card growth">
+        <div class="card-header">
+          <div class="badge badge-growth">🚀 GROWTH PACK</div>
+          <h3>₹540</h3>
+          <div class="video-count">6 videos • ₹90 per video</div>
+        </div>
+        <div class="price-section">
+          <div class="package-price">₹540 <small>total</small></div>
+          <div class="original-value">Individual value: ₹600</div>
+          <div class="savings"><i class="fas fa-tag"></i> Save ₹60 (10% off)</div>
+        </div>
+        <div class="video-mix">
+          <p><i class="fas fa-film"></i> Video mix (Standard quality)</p>
+          <div class="mix-detail">
+            <span class="mix-item">2 x 30 sec</span>
+            <span class="mix-item">2 x 60 sec</span>
+            <span class="mix-item">2 x 90 sec</span>        <div class="features">
+          <div class="feature-item"><i class="fas fa-user-friends"></i> Me / Customer model</div>
+          <div class="feature-item"><i class="fas fa-paint-brush"></i> Up to 3 revisions</div>
+          <div class="feature-item"><i class="fas fa-water"></i> Small watermark</div>
+          <div class="feature-item"><i class="fas fa-chart-simple"></i> Best for small businesses</div>
+        </div>
+        <a href="#" class="btn-plan">Choose Growth Pack</a>
+      </div>
 
+      <!-- PREMIUM BRAND PACK -->
+      <div class="plan-card premium">
+        <div class="card-header">
+          <div class="badge badge-premium">👑 PREMIUM BRAND</div>
+          <h3>₹1,100</h3>
+          <div class="video-count">6 videos • ₹183.33 per video</div>
+        </div>
+        <div class="price-section">
+          <div class="package-price">₹1,100 <small>total</small></div>
+          <div class="original-value">Individual value: ₹1,300</div>
+          <div class="savings"><i class="fas fa-tag"></i> Save ₹200 (15.4% off)</div>
+        </div>
+        <div class="video-mix">
+          <p><i class="fas fa-crown"></i> Video mix (Premium quality)</p>
+          <div class="mix-detail">
+            <span class="mix-item">2 x 60 sec (premium)</span>
+            <span class="mix-item">2 x 90 sec (premium)</span>
+            <span class="mix-item">2 x Reel/Story</span>
+          </div>
+        </div>
+        <div class="features">
+          <div class="feature-item"><i class="fas fa-robot"></i> Customer / AI Avatar model</div>
+          <div class="feature-item"><i class="fas fa-paintbrush-fine"></i> As possible customization</div>
+          <div class="feature-item"><i class="fas fa-ban"></i> No watermark</div>
+          <div class="feature-item"><i class="fas fa-gem"></i> Cinematic / luxury quality</div>
+        </div>
+        <a href="#" class="btn-plan">Choose Premium Pack</a>
+      </div>
+    </div>
 
+    <div class="footnote">
+      <i class="fas fa-calculator"></i> All packages include 6 videos. Individual video prices are based on duration & quality.<br>
+      <strong>Progressive savings:</strong> bigger plan = higher discount. Contact us for custom combos or bulk orders.
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT SECTION -->
 <section class="section contact">
   <a class="btn primary" href="https://wa.me/917038821854">
-    <span class="btn-text">CONTACT ON WHATSAPP</span><span class="btn-glow"></span>
+    <span class="btn-text">📞 CONTACT ON WHATSAPP</span><span class="btn-glow"></span>
   </a>
 </section>
 
 <!-- FIXED WHATSAPP -->
-<a href="https://wa.me/917038821854" class="whatsapp-float">
+<a href="https://wa.me/917038821854" class="whatsapp-float" target="_blank" rel="noopener">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- Instagram -->
-<script async src="https://www.instagram.com/embed.js"></script>
+<footer class="footer">
+  <p>© 2026 <strong>Neon AI Studio</strong> — Futuristic AI Advertising</p>
+  <p><i class="fas fa-envelope"></i> moreshwar1234bhonde@gmail.com &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> +91 70388 21854</p>
+  <p style="margin-top: 12px;">✨ No hidden pricing — custom plans for every vision ✨</p>
+</footer>
 
 <script>
-
-/* ===== PRELOADER ===== */
-window.addEventListener('load', function() {
+  // PRELOADER: guaranteed hide
+  (function() {
     const preloader = document.getElementById('preloader');
-    
-    // थोड्या वेळाने प्री-लोडर लपवा
-    setTimeout(function() {
-        preloader.classList.add('fade-out');
-        
-        // पूर्णपणे काढून टाका
-        setTimeout(function() {
-            preloader.style.display = 'none';
-        }, 500);
-    }, 1000); // 1 सेकंद नंतर लपवा
-});
+    if (!preloader) return;
+    function hidePreloader() {
+      preloader.classList.add('fade-out');
+      setTimeout(() => { if (preloader.parentNode) preloader.style.display = 'none'; }, 500);
+    }
+    window.addEventListener('load', () => setTimeout(hidePreloader, 300));
+    setTimeout(hidePreloader, 2000);
+  })();
 
-let index = 0;
-const track = document.getElementById("carouselTrack");
-let slides = [];
+  // CAROUSEL data & logic
+  const projectsData = [
+    { icon: "fa-film", title: "AI Cinematic Reel", desc: "Neon-drenched 3D motion ad for social media" },
+    { icon: "fa-palette", title: "Cyber Poster Series", desc: "Vivid AI generated posters with holographic FX" },
+    { icon: "fa-waveform", title: "Viral Shorts Pack", desc: "Fast-paced AI edits optimized for reels" },
+    { icon: "fa-cube", title: "3D Product Visuals", desc: "Hyper-realistic AI product animation" },
+    { icon: "fa-meteor", title: "Brand Identity Kit", desc: "Complete AI visual identity for startups" }
+  ];
+  const track = document.getElementById("carouselTrack");
+  let currentIndex = 0, slides = [];
+  function buildCarousel() {
+    if (!track) return;
+    track.innerHTML = '';
+    projectsData.forEach(proj => {
+      const slideDiv = document.createElement("div");
+      slideDiv.className = "slide";
+      slideDiv.innerHTML = `<div class="project-card"><i class="fas ${proj.icon} project-icon"></i><div class="project-title">${proj.title}</div><div class="project-desc">${proj.desc}</div><div style="margin-top: 10px;"><span style="background: rgba(0,255,255,0.2); padding: 5px 12px; border-radius: 30px; font-size: 0.75rem;">✨ AI powered</span></div></div>`;
+      track.appendChild(slideDiv);
+    });
+    slides = document.querySelectorAll(".slide");
+    updateCarousel();
+  }
+  function updateCarousel() { if (slides.length) track.style.transform = `translateX(-${currentIndex * 100}%)`; }
+  function moveSlide(d) {
+    if (!slides.length) return;
+    currentIndex += d;
+    if (currentIndex < 0) currentIndex = slides.length - 1;
+    if (currentIndex >= slides.length) currentIndex = 0;
+    updateCarousel();
+    resetAutoSlide();
+  }
+  let autoInterval = setInterval(() => { if (slides.length > 1) { currentIndex = (currentIndex + 1) % slides.length; updateCarousel(); } }, 5000);
+  function resetAutoSlide() { clearInterval(autoInterval); autoInterval = setInterval(() => { if (slides.length > 1) { currentIndex = (currentIndex + 1) % slides.length; updateCarousel(); } }, 5000); }
+  document.getElementById("prevSlide")?.addEventListener("click", () => moveSlide(-1));
+  document.getElementById("nextSlide")?.addEventListener("click", () => moveSlide(1));
+  const carouselDiv = document.querySelector(".carousel");
+  if (carouselDiv) ["click","touchstart","mousedown"].forEach(ev => carouselDiv.addEventListener(ev, () => { clearInterval(autoInterval); resetAutoSlide(); }));
+  buildCarousel();
 
-fetch("projects.json")
-.then(res => res.json())
-.then(data => {
-  data.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "slide";
-    div.innerHTML = `
-      <blockquote class="instagram-media"
-        data-instgrm-permalink="${p.url}"
-        data-instgrm-version="14"></blockquote>`;
-    track.appendChild(div);
+  // smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = this.getAttribute('href');
+      if (target === "#" || !target) return;
+      const el = document.querySelector(target);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
   });
-  slides = document.querySelectorAll(".slide");
-  if(window.instgrm) window.instgrm.Embeds.process();
-});
-
-/* Manual + Auto Swipe */
-function moveSlide(d){
-  index += d;
-  if(index < 0) index = slides.length - 1;
-  if(index >= slides.length) index = 0;
-  track.style.transform = `translateX(-${index*100}%)`;
-}
-
-
-/* AUTO SWIPE 
-setInterval(()=>{
-  if(slides.length > 1){
-    moveSlide(1);
-  }
-}, 5000);*/
-
-/* AUTO SWIPE */
-let autoSlide = setInterval(()=>{
-  if(slides.length > 1){
-    moveSlide(1);
-  }
-}, 5000000000000000000000);
-
-
-
-/* STOP AUTO SLIDE ON USER INTERACTION */
-const carousel = document.querySelector(".carousel");
-
-["click","touchstart","mousedown"].forEach(evt=>{
-  carousel.addEventListener(evt, ()=>{
-    clearInterval(autoSlide);
-  }, { once:true });
-});
 </script>
-
 </body>
-</html>
-<hr><br>
-
-
-<br id="ratepage">
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Pricing & Packages</title>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-:root{
-  --bg:#04070d;
-  --card:#0a1220;
-  --neon:#00f7ff;
-  --neon-soft:rgba(0,247,255,.35);
-  --text:#e9faff;
-  --muted:#8fa7c2;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  font-family:'Segoe UI',sans-serif;
-  background:radial-gradient(circle at top,#08162b,#020409);
-  color:var(--text);
-  padding:20px;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-}
-
-header{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.logo i{
-  font-size:3rem;
-  color:var(--neon);
-  text-shadow:0 0 20px var(--neon);
-}
-
-h1{
-  margin-top:10px;
-  color:var(--neon);
-  text-shadow:0 0 18px var(--neon);
-}
-
-.subtitle{
-  margin-top:15px;
-  color:var(--muted);
-  max-width:800px;
-  margin-inline:auto;
-}
-
-.section{
-  background:linear-gradient(180deg,#0b1425,#05080d);
-  border-radius:18px;
-  box-shadow:0 0 30px rgba(0,247,255,.12);
-  margin-bottom:45px;
-  overflow:hidden;
-}
-
-.section-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:20px;
-  border-bottom:1px solid var(--neon-soft);
-  background:linear-gradient(90deg,#00f7ff22,#00f7ff05);
-}
-
-.section-header i{
-  color:var(--neon);
-  text-shadow:0 0 10px var(--neon);
-}
-
-.section-header h2{
-  color:var(--neon);
-}
-
-.table-container{
-  overflow-x:auto;
-  padding:20px;
-}
-
-table{
-  width:100%;
-  min-width:900px;
-  border-collapse:collapse;
-}
-
-thead{
-  background:#020814;
-}
-
-th,td{
-  padding:14px;
-  text-align:center;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-th{
-  color:var(--neon);
-  font-weight:600;
-}
-
-td{
-  color:var(--text);
-}
-
-tbody tr:hover{
-  background:rgba(0,247,255,.05);
-}
-
-.highlight{
-  color:var(--neon);
-}
-
-.price-cell{
-  color:#00ff9d;
-  font-weight:700;
-}
-
-.price-row td{
-  background:rgba(0,247,255,.08);
-  font-weight:700;
-}
-
-.badge{
-  padding:4px 10px;
-  border-radius:20px;
-  font-size:.8rem;
-  background:rgba(0,247,255,.18);
-  color:var(--neon);
-  box-shadow:0 0 10px var(--neon-soft);
-}
-
-.note{
-  background:linear-gradient(90deg,#07182e,#04070d);
-  border-left:4px solid var(--neon);
-  padding:18px;
-  border-radius:14px;
-  box-shadow:0 0 25px rgba(0,247,255,.15);
-  color:var(--muted);
-  margin-bottom:40px;
-}
-
-.plan-comparison{
-  display:flex;
-  gap:25px;
-  flex-wrap:wrap;
-}
-
-.plan-card{
-  background:linear-gradient(180deg,#0b1425,#05080d);
-  border-radius:18px;
-  box-shadow:0 0 30px rgba(0,247,255,.15);
-  width:320px;
-  overflow:hidden;
-  transition:.3s;
-}
-
-.plan-card:hover{
-  transform:translateY(-8px);
-}
-
-.plan-header{
-  text-align:center;
-  padding:25px;
-  border-bottom:1px solid var(--neon-soft);
-}
-
-.plan-header h3{
-  color:var(--neon);
-}
-
-.price{
-  font-size:2rem;
-  color:#00ff9d;
-}
-
-.period{
-  color:var(--muted);
-}
-
-.plan-features{
-  padding:20px;
-}
-
-.plan-features li{
-  list-style:none;
-  padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.plan-features i{
-  color:var(--neon);
-  margin-right:8px;
-}
-
-.plan-button{
-  display:block;
-  text-align:center;
-  padding:16px;
-  background:var(--neon);
-  color:#000;
-  font-weight:700;
-  text-decoration:none;
-  transition:.3s;
-}
-
-.plan-button:hover{
-  box-shadow:0 0 25px var(--neon);
-}
-
-footer{
-  text-align:center;
-  margin-top:50px;
-  color:var(--muted);
-}
-</style>
-</head>
-
-<body>
-
-
-  <div class="container">    
-    <header>    
-      <div class="logo">    
-        <i class="fas fa-video"></i>    
-      </div>    
-      <h1>Video Pricing & Packages</h1>    
-      <p class="subtitle">Choose the perfect video plan for your needs. From trial videos for beginners to premium brand videos for established businesses, we have options for every budget and requirement.</p>    
-    </header>    <section class="section">    
-  <div class="section-header">    
-    <i class="fas fa-play-circle"></i>    
-    <h2>Video Pricing</h2>    
-  </div>    
-  <div class="table-container">    
-    <table>    
-      <thead>    
-        <tr>    
-          <th>Field</th>    
-          <th class="plan-header"><span class="badge badge-trial">Trial Video</span><br>30 sec</th>    
-          <th class="plan-header"><span class="badge badge-trial">Trial Video</span><br>60 sec</th>    
-          <th class="plan-header"><span class="badge badge-growth">Growth Video</span><br>30 sec</th>    
-          <th class="plan-header"><span class="badge badge-growth">Growth Video</span><br>60 sec</th>    
-          <th class="plan-header"><span class="badge badge-growth">Growth Video</span><br>90 sec</th>    
-          <th class="plan-header"><span class="badge badge-premium">Premium Brand Video</span><br>60 sec</th>    
-          <th class="plan-header"><span class="badge badge-premium">Premium Brand Video</span><br>90 sec</th>    
-        </tr>    
-      </thead>    
-      <tbody>    
-        <tr>    
-          <td class="highlight">Duration</td>    
-          <td>30 seconds</td>    
-          <td>60 seconds</td>    
-          <td>30 seconds</td>    
-          <td>60 seconds</td>    
-          <td>90 seconds</td>    
-          <td>60 seconds</td>    
-          <td>90 seconds</td>    
-        </tr>    
-
-        <tr>    
-          <td class="highlight">Model</td>    
-          <td>Me (Default)</td>    
-          <td>Me (Default)</td>    
-          <td>Me / Customer</td>    
-          <td>Me / Customer</td>    
-          <td>Me / Customer</td>    
-          <td>Customer / AI Avatar</td>    
-          <td>Customer / AI Avatar</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Customization</td>    
-          <td>1 time</td>    
-          <td>1 time</td>    
-          <td>Up to 3 revisions</td>    
-          <td>Up to 3 revisions</td>    
-          <td>Up to 3 revisions</td>    
-          <td>As Possible</td>    
-          <td>As Possible</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Watermark</td>    
-          <td>Large</td>    
-          <td>Large</td>    
-          <td>Small</td>    
-          <td>Small</td>    
-          <td>Small</td>    
-          <td>No</td>    
-          <td>No</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Best For</td>    
-          <td>First-time users</td>    
-          <td>Testing ads</td>    
-          <td>Small business</td>    
-          <td>Regular ads</td>    
-          <td>Campaigns</td>    
-          <td>Branding</td>    
-          <td>High-end ads</td>    
-        </tr>    
-        <tr>
-          <td class="highlight">Price (INR)</td>
-          <td class="price-cell">₹50</td>
-          <td class="price-cell">₹90</td>
-          <td class="price-cell">₹120</td>
-          <td class="price-cell">₹180</td>
-          <td class="price-cell">₹240</td>
-          <td class="price-cell">₹350</td>
-          <td class="price-cell">₹500</td>
-        </tr>
-      </tbody>    
-    </table>    
-  </div>    
-</section>    
-    
-<section class="section">    
-  <div class="section-header">    
-    <i class="fas fa-box-open"></i>    
-    <h2>Package Comparison</h2>    
-  </div>    
-  <div class="table-container">    
-    <table>    
-      <thead>    
-        <tr>    
-          <th>Feature / Plan</th>    
-          <th class="plan-header"><span class="badge badge-trial">Trial Pack</span></th>    
-          <th class="plan-header"><span class="badge badge-growth">Growth Pack</span></th>    
-          <th class="plan-header"><span class="badge badge-premium">Premium Brand Pack</span></th>    
-        </tr>    
-      </thead>    
-      <tbody>    
-        <tr>    
-          <td class="highlight">Video Duration</td>    
-          <td>30 sec, 60 sec</td>    
-          <td>30 / 60 / 90 sec</td>    
-          <td>60 / 90 sec + Reel/Story</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Customization</td>    
-          <td>1 time</td>    
-          <td>3 revisions</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Script Custom</td>    
-          <td>No</td>    
-          <td>Yes</td>    
-          <td>Yes</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Color / Text Style</td>    
-          <td>Limited</td>    
-          <td>Custom</td>    
-          <td>Brand-level</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Model Used</td>    
-          <td>Me (Default)</td>    
-          <td>Me / Customer</td>    
-          <td>Customer / AI Avatar</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Customer Model</td>    
-          <td>Not Available</td>    
-          <td>Available</td>    
-          <td>Available</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Watermark</td>    
-          <td>Large</td>    
-          <td>Small</td>    
-          <td>No</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Total Videos</td>    
-          <td>12</td>    
-          <td>12</td>    
-          <td>12</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Free Videos</td>    
-          <td>10 + 2 Free</td>    
-          <td>No Free</td>    
-          <td>9 + 3 Free</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Video Quality</td>    
-          <td>Standard</td>    
-          <td>High</td>    
-          <td>Cinematic / Luxury</td>    
-        </tr>    
-        <tr>    
-          <td class="highlight">Best For</td>    
-          <td>Trial / Testing</td>    
-          <td>Small Businesses</td>    
-          <td>Premium Branding</td>    
-        </tr>    
-        <tr class="price-row">    
-          <td>Package Price</td>    
-          <td>₹4,800 <span style="font-size:0.9rem; color:#7f8c8d;">(₹400 per video)</span></td>    
-          <td>₹12,000 <span style="font-size:0.9rem; color:#7f8c8d;">(₹1,000 per video)</span></td>    
-          <td>₹27,000 <span style="font-size:0.9rem; color:#7f8c8d;">(₹2,250 per video)</span></td>    
-        </tr>    
-      </tbody>    
-    </table>    
-  </div>    
-</section>    
-    
-<div class="note">    
-  <i class="fas fa-exclamation-circle"></i>    
-  <strong>Note:</strong> Package pricing offers better value compared to per-video rates. All packages include 12 videos. Contact us for custom packages or bulk discounts.    
-</div>    
-<div class="plan-comparison">    
-  <div class="plan-card trial">    
-    <div class="plan-header">    
-      <h3>Trial Pack</h3>    
-      <div class="price">₹480</div>    
-      <div class="period">12 videos (₹400 per video)</div>    
-    </div>    
-    <div class="plan-features">    
-      <ul>    
-        <li><i class="fas fa-check-circle"></i> 10 + 2 Free Videos</li>    
-        <li><i class="fas fa-clock"></i> 30 sec & 60 sec durations</li>    
-        <li><i class="fas fa-user"></i> Default Model Only</li>    
-        <li><i class="fas fa-paint-brush"></i> Limited Customization</li>    
-        <li><i class="fas fa-water"></i> Large Watermark</li>    
-        <li><i class="fas fa-bullseye"></i> Best for Trial/Testing</li>    
-      </ul>    
-    </div>    
-    <a href="#" class="plan-button">Choose Trial Pack</a>    
-  </div>    
-      
-  <div class="plan-card growth">    
-    <div class="plan-header">    
-      <h3>Growth Pack</h3>    
-      <div class="price">₹1200</div>    
-      <div class="period">12 videos (₹1,000 per video)</div>    
-    </div>    
-    <div class="plan-features">    
-      <ul>    
-        <li><i class="fas fa-check-circle"></i> 12 Videos (No Free)</li>    
-        <li><i class="fas fa-clock"></i> 30, 60 & 90 sec durations</li>    
-        <li><i class="fas fa-user"></i> Me or Customer Model</li>    
-        <li><i class="fas fa-paint-brush"></i> 3 Revisions per video</li>    
-        <li><i class="fas fa-water"></i> Small Watermark</li>    
-        <li><i class="fas fa-bullseye"></i> Best for Small Businesses</li>    
-      </ul>    
-    </div>    
-    <a href="#" class="plan-button">Choose Growth Pack</a>    
-  </div>    
-      
-  <div class="plan-card premium">    
-    <div class="plan-header">    
-      <h3>Premium Brand Pack</h3>    
-      <div class="price">₹4200</div>    
-      <div class="period">12 videos (₹2,250 per video)</div>    
-    </div>    
-    <div class="plan-features">    
-      <ul>    
-        <li><i class="fas fa-check-circle"></i> 9 + 3 Free Videos</li>    
-        <li><i class="fas fa-clock"></i> 60, 90 sec + Reel/Story</li>    
-        <li><i class="fas fa-user"></i> Customer or AI Avatar</li>    
-        <li><i class="fas fa-paint-brush"></i> As Possible Customization</li>    
-        <li><i class="fas fa-water"></i> No Watermark</li>    
-        <li><i class="fas fa-bullseye"></i> Best for Premium Brands</li>    
-      </ul>    
-    </div>    
-    <a href="#" class="plan-button">Choose Premium Pack</a>    
-  </div>    
-</div>    
-    
-<footer>    
-  <p>© 2026 <br> 
-  <b> Neon Ai Studio</b> <br>
-  <u>Video Production Services.</u><br><br>
-  <i>All prices in Indian Rupees (INR)</i></p>
-  <br>
-  <p><i class="fas fa-phone-alt"></i> +91 70388 21854 <br> <i class="fas fa-envelope"></i> moreshwar1234bhonde@gmail.com</p>
-  </footer>
-</div>
-
-</body>
-</html>
+    </html>
+          </div>
+        </div>
+        
