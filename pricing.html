@@ -1,17 +1,261 @@
-// 🔥 Firebase Config File
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCUxWOZ3s0J6m6kALZFQSAFPAcslXSx0H8",
-  authDomain: "neon-ai-studio.firebaseapp.com",
-  projectId: "neon-ai-studio",
-  storageBucket: "neon-ai-studio.firebasestorage.app",
-  messagingSenderId: "847172575089",
-  appId: "1:847172575089:web:2167390c42092c559be0d0",
-  measurementId: "G-31LKB4D36Y"
+<title>Neon AI Pricing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  background:#05050a;
+  color:#fff;
+  font-family:'Inter',sans-serif;
+}
+
+/* NAVBAR */
+.glass-nav{
+  position:sticky;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,255,255,0.2);
+  z-index:999;
+}
+
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#0ff;
+  font-weight:bold;
+}
+
+.logo img{
+  height:35px;
+}
+
+.nav-menu{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-menu a{
+  text-decoration:none;
+  color:#fff;
+  transition:0.3s;
+}
+
+.nav-menu a:hover{
+  color:#0ff;
+  text-shadow:0 0 10px #0ff;
+}
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  color:#0ff;
+  font-size:22px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav-menu{
+  position:absolute;
+  top:60px;
+  right:0;
+  background:#000;
+  flex-direction:column;
+  width:200px;
+  display:none;
+  padding:10px;
+}
+
+.nav-menu.active{
+  display:flex;
+}
+
+.menu-toggle{
+  display:block;
+}
+}
+
+/* SECTION */
+.section{
+  padding:60px 20px;
+}
+
+.section-header{
+  text-align:center;
+}
+
+.highlight{
+  color:#0ff;
+  text-shadow:0 0 10px #0ff;
+}
+
+/* GRID */
+.plans-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+/* CARD */
+.plan-card{
+  background:#0b0b14;
+  border-radius:20px;
+  padding:20px;
+  width:300px;
+  border:1px solid rgba(0,255,255,0.2);
+  transition:0.3s;
+}
+
+.plan-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px #0ff;
+}
+
+.badge{
+  background:#0ff;
+  color:#000;
+  padding:5px 10px;
+  border-radius:20px;
+}
+
+.package-price{
+  text-align:center;
+  color:#0ff;
+  font-size:24px;
+}
+
+.mix-item{
+  background:#111;
+  padding:5px;
+  border-radius:8px;
+  margin:3px;
+  display:inline-block;
+}
+
+/* BUTTON */
+.btn-plan{
+  display:block;
+  margin-top:10px;
+  text-align:center;
+  background:#0ff;
+  color:#000;
+  padding:10px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="glass-nav">
+<div class="nav-container">
+
+<div class="logo">
+<img src="neon_ai_studio_logo.png">
+<span>NEON AI STUDIO</span>
+</div>
+
+<button class="menu-toggle" id="menu-toggle">☰</button>
+
+<ul class="nav-menu" id="nav-menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="ser.html">Services</a></li>
+<li><a href="pricing.html">Pricing</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#">Custom Plan</a></li>
+<li><a href="#">Chat</a></li>
+<li><a href="#">Login</a></li>
+</ul>
+
+</div>
+</nav>
+
+<section class="section">
+
+<div class="section-header">
+<h2><span class="highlight">📹 6-Video Packages</span></h2>
+<p style="color:#aaa;">Choose the right plan</p>
+</div>
+
+<div class="plans-grid">
+
+<!-- TRIAL -->
+<div class="plan-card">
+<div class="badge">⭐ TRIAL</div>
+<h3>₹420</h3>
+<div class="package-price">₹420</div>
+
+<span class="mix-item">3 x 30</span>
+<span class="mix-item">3 x 60</span>
+
+<p>1 revision • Watermark</p>
+
+<button class="btn-plan" onclick="buyPlan('Trial',420)">Choose</button>
+</div>
+
+<!-- GROWTH -->
+<div class="plan-card">
+<div class="badge">🚀 GROWTH</div>
+<h3>₹540</h3>
+<div class="package-price">₹540</div>
+
+<span class="mix-item">2 x 30</span>
+<span class="mix-item">2 x 60</span>
+<span class="mix-item">2 x 90</span>
+
+<p>3 revisions • Small watermark</p>
+
+<button class="btn-plan" onclick="buyPlan('Growth',540)">Choose</button>
+</div>
+
+<!-- PREMIUM -->
+<div class="plan-card">
+<div class="badge">👑 PREMIUM</div>
+<h3>₹1100</h3>
+<div class="package-price">₹1100</div>
+
+<p>No watermark • Full customization</p>
+
+<button class="btn-plan" onclick="buyPlan('Premium',1100)">Choose</button>
+</div>
+
+</div>
+
+</section>
+
+<script>
+document.getElementById("menu-toggle").onclick = function(){
+document.getElementById("nav-menu").classList.toggle("active");
 };
 
-// 🔥 Init Firebase
-firebase.initializeApp(firebaseConfig);
+function buyPlan(plan,price){
+let msg = `Hello, I want ${plan} Plan (₹${price})`;
+window.open(`https://wa.me/917038821854?text=${encodeURIComponent(msg)}`);
+}
+</script>
 
-// 🔐 Auth Export
-const auth = firebase.auth();
+</body>
+</html>
