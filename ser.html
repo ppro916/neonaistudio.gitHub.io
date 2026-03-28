@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Neon AI Studio - Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#05050a;
+  color:#fff;
+}
+
+/* NAVBAR */
+.glass-nav{
+  position:sticky;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,255,255,0.2);
+  z-index:999;
+}
+
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#0ff;
+  font-weight:bold;
+}
+
+.logo img{
+  height:35px;
+}
+
+.nav-menu{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-menu a{
+  text-decoration:none;
+  color:#fff;
+  transition:0.3s;
+}
+
+.nav-menu a:hover{
+  color:#0ff;
+  text-shadow:0 0 10px #0ff;
+}
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  color:#0ff;
+  font-size:22px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav-menu{
+  position:absolute;
+  top:60px;
+  right:0;
+  background:#000;
+  flex-direction:column;
+  width:200px;
+  display:none;
+  padding:10px;
+}
+
+.nav-menu.active{
+  display:flex;
+}
+
+.menu-toggle{
+  display:block;
+}
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.header h1{
+  font-size:40px;
+  background:linear-gradient(90deg,#0ff,#f0f,#ff0);
+  -webkit-background-clip:text;
+  color:transparent;
+  text-shadow:0 0 20px #0ff;
+}
+
+/* GRID */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  padding:30px;
+}
+
+/* CARD */
+.card{
+  background:#0b0b14;
+  border-radius:20px;
+  padding:20px;
+  border:1px solid rgba(0,255,255,0.2);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px #0ff;
+}
+
+.icon{
+  font-size:28px;
+  margin-bottom:10px;
+  color:#0ff;
+}
+
+.card h3{
+  color:#0ff;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 20px;
+  border-radius:30px;
+  background:#0ff;
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.btn:hover{
+  background:#00cccc;
+}
+
+/* WHY */
+.why{
+  padding:50px 20px;
+  text-align:center;
+}
+
+.why h2{
+  color:#0ff;
+}
+
+/* CONTACT */
+.contact{
+  text-align:center;
+  padding:40px;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="glass-nav">
+<div class="nav-container">
+
+<div class="logo">
+<img src="neon_ai_studio_logo.png">
+<span>NEON AI STUDIO</span>
+</div>
+
+<button class="menu-toggle" id="menu-toggle">☰</button>
+
+<ul class="nav-menu" id="nav-menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="ser.html">Services</a></li>
+<li><a href="pricing.html">Pricing</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#">Custom Plan</a></li>
+<li><a href="#">Chat</a></li>
+<li><a href="#">Login</a></li>
+</ul>
+
+</div>
+</nav>
+
+<!-- HEADER -->
+<div class="header">
+<h1>NEON AI STUDIO</h1>
+<p>Future-Ready Ads Powered by AI</p>
+<p>Posters • Video Ads • Reels • AI Visuals</p>
+</div>
+
+<!-- SERVICES -->
+<div class="services">
+
+<div class="card"><div class="icon">🎬</div><h3>AI Video Ads</h3><a href="https://wa.me/917038821854?text=AI Video Ads" class="btn">Order</a></div>
+
+<div class="card"><div class="icon">📱</div><h3>Cinematic Reels</h3><a href="https://wa.me/917038821854?text=Reels" class="btn">Order</a></div>
+
+<div class="card"><div class="icon">🔥</div><h3>Promotional Videos</h3><a href="https://wa.me/917038821854?text=Promo Video" class="btn">Order</a></div>
+
+<div class="card"><div class="icon">✨</div><h3>AI VFX Editing</h3><a href="https://wa.me/917038821854?text=VFX Editing" class="btn">Order</a></div>
+
+<div class="card"><div class="icon">🌐</div><h3>Website Development</h3><a href="https://wa.me/917038821854?text=Website" class="btn">Order</a></div>
+
+<div class="card"><div class="icon">🤖</div><h3>AI Chatbots</h3><a href="https://wa.me/917038821854?text=Chatbot" class="btn">Order</a></div>
+
+<div class="card"><div class="icon">📞</div><h3>AI Call Agent</h3><a href="https://wa.me/917038821854?text=Call Agent" class="btn">Order</a></div>
+
+<div class="card"><div class="icon">💬</div><h3>WhatsApp Automation</h3><a href="https://wa.me/917038821854?text=WhatsApp Automation" class="btn">Order</a></div>
+
+<div class="card"><div class="icon">📈</div><h3>Marketing & Leads</h3><a href="https://wa.me/917038821854?text=Marketing" class="btn">Order</a></div>
+
+</div>
+
+<!-- WHY -->
+<div class="why">
+<h2>Why Choose Us</h2>
+<p>✔ Ultra Cinematic Quality<br>✔ Fast Delivery<br>✔ AI Powered Content</p>
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+<p>📞 7038821854</p>
+<p>📧 moreshwar1234bhonde@gmail.com</p>
+<p>🌐 neonaistudio.in</p>
+<a href="https://wa.me/917038821854">WhatsApp</a>
+</div>
+
+<script>
+document.getElementById("menu-toggle").onclick = function(){
+document.getElementById("nav-menu").classList.toggle("active");
+};
+</script>
+
+</body>
+</html>
