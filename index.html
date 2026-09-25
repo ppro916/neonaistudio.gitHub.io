@@ -2,890 +2,2297 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Neon AI Studio | AI Video Ads India</title>
-<!-- FAVICON updated with neonfevocon.png -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<meta name="theme-color" content="#05050a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>AI Nexus × Neon AI Studio | AI Video Ads India</title>
+
 <link rel="icon" type="image/png" href="neonfevocon.png">
 <link rel="apple-touch-icon" href="neonfevocon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+/* ==================== BASE ==================== */
+:root{
+  --nexus-1:#a855f7;
+  --nexus-2:#22d3ee;
+  --neon-1:#00eaff;
+  --neon-2:#ff2bd6;
+  --yt:#ff0033;
+  --ok:#22c55e;
+  --bg:#05050a;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  background:var(--bg);color:#fff;overflow-x:hidden;line-height:1.6;
+  min-height:100vh;min-height:100dvh;
+  overscroll-behavior-y:none;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(900px 500px at 15% -10%, rgba(168,85,247,.16), transparent 60%),
+    radial-gradient(800px 500px at 85% 0%,  rgba(0,234,255,.14), transparent 60%),
+    radial-gradient(700px 500px at 50% 110%, rgba(255,43,214,.10), transparent 60%);
+}
+nav,section,footer,main{position:relative;z-index:1;}
+
+/* ==================== 3D BG CANVAS ==================== */
+#bg3d{
+  position:fixed;inset:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;
+  opacity:0;transition:opacity 1.4s ease;
+}
+body.loaded #bg3d{opacity:.85;}
+
+/* ==================== SCROLL PROGRESS ==================== */
+.scroll-progress{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:2000;
+  background:rgba(255,255,255,.04);
+}
+.scroll-progress i{
+  display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--nexus-1),var(--nexus-2),var(--neon-2));
+  box-shadow:0 0 12px rgba(34,211,238,.8);
+  transition:width .08s linear;
+  border-radius:0 3px 3px 0;
 }
 
-body {
-    background: #05050a;
-    color: #fff;
-    overflow-x: hidden;
+/* ==================== CURSOR GLOW (desktop) ==================== */
+.cursor-glow{
+  position:fixed;width:380px;height:380px;border-radius:50%;
+  pointer-events:none;z-index:2;
+  background:radial-gradient(circle, rgba(34,211,238,.10), transparent 65%);
+  transform:translate(-50%,-50%);
+  transition:opacity .3s;
+  mix-blend-mode:screen;
+  display:none;
+}
+@media (hover:hover) and (pointer:fine){
+  .cursor-glow{display:block;}
 }
 
-/* ========= PRELOADER with PROGRESS BAR ========= */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #0a0a15, #010105);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    transition: opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    backdrop-filter: blur(2px);
+/* ==================== PRELOADER ==================== */
+#preloader{
+  position:fixed;inset:0;z-index:10000;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at center,#0a0a15,#010105);
+  transition:opacity .7s cubic-bezier(.2,.9,.4,1.1), transform .7s cubic-bezier(.2,.9,.4,1.1);
+  padding:16px;
+}
+#preloader.hide{opacity:0;transform:scale(1.06);pointer-events:none;}
+.preloader-content{
+  text-align:center;width:min(85vw,380px);
+  background:rgba(10,20,30,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:48px;padding:34px 28px;
+  border:1px solid rgba(0,255,255,.3);
+  box-shadow:0 20px 35px rgba(0,0,0,.6), 0 0 40px rgba(0,255,255,.18);
+  transform-style:preserve-3d;
+  animation:preFloat 5s ease-in-out infinite;
+}
+@keyframes preFloat{
+  0%,100%{transform:rotateX(0deg) translateY(0);}
+  50%{transform:rotateX(4deg) translateY(-6px);}
+}
+.neon-spinner{
+  width:74px;height:74px;margin:0 auto 20px;position:relative;
+  border:3px solid rgba(0,255,255,.15);
+  border-top:3px solid #0ff;border-right:3px solid #ff00ff;
+  border-radius:50%;animation:spin .95s linear infinite;
+  box-shadow:0 0 22px rgba(0,255,255,.5), inset 0 0 18px rgba(255,0,255,.25);
+}
+.neon-spinner::after{
+  content:"";position:absolute;inset:9px;border-radius:50%;
+  border:2px solid rgba(255,0,255,.15);border-bottom:2px solid #ff2bd6;
+  animation:spin 1.6s linear infinite reverse;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{
+  font-family:'Orbitron',sans-serif;
+  font-size:1.5rem;font-weight:900;letter-spacing:3px;
+  background:linear-gradient(135deg,#fff,#0ff,#ff44ff);
+  background-size:200% 200%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:12px;
+  animation:gradShift 3s ease infinite;
+}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.brand-name{font-size:.95rem;color:#88ddff;margin:5px 0;font-weight:500;word-break:break-word;}
+.developer{
+  font-size:.82rem;color:#bbbbff;
+  border-top:1px dashed rgba(0,255,255,.4);
+  display:inline-block;padding-top:8px;margin-top:8px;opacity:.9;
+}
+.progress-wrapper{
+  margin:24px 0 12px;width:100%;
+  background:rgba(255,255,255,.1);border-radius:30px;
+  height:6px;overflow:hidden;box-shadow:inset 0 0 4px rgba(0,0,0,.5);
+}
+.progress-fill{
+  width:0%;height:100%;border-radius:30px;
+  background:linear-gradient(90deg,#0ff,#f0f);
+  transition:width .1s linear;box-shadow:0 0 10px #0ff;
+}
+.loading-percent{font-size:.9rem;font-weight:600;color:#0ff;text-shadow:0 0 6px #0ff;letter-spacing:1px;}
+
+/* ==================== NAV ==================== */
+.glass-nav{
+  position:sticky;top:0;width:100%;
+  background:rgba(0,0,0,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,255,255,.25);
+  z-index:999;opacity:0;transform:translateY(-14px);
+  transition:opacity .6s ease, transform .6s ease, background .3s;
+}
+body.loaded .glass-nav{opacity:1;transform:none;}
+.glass-nav.scrolled{background:rgba(0,0,0,.86);box-shadow:0 8px 30px rgba(0,0,0,.6);}
+.nav-container{
+  max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 22px;gap:14px;
+}
+.nav-left{display:flex;align-items:center;gap:24px;min-width:0;}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Orbitron',sans-serif;font-weight:800;
+  color:#fff;font-size:1rem;letter-spacing:1px;white-space:nowrap;
+  transition:transform .3s;
+}
+.logo:hover{transform:scale(1.03);}
+.logo .dot{
+  width:32px;height:32px;border-radius:10px;
+  background:linear-gradient(135deg,var(--nexus-1),var(--nexus-2));
+  display:grid;place-items:center;font-size:.85rem;color:#05050a;
+  box-shadow:0 0 16px rgba(168,85,247,.6);
+  animation:dotPulse 3s ease-in-out infinite;
+}
+@keyframes dotPulse{
+  0%,100%{box-shadow:0 0 16px rgba(168,85,247,.6);}
+  50%{box-shadow:0 0 26px rgba(34,211,238,.9);}
+}
+.logo span.x{color:var(--nexus-2);margin:0 3px;}
+.logo span.partner{font-size:.78rem;color:var(--neon-1);font-weight:600;}
+
+.nav-menu{list-style:none;display:flex;gap:22px;}
+.nav-menu a{
+  text-decoration:none;color:#f0f0ff;
+  font-weight:500;transition:.25s;font-size:13.5px;
+  position:relative;padding:4px 0;
+}
+.nav-menu a::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;
+  background:linear-gradient(90deg,var(--nexus-1),var(--nexus-2));
+  transition:width .3s ease;border-radius:2px;
+}
+.nav-menu a:hover{color:#0ff;text-shadow:0 0 8px cyan;}
+.nav-menu a:hover::after{width:100%;}
+
+.login-btn{
+  padding:10px 24px;border-radius:40px;
+  background:linear-gradient(95deg,var(--nexus-1),var(--nexus-2));
+  color:#05050a;font-weight:800;font-size:.82rem;
+  text-decoration:none;transition:.3s;cursor:pointer;
+  box-shadow:0 0 14px rgba(34,211,238,.5);
+  white-space:nowrap;position:relative;overflow:hidden;
+  border:0;
+}
+.login-btn:hover{transform:scale(1.06) translateY(-1px);box-shadow:0 0 28px #0ff;}
+.menu-toggle{
+  display:none;background:none;border:0;font-size:26px;color:#0ff;cursor:pointer;
+  width:44px;height:44px;border-radius:12px;align-items:center;justify-content:center;
+  transition:.25s;
+}
+.menu-toggle:hover{background:rgba(0,255,255,.1);}
+.menu-toggle.active i::before{content:"\f00d";}
+
+@media(max-width:880px){
+  .nav-menu{
+    position:absolute;top:64px;right:14px;
+    background:rgba(0,0,0,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    flex-direction:column;width:230px;padding:22px;gap:16px;
+    display:none;border-radius:20px;
+    border:1px solid rgba(0,255,255,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.7), 0 0 30px rgba(0,255,255,.12);
+    transform-origin:top right;
+  }
+  .nav-menu.active{display:flex;animation:menuIn .3s cubic-bezier(.2,1,.3,1);}
+  @keyframes menuIn{from{opacity:0;transform:scale(.92) translateY(-8px);}to{opacity:1;transform:none;}}
+  .menu-toggle{display:flex;}
+  .logo span.partner{display:none;}
 }
 
-.preloader-content {
-    text-align: center;
-    max-width: 85%;
-    width: 380px;
-    background: rgba(10, 20, 30, 0.6);
-    backdrop-filter: blur(12px);
-    border-radius: 48px;
-    padding: 32px 28px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 255, 255, 0.2);
+/* ==================== HERO ==================== */
+.hero{
+  text-align:center;padding:60px 20px 30px;
+  max-width:1100px;margin:0 auto;
+  opacity:0;transform:translateY(24px);
+  transition:opacity .8s ease, transform .8s ease;
+  perspective:1200px;
+  transform-style:preserve-3d;
+}
+body.loaded .hero{opacity:1;transform:none;transition-delay:.1s;}
+
+/* floating orbs */
+.orb{
+  position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+  filter:blur(60px);opacity:.5;
+}
+.orb.o1{width:320px;height:320px;background:#a855f7;top:-60px;left:-80px;animation:orbFloat 14s ease-in-out infinite;}
+.orb.o2{width:280px;height:280px;background:#22d3ee;top:30%;right:-90px;animation:orbFloat 18s ease-in-out infinite reverse;}
+.orb.o3{width:240px;height:240px;background:#ff2bd6;bottom:-80px;left:30%;animation:orbFloat 16s ease-in-out infinite;}
+@keyframes orbFloat{
+  0%,100%{transform:translate(0,0) scale(1);}
+  33%{transform:translate(40px,-30px) scale(1.1);}
+  66%{transform:translate(-30px,25px) scale(.95);}
 }
 
-.neon-spinner {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 20px;
-    border: 3px solid rgba(0, 255, 255, 0.2);
-    border-top: 3px solid #0ff;
-    border-right: 3px solid #ff00ff;
-    border-radius: 50%;
-    animation: spin 0.9s linear infinite;
-    box-shadow: 0 0 12px #0ff;
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 20px;border-radius:99px;
+  font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.4);
+  color:#e9d5ff;margin-bottom:24px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  position:relative;
+}
+.pill::before{
+  content:"";position:absolute;inset:-1px;border-radius:99px;padding:1px;
+  background:linear-gradient(90deg,var(--nexus-1),var(--nexus-2),var(--nexus-1));
+  background-size:200% 100%;
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:borderFlow 3s linear infinite;pointer-events:none;
+}
+@keyframes borderFlow{to{background-position:200% 0;}}
+.pill i{color:var(--nexus-2);}
+
+.glow-text{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(1.7rem,6vw,3.6rem);
+  font-weight:900;line-height:1.1;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:14px 22px;letter-spacing:1px;
+  transform-style:preserve-3d;
+}
+.glow-text .brand-a{
+  background:linear-gradient(120deg,#fff,var(--nexus-1),var(--nexus-2),#fff);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:gradShift 5s ease infinite;
+  filter:drop-shadow(0 0 22px rgba(168,85,247,.35));
+}
+.glow-text .times{
+  color:var(--nexus-2);font-size:.75em;
+  animation:pulseX 2.4s ease-in-out infinite;
+  filter:drop-shadow(0 0 12px rgba(34,211,238,.8));
+}
+.glow-text .brand-b{
+  background:linear-gradient(120deg,#fff,var(--neon-1),var(--neon-2),#fff);
+  background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-size:.8em;animation:gradShift 5s ease infinite reverse;
+  filter:drop-shadow(0 0 22px rgba(0,234,255,.35));
+}
+@keyframes pulseX{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.2);opacity:1}}
+
+.hero .subtitle{
+  font-size:1rem;margin-top:18px;color:#0ff;
+  text-shadow:0 0 14px cyan;font-weight:600;
+}
+.tagline{font-size:1rem;margin-top:14px;color:#bbf;opacity:.9;}
+.quick-services{
+  font-size:.82rem;background:rgba(0,255,255,.08);
+  display:inline-block;padding:8px 20px;border-radius:40px;
+  margin-top:14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border:1px solid rgba(0,255,255,.22);
+  max-width:100%;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.cta{margin:26px 0 20px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.cta a{
+  padding:13px 28px;border-radius:40px;
+  font-weight:700;text-decoration:none;font-size:.88rem;
+  transition:.28s cubic-bezier(.2,.9,.3,1.2);display:inline-flex;align-items:center;gap:9px;
+  border:1px solid transparent;position:relative;overflow:hidden;
+  min-height:46px;justify-content:center;
+  -webkit-user-select:none;user-select:none;
+}
+.cta a:active{transform:scale(.96);}
+.btn-primary{
+  background:linear-gradient(95deg,var(--nexus-1),var(--nexus-2));
+  color:#05050a;box-shadow:0 6px 20px rgba(168,85,247,.35);
+  background-size:200% 100%;
+}
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(34,211,238,.55);
+  background-position:100% 0;
+}
+.whatsapp{background:#25D366;color:#fff;box-shadow:0 6px 20px rgba(37,211,102,.25);}
+.whatsapp:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(37,211,102,.5);}
+.call{background:#0ff;color:#000;box-shadow:0 6px 20px rgba(0,255,255,.25);}
+.call:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,255,255,.55);}
+.btn-ghost{background:rgba(255,255,255,.05);border-color:rgba(120,200,255,.25);color:#fff;}
+.btn-ghost:hover{border-color:var(--nexus-2);color:var(--nexus-2);}
+
+/* ==================== VIDEO 3D FRAME ==================== */
+.video-frame{
+  perspective:1400px;
+  margin:30px auto 40px;
+  max-width:1000px;
+  transform-style:preserve-3d;
+}
+.video-container{
+  border-radius:32px;overflow:hidden;position:relative;
+  aspect-ratio:16/9;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.6),
+    0 0 0 1px rgba(0,255,255,.25),
+    0 0 60px rgba(34,211,238,.18);
+  background:#000;
+  transform-style:preserve-3d;
+  transition:transform .5s cubic-bezier(.2,.9,.3,1), box-shadow .5s;
+  will-change:transform;
+}
+.video-container::before{
+  content:"";position:absolute;inset:-2px;border-radius:34px;z-index:-1;
+  background:linear-gradient(120deg,var(--nexus-1),var(--nexus-2),var(--neon-2),var(--nexus-1));
+  background-size:300% 300%;
+  animation:borderFlow 6s linear infinite;
+  filter:blur(10px);opacity:.55;
+}
+.video-container iframe{
+  position:absolute;inset:0;
+  width:100%;height:100%;border:0;
+}
+@media(max-width:700px){
+  .video-container{border-radius:22px;}
+  .video-container::before{border-radius:24px;}
 }
 
-.loading-text {
-    font-size: 1.9rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff, #0ff, #ff44ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
+/* ==================== SECTION HEAD ==================== */
+.section{max-width:1200px;margin:0 auto;padding:50px 22px;}
+.sec-head{text-align:center;margin-bottom:34px;}
+.sec-head h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(1.4rem,4vw,2.1rem);font-weight:800;letter-spacing:1px;
+  background:linear-gradient(120deg,#fff,cyan,#fff);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:gradShift 6s ease infinite;
+}
+.sec-head p{color:#9aa4c7;font-size:.88rem;margin-top:8px;}
+
+/* ==================== WHY ==================== */
+.why{
+  text-align:center;padding:30px 20px 40px;
+  background:radial-gradient(ellipse at top, rgba(0,30,40,.5), transparent);
+  opacity:0;transform:translateY(24px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+body.loaded .why{opacity:1;transform:none;transition-delay:.2s;}
+.why h2{
+  font-family:'Orbitron',sans-serif;font-size:1.8rem;margin-bottom:20px;
+  background:linear-gradient(135deg,#fff,cyan);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.why ul{
+  list-style:none;display:flex;flex-wrap:wrap;
+  justify-content:center;gap:16px;margin-top:10px;
+  max-width:1000px;margin-left:auto;margin-right:auto;
+}
+.why li{
+  background:rgba(0,255,255,.08);padding:10px 22px;
+  border-radius:60px;font-weight:500;font-size:.88rem;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border:1px solid rgba(0,255,255,.28);
+  transition:.3s cubic-bezier(.2,.9,.3,1.2);
+  cursor:default;
+}
+.why li:hover{
+  transform:translateY(-4px) scale(1.05);
+  background:rgba(0,255,255,.16);
+  box-shadow:0 8px 26px rgba(0,255,255,.28);
+  border-color:rgba(0,255,255,.6);
 }
 
-.brand-name {
-    font-size: 1rem;
-    color: #88ddff;
-    margin: 5px 0;
-    font-weight: 500;
-    word-break: break-word;
+/* ==================== SOCIAL CARDS ==================== */
+.socials{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:22px;
+  max-width:1000px;margin:0 auto;
+}
+.brand-card{
+  position:relative;padding:30px 26px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(120,200,255,.18);
+  border-radius:26px;overflow:hidden;transition:.35s cubic-bezier(.2,.9,.3,1.2);
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.brand-card::before{
+  content:"";position:absolute;inset:0;opacity:.08;pointer-events:none;
+  background:radial-gradient(500px 200px at 0% 0%, var(--accent-1), transparent 60%),
+             radial-gradient(400px 200px at 100% 100%, var(--accent-2), transparent 60%);
+}
+.brand-card.nexus{--accent-1:var(--nexus-1);--accent-2:var(--nexus-2);border-color:rgba(168,85,247,.35);}
+.brand-card.neon{--accent-1:var(--neon-1);--accent-2:var(--neon-2);}
+.brand-card:hover{
+  box-shadow:0 24px 60px rgba(0,0,0,.6), 0 0 40px rgba(34,211,238,.15);
+  border-color:rgba(34,211,238,.55);
+}
+.badge{
+  position:absolute;top:18px;right:18px;
+  font-size:.6rem;font-weight:800;letter-spacing:1.5px;
+  padding:5px 12px;border-radius:99px;
+  background:linear-gradient(95deg,var(--accent-1),var(--accent-2));color:#05050a;
+  box-shadow:0 0 16px rgba(168,85,247,.5);
+}
+.brand-card .logo-row{display:flex;align-items:center;gap:14px;margin-bottom:14px;transform:translateZ(28px);}
+.brand-icon{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  font-size:1.35rem;color:#05050a;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+  box-shadow:0 0 22px rgba(168,85,247,.45);
+  transition:transform .4s cubic-bezier(.2,.9,.3,1.4);
+}
+.brand-card:hover .brand-icon{transform:rotateY(180deg) scale(1.05);}
+.brand-card.neon .brand-icon{box-shadow:0 0 22px rgba(0,234,255,.45);}
+.brand-card h3{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;}
+.brand-card .role{font-size:.7rem;color:#9aa4c7;letter-spacing:1px;text-transform:uppercase;}
+.brand-card .desc{font-size:.83rem;color:#9aa4c7;margin-bottom:18px;transform:translateZ(18px);}
+
+.social-list{display:flex;flex-direction:column;gap:10px;transform:translateZ(22px);}
+.social-row{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:13px 15px;border-radius:14px;background:rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.06);text-decoration:none;color:#fff;
+  transition:.28s cubic-bezier(.2,.9,.3,1.2);
+  min-height:56px;position:relative;overflow:hidden;
+}
+.social-row::after{
+  content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s;
+  background:linear-gradient(90deg,transparent,rgba(34,211,238,.12),transparent);
+  transform:translateX(-100%);
+}
+.social-row:hover::after{opacity:1;animation:shine 1s ease;}
+@keyframes shine{to{transform:translateX(100%);}}
+.social-row:hover{transform:translateX(6px);border-color:var(--accent-2);}
+.social-row:active{transform:scale(.98);}
+.social-left{display:flex;align-items:center;gap:11px;min-width:0;}
+.social-left i{
+  width:34px;height:34px;border-radius:10px;
+  display:grid;place-items:center;font-size:.95rem;color:#fff;flex-shrink:0;
+  transition:transform .3s;
+}
+.social-row:hover .social-left i{transform:scale(1.12) rotate(-6deg);}
+.social-row.ig .social-left i{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+.social-row.yt .social-left i{background:var(--yt);}
+.social-meta{display:flex;flex-direction:column;min-width:0;}
+.social-meta b{font-size:.83rem;font-weight:700;color:#fff;}
+.social-meta small{font-size:.72rem;color:#9aa4c7;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.social-row .arrow{color:#9aa4c7;font-size:.8rem;transition:.25s;}
+.social-row:hover .arrow{color:var(--accent-2);transform:translateX(4px);}
+@media(max-width:760px){.socials{grid-template-columns:1fr;}}
+
+/* ==================== PRICING ==================== */
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  max-width:1000px;margin:0 auto;
+  perspective:1400px;
+}
+.price-card{
+  position:relative;padding:28px 24px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(120,200,255,.18);
+  border-radius:24px;
+  transition:transform .35s cubic-bezier(.2,.9,.3,1.2), border-color .3s, box-shadow .35s;
+  display:flex;flex-direction:column;
+  transform-style:preserve-3d;will-change:transform;
+}
+.price-card:hover{
+  border-color:rgba(34,211,238,.6);
+  box-shadow:0 24px 60px rgba(0,0,0,.6), 0 0 40px rgba(34,211,238,.16);
+}
+.price-card.featured{
+  border-color:var(--nexus-1);
+  background:linear-gradient(180deg,rgba(168,85,247,.1),rgba(34,211,238,.05));
+  box-shadow:0 0 50px rgba(168,85,247,.22);
+}
+.price-card.featured::after{
+  content:"POPULAR";position:absolute;top:-11px;right:20px;
+  font-size:.58rem;font-weight:800;letter-spacing:1.5px;
+  padding:5px 12px;border-radius:99px;
+  background:linear-gradient(95deg,var(--nexus-1),var(--nexus-2));color:#05050a;
+  box-shadow:0 0 16px rgba(34,211,238,.6);
+  animation:popPulse 2.4s ease-in-out infinite;
+}
+@keyframes popPulse{
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-3px) scale(1.06);}
+}
+.pc-icon{
+  width:48px;height:48px;border-radius:13px;display:grid;place-items:center;
+  font-size:1.2rem;color:#05050a;margin-bottom:14px;
+  background:linear-gradient(135deg,var(--nexus-1),var(--nexus-2));
+  box-shadow:0 0 18px rgba(168,85,247,.45);
+  transform:translateZ(30px);
+  transition:transform .45s cubic-bezier(.2,.9,.3,1.4);
+}
+.price-card:hover .pc-icon{transform:translateZ(45px) rotate(-8deg) scale(1.08);}
+.price-card.neon-pc .pc-icon{background:linear-gradient(135deg,var(--neon-1),var(--neon-2));box-shadow:0 0 18px rgba(0,234,255,.45);}
+.price-card h3{font-size:1.08rem;font-weight:800;color:#fff;margin-bottom:5px;font-family:'Orbitron',sans-serif;transform:translateZ(22px);}
+.price-card .pc-sub{font-size:.72rem;color:#9aa4c7;margin-bottom:16px;letter-spacing:.5px;text-transform:uppercase;transform:translateZ(16px);}
+.pc-price{
+  font-family:'Orbitron',sans-serif;
+  font-size:2.3rem;font-weight:800;line-height:1;color:#fff;margin-bottom:4px;
+  transform:translateZ(34px);
+  text-shadow:0 0 24px rgba(34,211,238,.35);
+}
+.pc-price span{font-size:1rem;font-weight:600;color:#9aa4c7;}
+.pc-price small{font-size:.7rem;color:#9aa4c7;display:block;margin-top:4px;letter-spacing:1px;font-family:'Inter',sans-serif;font-weight:500;}
+.pc-list{list-style:none;margin:18px 0 22px;display:flex;flex-direction:column;gap:9px;flex:1;transform:translateZ(18px);}
+.pc-list li{font-size:.8rem;color:#9aa4c7;display:flex;gap:9px;align-items:flex-start;}
+.pc-list li i{color:var(--ok);font-size:.72rem;margin-top:.35em;flex-shrink:0;}
+.pc-cta{
+  display:block;width:100%;text-align:center;
+  padding:13px 20px;border-radius:99px;font-weight:800;font-size:.83rem;
+  background:linear-gradient(95deg,var(--nexus-1),var(--nexus-2));
+  color:#05050a;border:0;cursor:pointer;transition:.28s cubic-bezier(.2,.9,.3,1.2);font-family:inherit;
+  position:relative;overflow:hidden;min-height:46px;
+  transform:translateZ(26px);
+}
+.pc-cta:hover{transform:translateZ(40px) translateY(-3px);box-shadow:0 14px 36px rgba(34,211,238,.5);}
+.pc-cta:active{transform:translateZ(26px) scale(.97);}
+@media(max-width:820px){.pricing-grid{grid-template-columns:1fr;max-width:420px;}}
+
+/* ==================== SERVICES BOX ==================== */
+.services-box{
+  max-width:1100px;margin:0 auto;padding:36px 28px;
+  background:rgba(20,20,45,.45);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(0,255,255,.2);border-radius:28px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.services-box::before{
+  content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:conic-gradient(from 0deg, transparent, rgba(34,211,238,.06), transparent 30%);
+  animation:rotate 12s linear infinite;pointer-events:none;
+}
+@keyframes rotate{to{transform:rotate(360deg);}}
+.services-box h2{
+  font-family:'Orbitron',sans-serif;font-size:clamp(1.3rem,3.5vw,1.9rem);
+  font-weight:800;color:#0ff;margin-bottom:18px;
+  text-shadow:0 0 24px rgba(0,255,255,.4);
+  position:relative;
+}
+.services-box p{font-size:.95rem;line-height:1.7;margin-bottom:16px;color:#e0e0ff;position:relative;}
+.services-box p strong{color:#0ff;font-weight:600;}
+.services-box .p2{font-size:.88rem;opacity:.9;}
+.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:22px;position:relative;}
+.chip{
+  padding:8px 17px;border-radius:99px;font-size:.74rem;font-weight:600;
+  background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.3);color:#e9d5ff;
+  transition:.3s cubic-bezier(.2,.9,.3,1.2);cursor:default;
+}
+.chip:hover{
+  transform:translateY(-4px) scale(1.08);
+  background:rgba(168,85,247,.24);
+  box-shadow:0 8px 22px rgba(168,85,247,.4);
+  border-color:var(--nexus-1);
+}
+.services-cta{
+  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;position:relative;
+}
+.services-cta a{
+  min-height:46px;transition:.28s cubic-bezier(.2,.9,.3,1.2);
+}
+.services-cta a:active{transform:scale(.96);}
+
+/* ==================== CTA STRIP ==================== */
+.cta-strip{
+  max-width:1000px;margin:20px auto 0;padding:40px 28px;
+  border-radius:28px;text-align:center;
+  background:linear-gradient(120deg,rgba(168,85,247,.15),rgba(34,211,238,.12));
+  border:1px solid rgba(168,85,247,.3);
+  position:relative;overflow:hidden;
+}
+.cta-strip::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(400px 200px at 50% 0%, rgba(34,211,238,.15), transparent 70%);
+  pointer-events:none;
+}
+.cta-strip h2{font-family:'Orbitron',sans-serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:800;color:#fff;margin-bottom:10px;position:relative;}
+.cta-strip p{color:#9aa4c7;font-size:.88rem;margin-bottom:22px;position:relative;}
+
+/* ==================== CONTACT / FOOTER ==================== */
+.contact{
+  text-align:center;padding:44px 20px;
+  border-top:1px solid rgba(0,255,255,.2);
+  background:#020208;
+  opacity:0;transform:translateY(24px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+body.loaded .contact{opacity:1;transform:none;transition-delay:.3s;}
+.contact p{margin:8px 0;font-size:.9rem;}
+.contact a{color:#0ff;text-decoration:none;font-weight:600;}
+.contact a:hover{text-shadow:0 0 10px cyan;}
+.foot-links{
+  display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
+  margin:16px 0;
+}
+.foot-links a{color:#9aa4c7;font-size:.82rem;text-decoration:none;transition:.25s;padding:8px 4px;}
+.foot-links a:hover{color:#0ff;transform:translateY(-2px);}
+
+/* ==================== FLOATS ==================== */
+.whatsapp-float{
+  position:fixed;bottom:20px;right:20px;
+  width:58px;height:58px;background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;color:#fff;
+  box-shadow:0 0 26px rgba(37,211,102,.6), 0 8px 24px rgba(0,0,0,.4);
+  transition:.28s cubic-bezier(.2,.9,.3,1.4);z-index:99;text-decoration:none;
+  animation:floatBob 3s ease-in-out infinite;
+}
+@keyframes floatBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.whatsapp-float::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  border:2px solid #25D366;animation:ping 2s ease-out infinite;
+}
+@keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.7);opacity:0}}
+.whatsapp-float:hover{transform:scale(1.12) rotate(6deg);animation-play-state:paused;}
+.whatsapp-float:active{transform:scale(.95);}
+
+/* audio hint */
+.audio-hint{
+  position:fixed;bottom:92px;left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:#0ff;padding:11px 20px;border-radius:50px;
+  font-size:.78rem;font-weight:500;border:1px solid cyan;
+  z-index:1000;pointer-events:none;transition:opacity .6s, transform .6s;
+  white-space:nowrap;font-family:monospace;
+  max-width:92vw;overflow:hidden;text-overflow:ellipsis;
+  box-shadow:0 0 26px rgba(0,255,255,.3);
+}
+@media(max-width:500px){.audio-hint{font-size:.68rem;bottom:104px;padding:9px 16px;}}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:160px;transform:translate(-50%,24px);
+  background:rgba(10,10,20,.96);border:1px solid var(--nexus-2);
+  color:var(--nexus-2);padding:12px 22px;border-radius:99px;
+  font-size:.78rem;font-weight:600;opacity:0;pointer-events:none;
+  transition:.38s cubic-bezier(.2,.9,.3,1.2);z-index:1200;
+  box-shadow:0 0 30px rgba(34,211,238,.4);
+  max-width:90vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translate(-50%,0);}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(34px) scale(.97);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.9,.3,1.05);}
+.reveal.in{opacity:1;transform:none;}
+
+/* ==================== RIPPLES ==================== */
+.ripple{
+  position:absolute;border-radius:50%;transform:scale(0);
+  background:radial-gradient(circle, rgba(255,255,255,.5), rgba(255,255,255,0) 70%);
+  pointer-events:none;animation:rip .7s ease-out forwards;
+  width:180px;height:180px;margin-left:-90px;margin-top:-90px;
+}
+@keyframes rip{to{transform:scale(3);opacity:0;}}
+
+/* ==================== MODALS ==================== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1500;
+  background:rgba(2,2,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  position:relative;width:100%;max-width:520px;
+  background:linear-gradient(180deg,#0b0b18,#050510);
+  border:1px solid rgba(168,85,247,.35);
+  border-radius:26px;padding:30px 24px 24px;
+  box-shadow:0 30px 80px rgba(0,0,0,.7), 0 0 70px rgba(168,85,247,.16);
+  animation:modalIn .45s cubic-bezier(.2,1,.3,1);margin:auto;
+  transform-style:preserve-3d;
+}
+@keyframes modalIn{
+  from{opacity:0;transform:translateY(24px) scale(.94) rotateX(6deg);}
+  to{opacity:1;transform:none;}
+}
+.modal-close{
+  position:absolute;top:14px;right:14px;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:#9aa4c7;cursor:pointer;font-size:.9rem;
+  display:grid;place-items:center;transition:.25s;
+}
+.modal-close:hover{background:rgba(255,0,80,.15);color:#ff6b9d;border-color:rgba(255,0,80,.4);transform:rotate(90deg);}
+.modal-close:active{transform:scale(.9) rotate(90deg);}
+
+.modal-step{display:flex;gap:8px;justify-content:center;margin-bottom:20px;flex-wrap:wrap;}
+.step-dot{
+  display:flex;align-items:center;gap:6px;
+  font-size:.65rem;font-weight:700;letter-spacing:1px;color:#9aa4c7;text-transform:uppercase;
+}
+.step-dot .n{
+  width:24px;height:24px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  display:grid;place-items:center;font-size:.68rem;color:#9aa4c7;transition:.3s;
+}
+.step-dot.active .n{background:linear-gradient(135deg,var(--nexus-1),var(--nexus-2));color:#05050a;border-color:transparent;box-shadow:0 0 14px rgba(34,211,238,.7);}
+.step-dot.done .n{background:var(--ok);color:#052e14;border-color:transparent;}
+.step-dot.active,.step-dot.done{color:#fff;}
+.step-line{width:20px;height:2px;background:rgba(255,255,255,.1);align-self:center;border-radius:2px;}
+
+.modal h3{
+  font-family:'Orbitron',sans-serif;
+  font-size:1.1rem;font-weight:800;color:#fff;
+  text-align:center;margin-bottom:6px;letter-spacing:.5px;
+}
+.modal .m-sub{font-size:.8rem;color:#9aa4c7;text-align:center;margin-bottom:22px;}
+
+.upload-zone{
+  position:relative;
+  border:2px dashed rgba(120,200,255,.25);
+  border-radius:16px;padding:24px 18px;text-align:center;
+  background:rgba(255,255,255,.02);margin-bottom:16px;
+  cursor:not-allowed;opacity:.6;
+}
+.upload-zone i{font-size:1.5rem;color:var(--nexus-2);margin-bottom:6px;display:block;}
+.upload-zone b{display:block;font-size:.83rem;color:#fff;margin-bottom:3px;font-weight:600;}
+.upload-zone small{font-size:.7rem;color:#9aa4c7;}
+.upload-zone .lock-tag,
+.feat-row .lock-tag{
+  font-size:.58rem;font-weight:800;letter-spacing:1px;
+  padding:4px 10px;border-radius:99px;
+  background:rgba(255,120,80,.15);border:1px solid rgba(255,120,80,.4);
+  color:#ffb08a;white-space:nowrap;
+}
+.upload-zone .lock-tag{position:absolute;top:10px;right:10px;}
+
+.label-row{display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;}
+.label-row b{font-size:.75rem;font-weight:700;color:#fff;letter-spacing:.5px;text-transform:uppercase;}
+.label-row span{font-size:.7rem;color:#9aa4c7;}
+
+.dur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.dur-btn{
+  position:relative;padding:15px 8px;border-radius:14px;
+  background:rgba(255,255,255,.03);
+  border:1.5px solid rgba(255,255,255,.1);
+  color:#fff;cursor:pointer;transition:.28s cubic-bezier(.2,.9,.3,1.2);
+  font-family:inherit;text-align:center;min-height:64px;
+}
+.dur-btn:hover{border-color:rgba(34,211,238,.5);transform:translateY(-3px);}
+.dur-btn:active{transform:scale(.96);}
+.dur-btn.sel{
+  border-color:var(--nexus-2);
+  background:linear-gradient(180deg,rgba(34,211,238,.15),rgba(168,85,247,.08));
+  box-shadow:0 0 24px rgba(34,211,238,.35);
+}
+.dur-btn b{display:block;font-size:.95rem;font-weight:800;color:#fff;font-family:'Orbitron',sans-serif;}
+.dur-btn small{font-size:.66rem;color:#9aa4c7;letter-spacing:.5px;}
+.dur-btn .tick{position:absolute;top:6px;right:6px;font-size:.6rem;color:var(--ok);opacity:0;transition:.25s;}
+.dur-btn.sel .tick{opacity:1;}
+
+.feat-list{display:flex;flex-direction:column;gap:9px;margin-bottom:18px;}
+.feat-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 15px;border-radius:13px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);opacity:.7;
+}
+.feat-row .left{display:flex;align-items:center;gap:11px;min-width:0;}
+.feat-row .left i{
+  width:34px;height:34px;border-radius:10px;
+  display:grid;place-items:center;font-size:.85rem;
+  background:rgba(168,85,247,.15);color:var(--nexus-2);flex-shrink:0;
+}
+.feat-row .left b{font-size:.83rem;color:#fff;font-weight:600;display:block;}
+.feat-row .left small{font-size:.7rem;color:#9aa4c7;}
+
+.summary{
+  padding:15px 17px;border-radius:15px;
+  background:linear-gradient(120deg,rgba(168,85,247,.12),rgba(34,211,238,.08));
+  border:1px solid rgba(168,85,247,.3);
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:18px;
+}
+.summary .lbl{font-size:.72rem;color:#9aa4c7;letter-spacing:.5px;text-transform:uppercase;}
+.summary .amt{font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;}
+
+.modal-actions{display:flex;gap:10px;}
+.modal-actions .btn-a{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 18px;border-radius:99px;font-weight:700;font-size:.83rem;
+  cursor:pointer;transition:.28s cubic-bezier(.2,.9,.3,1.2);border:1px solid transparent;font-family:inherit;
+  min-height:46px;position:relative;overflow:hidden;
+}
+.btn-a:active{transform:scale(.97);}
+.btn-a.ghost{background:rgba(255,255,255,.05);border-color:rgba(120,200,255,.25);color:#fff;}
+.btn-a.ghost:hover{border-color:var(--nexus-2);color:var(--nexus-2);}
+.btn-a.primary{background:linear-gradient(95deg,var(--nexus-1),var(--nexus-2));color:#05050a;}
+.btn-a.primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.5);}
+.btn-a:disabled{opacity:.5;cursor:not-allowed;transform:none !important;}
+
+/* payment */
+.pay-summary{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 17px;border-radius:14px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(120,200,255,.18);
+  margin-bottom:18px;
+}
+.pay-summary .l b{font-size:.88rem;color:#fff;font-weight:700;}
+.pay-summary .l small{font-size:.7rem;color:#9aa4c7;}
+.pay-summary .r{
+  font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:800;
+  background:linear-gradient(95deg,var(--nexus-1),var(--nexus-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.field{margin-bottom:13px;}
+.field label{
+  display:block;font-size:.7rem;font-weight:700;color:#9aa4c7;
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;
+}
+.field input{
+  width:100%;padding:13px 15px;border-radius:12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  color:#fff;font-size:.88rem;font-family:inherit;transition:.25s;outline:none;
+  min-height:48px;
+}
+.field input:focus{
+  border-color:var(--nexus-2);
+  box-shadow:0 0 0 3px rgba(34,211,238,.15);
+  background:rgba(255,255,255,.06);
+}
+.field input::placeholder{color:#5b6484;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.demo-note{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:13px 15px;border-radius:12px;
+  background:rgba(255,180,60,.08);
+  border:1px solid rgba(255,180,60,.3);
+  color:#ffd58a;font-size:.73rem;margin-bottom:16px;line-height:1.5;
+}
+.demo-note i{color:#ffb43c;margin-top:.2em;}
+
+/* 3D processing */
+.proc-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;padding:15px 0;}
+.cube-scene{width:130px;height:130px;perspective:900px;margin:10px auto 26px;}
+.cube{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  animation:cubeSpin 7s linear infinite;
+}
+.cube.stopped{animation-play-state:paused;}
+@keyframes cubeSpin{from{transform:rotateX(-22deg) rotateY(0deg);}to{transform:rotateX(-22deg) rotateY(360deg);}}
+.face{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:'Orbitron',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:1px;
+  color:#fff;text-align:center;padding:10px;
+  border:2px solid rgba(34,211,238,.55);
+  background:linear-gradient(135deg,rgba(168,85,247,.4),rgba(34,211,238,.28));
+  box-shadow:inset 0 0 34px rgba(34,211,238,.45);
+  border-radius:12px;
+  backface-visibility:hidden;
+}
+.face i{display:block;font-size:1.35rem;margin-bottom:6px;color:#fff;}
+.face.f1{transform:rotateY(0deg) translateZ(65px);}
+.face.f2{transform:rotateY(90deg) translateZ(65px);}
+.face.f3{transform:rotateY(180deg) translateZ(65px);}
+.face.f4{transform:rotateY(-90deg) translateZ(65px);}
+.face.f5{transform:rotateX(90deg) translateZ(65px);}
+.face.f6{transform:rotateX(-90deg) translateZ(65px);}
+.proc-status{font-family:'Orbitron',sans-serif;font-size:.95rem;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:1px;}
+.proc-sub{font-size:.8rem;color:#9aa4c7;margin-bottom:20px;min-height:1.4em;}
+.proc-bar{width:100%;height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:8px;}
+.proc-bar-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--nexus-1),var(--nexus-2));transition:width .3s linear;box-shadow:0 0 12px var(--nexus-2);}
+.proc-pct{font-size:.72rem;color:var(--nexus-2);font-weight:700;letter-spacing:1px;}
+
+.success-box{text-align:center;padding:15px 0;}
+.success-icon{
+  width:82px;height:82px;border-radius:50%;margin:0 auto 16px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  display:grid;place-items:center;font-size:2.2rem;color:#fff;
+  box-shadow:0 0 50px rgba(34,197,94,.65);
+  animation:popIn .55s cubic-bezier(.2,1.4,.3,1);
+}
+@keyframes popIn{from{transform:scale(0) rotate(-180deg);opacity:0;}to{transform:scale(1) rotate(0);opacity:1;}}
+.success-box h3{color:#fff;margin-bottom:8px;}
+.success-box p{font-size:.82rem;color:#9aa4c7;margin-bottom:20px;}
+
+@media(max-width:520px){
+  .modal{padding:24px 18px 20px;border-radius:22px;}
+  .dur-grid{gap:7px;}
+  .dur-btn{padding:12px 5px;}
+  .dur-btn b{font-size:.82rem;}
+  .modal-actions{flex-direction:column;}
+  .cube-scene{width:110px;height:110px;}
+  .face.f1{transform:rotateY(0deg) translateZ(55px);}
+  .face.f2{transform:rotateY(90deg) translateZ(55px);}
+  .face.f3{transform:rotateY(180deg) translateZ(55px);}
+  .face.f4{transform:rotateY(-90deg) translateZ(55px);}
+  .face.f5{transform:rotateX(90deg) translateZ(55px);}
+  .face.f6{transform:rotateX(-90deg) translateZ(55px);}
 }
 
-.developer {
-    font-size: 0.85rem;
-    color: #bbbbff;
-    border-top: 1px dashed rgba(0,255,255,0.4);
-    display: inline-block;
-    padding-top: 8px;
-    margin-top: 8px;
-    opacity: 0.9;
+/* ==================== ACCESSIBILITY / MOTION ==================== */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
 }
 
-/* progress bar container */
-.progress-wrapper {
-    margin: 24px 0 12px;
-    width: 100%;
-    background: rgba(255,255,255,0.1);
-    border-radius: 30px;
-    height: 6px;
-    overflow: hidden;
-    box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
-}
-
-.progress-fill {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, #0ff, #f0f);
-    border-radius: 30px;
-    transition: width 0.08s linear;
-    box-shadow: 0 0 8px #0ff;
-}
-
-.loading-percent {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #0ff;
-    text-shadow: 0 0 3px #0ff;
-    letter-spacing: 1px;
-}
-
-/* GLASS NAVIGATION */
-.glass-nav {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-    z-index: 999;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 24px;
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 800;
-    color: #0ff;
-    text-shadow: 0 0 4px #0ff;
-    font-size: 1.2rem;
-}
-
-/* Logo image styling */
-.logo-img {
-    height: 40px;
-    width: auto;
-    filter: drop-shadow(0 0 6px cyan);
-    transition: transform 0.2s ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.02);
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 26px;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #f0f0ff;
-    font-weight: 500;
-    transition: 0.25s;
-    font-size: 14px;
-}
-
-.nav-menu a:hover {
-    color: #0ff;
-    text-shadow: 0 0 6px cyan;
-}
-
-.login-btn {
-    padding: 8px 24px;
-    border-radius: 40px;
-    background: linear-gradient(95deg, #ff00cc, #00eaff);
-    color: #000;
-    font-weight: 800;
-    text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
-    cursor: pointer;
-}
-
-.login-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 22px #0ff;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 28px;
-    color: #0ff;
-    cursor: pointer;
-}
-
-@media(max-width: 780px) {
-    .nav-menu {
-        position: absolute;
-        top: 68px;
-        right: 0;
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(18px);
-        flex-direction: column;
-        width: 220px;
-        padding: 20px;
-        gap: 18px;
-        display: none;
-        border-radius: 0 0 0 24px;
-        border-left: 1px solid cyan;
-        border-bottom: 1px solid cyan;
-    }
-    .nav-menu.active {
-        display: flex;
-    }
-    .menu-toggle {
-        display: block;
-    }
-    .nav-left {
-        gap: 15px;
-    }
-    .logo-img {
-        height: 32px;
-    }
-}
-
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 50px 20px 30px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.glow-text {
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.3;
-}
-
-.hero-logo {
-    height: 85px;
-    width: auto;
-    filter: drop-shadow(0 0 18px cyan);
-    animation: floatSoft 3s ease-in-out infinite;
-    margin-bottom: 12px;
-    display: inline-block;
-}
-
-@keyframes floatSoft {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
-}
-
-.tagline {
-    font-size: 1.1rem;
-    margin-top: 12px;
-    opacity: 0.9;
-    color: #bbf;
-}
-
-.quick-services {
-    font-size: 0.85rem;
-    background: rgba(0,255,255,0.08);
-    display: inline-block;
-    padding: 6px 18px;
-    border-radius: 40px;
-    margin-top: 14px;
-    backdrop-filter: blur(4px);
-}
-
-.cta {
-    margin: 24px 0 20px;
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.cta a {
-    padding: 12px 26px;
-    border-radius: 40px;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: 0.25s;
-}
-
-.btn-primary {
-    background: linear-gradient(95deg, #00eaff, #ff66ff);
-    color: #000;
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-}
-
-.whatsapp {
-    background: #25D366;
-    color: #fff;
-}
-
-.call {
-    background: #0ff;
-    color: #000;
-}
-
-/* VIDEO SECTION */
-.video-container {
-    margin: 20px auto 35px;
-    max-width: 1000px;
-    border-radius: 32px;
-    overflow: hidden;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(0, 255, 255, 0.2);
-    background: #000;
-}
-
-.video-element {
-    width: 100%;
-    display: block;
-    cursor: pointer;
-}
-
-/* WHY SECTION */
-.why {
-    text-align: center;
-    padding: 30px 20px 40px;
-    background: radial-gradient(ellipse at top, rgba(0,30,40,0.5), transparent);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.why h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #fff, cyan);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.why ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
-}
-
-.why li {
-    background: rgba(0, 255, 255, 0.1);
-    padding: 8px 20px;
-    border-radius: 60px;
-    font-weight: 500;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(0,255,255,0.3);
-}
-
-/* CONTACT */
-.contact {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid rgba(0, 255, 255, 0.2);
-    background: #020208;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.contact p {
-    margin: 8px 0;
-}
-
-.contact a {
-    color: #0ff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 55px;
-    height: 55px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    color: #fff;
-    box-shadow: 0 0 20px #25d36699;
-    transition: 0.2s;
-    z-index: 99;
-    text-decoration: none;
-}
-
-/* audio hint toast */
-.audio-hint {
-    position: fixed;
-    bottom: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
-    color: #0ff;
-    padding: 10px 18px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    border: 1px solid cyan;
-    z-index: 1000;
-    pointer-events: none;
-    transition: opacity 0.5s;
-    white-space: nowrap;
-    font-family: monospace;
-}
-@media(max-width:500px){
-    .audio-hint{ font-size: 0.7rem; white-space: nowrap; bottom: 100px;}
-}
-
-/* reveal animations */
-body.loaded .glass-nav {
-    opacity: 1;
-    transform: translateY(0);
-}
-body.loaded .hero,
-body.loaded .why,
-body.loaded .contact {
-    opacity: 1;
-    transform: translateY(0);
-}
-body.loaded .hero {
-    transition-delay: 0.1s;
-}
-body.loaded .why {
-    transition-delay: 0.2s;
-}
-body.loaded .contact {
-    transition-delay: 0.3s;
+/* safe area */
+@supports(padding:max(0px)){
+  .whatsapp-float{bottom:max(20px, env(safe-area-inset-bottom));right:max(20px, env(safe-area-inset-right));}
+  .toast{bottom:max(160px, calc(env(safe-area-inset-bottom) + 150px));}
 }
 </style>
 </head>
 <body>
 
-<!-- PRELOADER with PROGRESS BAR + DEV INFO -->
+<!-- ==================== 3D BACKGROUND CANVAS ==================== -->
+<canvas id="bg3d" aria-hidden="true"></canvas>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i id="spFill"></i></div>
+
+<!-- ==================== PRELOADER ==================== -->
 <div id="preloader">
-    <div class="preloader-content">
-        <div class="neon-spinner"></div>
-        <div class="loading-text">LOADING</div>
-        <div class="brand-name">⚡ www.NeonAiStudio.in ⚡</div>
-        <div class="developer">👨‍💻 Developer: Moreshwar R. Bhonde</div>
-        
-        <!-- PROGRESS BAR AREA -->
-        <div class="progress-wrapper">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-        <div class="loading-percent" id="loadingPercent">0%</div>
-        <p style="font-size: 12px; margin-top: 14px; opacity:0.7;">AI video studio • next‑gen ads</p>
+  <div class="preloader-content">
+    <div class="neon-spinner"></div>
+    <div class="loading-text">LOADING</div>
+    <div class="brand-name">⚡ www.NeonAiStudio.in ⚡</div>
+    <div class="brand-name" style="font-size:.78rem;color:#c7a8ff;">AI NEXUS × NEON AI STUDIO</div>
+    <div class="developer">👨‍💻 Developer: Moreshwar R. Bhonde</div>
+    <div class="progress-wrapper">
+      <div class="progress-fill" id="progressFill"></div>
     </div>
+    <div class="loading-percent" id="loadingPercent">0%</div>
+    <p style="font-size:11px;margin-top:12px;opacity:.7;">AI video studio • next-gen ads</p>
+  </div>
 </div>
 
-<!-- NAVIGATION -->
-<nav class="glass-nav">
-    <div class="nav-container">
-        <div class="nav-left">
-            <div class="logo">
-                <!-- Logo image replaced with neon_ai_studio_logo.png -->
-                <img src="neon_ai_studio_logo.png" alt="Neon AI Studio" class="logo-img" onerror="this.onerror=null; this.style.display='none'; this.nextSibling.style.display='flex';">
-                <span style="display: inline-block;">NEON AI STUDIO</span>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Custom Plan</a></li>
-                <li><a href="#">Chat</a></li>
-            </ul>
-        </div>
-        <a href="#" class="login-btn" id="googleLoginBtn">Login</a>
-        <button class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+<!-- ==================== NAV ==================== -->
+<nav class="glass-nav" id="navBar">
+  <div class="nav-container">
+    <div class="nav-left">
+      <div class="logo">
+        <span class="dot"><i class="fas fa-bolt"></i></span>
+        AI NEXUS <span class="x">×</span> <span class="partner">NEON AI STUDIO</span>
+      </div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#socials">Socials</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
+    <a href="#" class="login-btn ripple-target" id="googleLoginBtn">Login</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
 </nav>
 
-<!-- HERO SECTION -->
-<section class="hero">
-    <h1 class="glow-text">
-        <!-- Hero Logo: neon_ai_studio_logo.png -->
-        <img src="neon_ai_studio_logo.png" alt="Neon AI Studio" class="hero-logo" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('afterbegin', '<i class=\'fas fa-brain floating-logo\' style=\'font-size:70px; color:#0ff;\'></i>');">
-        <br>
-        NEON AI STUDIO<br>
-        <span style="color:#0ff; text-shadow:0 0 10px cyan;">Future-Ready Ads Powered by AI</span>
-    </h1>
-    <p class="tagline">🎬 Posters • Video Ads • Reels • AI Visuals • Cinematic Edits</p>
-    <div class="quick-services">
-        🚀 India's Best AI Advertisement | Website Dev | Bulk Calling | WhatsApp AI | Lead Gen
-    </div>
-    <div class="cta">
-        <a href="pricing.html" class="btn-primary">View Pricing</a>
-        <a href="https://wa.me/917038821854" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="tel:7038821854" class="call"><i class="fas fa-phone-alt"></i> Call Now</a>
-    </div>
-    
-    <!-- VIDEO with AUTOPLAY, CONTROLS, LOOP, AUDIO ENABLED (no muted) -->
-    <div class="video-container">
-            <iframe width="100%" height="500"
-        src="https://www.youtube.com/embed/XQsW4P6z_So?autoplay=1&loop=1&playlist=XQsW4P6z_So"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen>
-    </iframe>
-    </div>
-</section>
+<main id="top">
 
-<!-- WHY US -->
-<section class="why">
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="orb o1" aria-hidden="true"></div>
+    <div class="orb o2" aria-hidden="true"></div>
+    <div class="orb o3" aria-hidden="true"></div>
+
+    <div class="pill" data-depth="14"><i class="fas fa-handshake"></i> Official Collaboration</div>
+
+    <h1 class="glow-text" data-depth="26">
+      <span class="brand-a">AI NEXUS</span>
+      <span class="times">×</span>
+      <span class="brand-b">NEON AI STUDIO</span>
+    </h1>
+
+    <p class="subtitle" data-depth="18">Future-Ready Ads Powered by AI</p>
+    <p class="tagline" data-depth="12">🎬 Posters • Video Ads • Reels • AI Visuals • Cinematic Edits</p>
+    <div class="quick-services" data-depth="10">
+      🚀 India's Best AI Advertisement | Website Dev | Bulk Calling | WhatsApp AI | Lead Gen
+    </div>
+
+    <div class="cta" data-depth="16">
+      <a href="#pricing" class="btn-primary ripple-target"><i class="fas fa-tags"></i> View Pricing</a>
+      <a href="https://wa.me/917038821854" class="whatsapp ripple-target"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="tel:7038821854" class="call ripple-target"><i class="fas fa-phone-alt"></i> Call Now</a>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="video-frame">
+      <div class="video-container" id="videoBox">
+        <iframe
+          src="https://www.youtube.com/embed/XQsW4P6z_So?autoplay=1&mute=1&loop=1&playlist=XQsW4P6z_So&playsinline=1&rel=0"
+          title="Neon AI Studio Showreel"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY US ==================== -->
+  <section class="why">
     <h2>Why Choose Us</h2>
     <ul>
-        <li>✨ Ultra Cinematic Quality</li>
-        <li>⚡ Fast Delivery (24-48h)</li>
-        <li>🧠 AI Powered Content</li>
-        <li>📈 Marketing Focused Results</li>
-        <li>💰 Affordable Pricing Plans</li>
-        <li>📱 Complete Digital Suite</li>
+      <li>✨ Ultra Cinematic Quality</li>
+      <li>⚡ Fast Delivery (24-48h)</li>
+      <li>🧠 AI Powered Content</li>
+      <li>📈 Marketing Focused Results</li>
+      <li>💰 Affordable Pricing Plans</li>
+      <li>📱 Complete Digital Suite</li>
     </ul>
-</section>
+  </section>
 
-<!-- Services & Keywords Section - Inline CSS Only -->
-<div style="margin-top: 30px; display: flex; justify-content: center;">
-    <div style="max-width: 1200px; margin: 0 auto; background: rgba(20, 20, 45, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(0, 255, 255, 0.2); border-radius: 28px; padding: 30px; text-align: center;">
-        <h2 style="color: #0ff; margin-bottom: 20px; font-size: 2rem;">🚀 Our Services – All in One Place</h2>
-        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px; color: #e0e0ff;">
-            <strong style="color: #0ff;">Neon AI Studio</strong> offers complete <strong style="color: #0ff;">AI marketing solutions</strong> including 
-            <strong>AI Video Ads, Cinematic Reels, Promotional Videos, AI VFX Editing, Posters, AI Visuals, Website Development, AI Chatbots, AI Call Agent, WhatsApp Automation, Bulk Calling, and Lead Generation</strong>. 
-            We are recognized as <strong style="color: #0ff;">India's best AI advertisement agency</strong>, providing <strong style="color: #0ff;">affordable AI video ads, AI marketing campaigns, and automated WhatsApp marketing</strong> for businesses of all sizes.
-        </p>
-        <p style="font-size: 1rem; line-height: 1.6; opacity: 0.9; color: #e0e0ff;">
-            Whether you are advertising on <strong>YouTube, Instagram, Facebook, or Google</strong>, or need <strong>bulk calling / lead generation</strong>, our <strong style="color: #0ff;">custom AI video packages</strong> are tailored just for you. 
-            We offer everything under one roof: <strong>commercial video ads, explainer videos, reel editing, AI VFX, websites with chatbots, AI call agents, and a complete digital suite</strong>. 
-            Our services are available across <strong>India – Mumbai, Delhi, Pune, Bangalore, Hyderabad, Chennai, Kolkata</strong>, and all major cities.
-        </p>
-        <div style="margin-top: 20px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <a href="ser.html" style="display: inline-block; background: linear-gradient(90deg, #0ff, #f0f); border: none; padding: 12px 28px; border-radius: 40px; font-weight: bold; color: #111; text-decoration: none; transition: transform 0.2s;">View All Services</a>
-            <a href="https://wa.me/917038821854" style="display: inline-block; background: #25D366; border: none; padding: 12px 28px; border-radius: 40px; font-weight: bold; color: #fff; text-decoration: none; transition: transform 0.2s;">Inquire on WhatsApp</a>
-        </div>
+  <!-- ==================== SOCIALS ==================== -->
+  <section class="section reveal" id="socials">
+    <div class="sec-head">
+      <h2>Follow Our Accounts</h2>
+      <p>Instagram आणि YouTube वर आमच्या latest AI work updates मिळवा</p>
     </div>
-</div>
 
-<!-- CONTACT INFO -->
+    <div class="socials">
+      <!-- AI NEXUS PRIMARY -->
+      <div class="brand-card nexus tilt">
+        <span class="badge">PRIMARY</span>
+        <div class="logo-row">
+          <div class="brand-icon"><i class="fas fa-bolt"></i></div>
+          <div>
+            <h3>AI Nexus</h3>
+            <div class="role">AI Automation Studio</div>
+          </div>
+        </div>
+        <p class="desc">AI-powered marketing automation, bulk calling, WhatsApp AI आणि lead generation systems.</p>
+        <div class="social-list">
+          <a class="social-row ig ripple-target" data-brand="nexus" data-type="instagram" target="_blank" rel="noopener">
+            <span class="social-left">
+              <i class="fab fa-instagram"></i>
+              <span class="social-meta"><b>Instagram</b><small class="handle">@ai.nexus</small></span>
+            </span>
+            <i class="fas fa-arrow-right arrow"></i>
+          </a>
+          <a class="social-row yt ripple-target" data-brand="nexus" data-type="youtube" target="_blank" rel="noopener">
+            <span class="social-left">
+              <i class="fab fa-youtube"></i>
+              <span class="social-meta"><b>YouTube</b><small class="handle">@ainexus</small></span>
+            </span>
+            <i class="fas fa-arrow-right arrow"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- NEON -->
+      <div class="brand-card neon tilt">
+        <div class="logo-row">
+          <div class="brand-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <div>
+            <h3>Neon AI Studio</h3>
+            <div class="role">Creative AI Studio</div>
+          </div>
+        </div>
+        <p class="desc">Cinematic AI video ads, reels, posters आणि premium visual editing.</p>
+        <div class="social-list">
+          <a class="social-row ig ripple-target" data-brand="neon" data-type="instagram" target="_blank" rel="noopener">
+            <span class="social-left">
+              <i class="fab fa-instagram"></i>
+              <span class="social-meta"><b>Instagram</b><small class="handle">@neonaistudio</small></span>
+            </span>
+            <i class="fas fa-arrow-right arrow"></i>
+          </a>
+          <a class="social-row yt ripple-target" data-brand="neon" data-type="youtube" target="_blank" rel="noopener">
+            <span class="social-left">
+              <i class="fab fa-youtube"></i>
+              <span class="social-meta"><b>YouTube</b><small class="handle">@neonaistudio</small></span>
+            </span>
+            <i class="fas fa-arrow-right arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRICING ==================== -->
+  <section class="section reveal" id="pricing">
+    <div class="sec-head">
+      <h2>Cinematic AI Video Pricing</h2>
+      <p>Simple pricing • Fast delivery • Premium quality</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- 30 SEC -->
+      <div class="price-card featured tilt">
+        <div class="pc-icon"><i class="fas fa-video"></i></div>
+        <h3>30 Sec Cinematic</h3>
+        <div class="pc-sub">Perfect for Reels & Shorts</div>
+        <div class="pc-price">₹350 <span>only</span>
+          <small>PER VIDEO</small>
+        </div>
+        <ul class="pc-list">
+          <li><i class="fas fa-check"></i> 30-second cinematic AI video</li>
+          <li><i class="fas fa-check"></i> Premium transitions & VFX</li>
+          <li><i class="fas fa-check"></i> Music + background score</li>
+          <li><i class="fas fa-check"></i> Delivery in 24–48 hours</li>
+        </ul>
+        <button class="pc-cta ripple-target" data-plan="30" data-price="350">Get for ₹350</button>
+      </div>
+
+      <!-- 60 SEC -->
+      <div class="price-card neon-pc tilt">
+        <div class="pc-icon"><i class="fas fa-clapperboard"></i></div>
+        <h3>60 Sec Cinematic</h3>
+        <div class="pc-sub">Full Ad / Promo Video</div>
+        <div class="pc-price">₹500 <span>only</span>
+          <small>PER VIDEO</small>
+        </div>
+        <ul class="pc-list">
+          <li><i class="fas fa-check"></i> 60-second cinematic AI video</li>
+          <li><i class="fas fa-check"></i> Advanced VFX & 3D elements</li>
+          <li><i class="fas fa-check"></i> Premium voiceover ready</li>
+          <li><i class="fas fa-check"></i> Delivery in 24–48 hours</li>
+        </ul>
+        <button class="pc-cta ripple-target" data-plan="60" data-price="500">Get for ₹500</button>
+      </div>
+
+      <!-- CUSTOM -->
+      <div class="price-card tilt">
+        <div class="pc-icon"><i class="fas fa-sliders"></i></div>
+        <h3>Custom Plan</h3>
+        <div class="pc-sub">Fully Tailored to Your Brand</div>
+        <div class="pc-price">₹—<span></span>
+          <small>CONTACT FOR QUOTE</small>
+        </div>
+        <ul class="pc-list">
+          <li><i class="fas fa-check"></i> Any length (90s, 2 min+)</li>
+          <li><i class="fas fa-check"></i> Full brand customization</li>
+          <li><i class="fas fa-check"></i> Multi-language voiceover</li>
+          <li><i class="fas fa-check"></i> Priority delivery available</li>
+        </ul>
+        <button class="pc-cta ripple-target" data-plan="custom" data-price="0">Configure</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES SEO ==================== -->
+  <section class="section reveal" id="services">
+    <div class="services-box">
+      <h2>🚀 Our Services – All in One Place</h2>
+      <p>
+        <strong>AI Nexus × Neon AI Studio</strong> offers complete <strong>AI marketing solutions</strong> including
+        <strong>AI Video Ads, Cinematic Reels, Promotional Videos, AI VFX Editing, Posters, AI Visuals, Website Development, AI Chatbots, AI Call Agent, WhatsApp Automation, Bulk Calling, and Lead Generation</strong>.
+        We are recognized as <strong>India's best AI advertisement agency</strong>, providing <strong>affordable AI video ads, AI marketing campaigns, and automated WhatsApp marketing</strong> for businesses of all sizes.
+      </p>
+      <p class="p2">
+        Whether you are advertising on <strong>YouTube, Instagram, Facebook, or Google</strong>, or need <strong>bulk calling / lead generation</strong>, our <strong>custom AI video packages</strong> are tailored just for you.
+        We offer everything under one roof: <strong>commercial video ads, explainer videos, reel editing, AI VFX, websites with chatbots, AI call agents, and a complete digital suite</strong>.
+        Our services are available across <strong>India – Mumbai, Delhi, Pune, Bangalore, Hyderabad, Chennai, Kolkata</strong>, and all major cities.
+      </p>
+
+      <div class="chips">
+        <span class="chip">AI Video Ads</span>
+        <span class="chip">Cinematic Reels</span>
+        <span class="chip">Posters & Visuals</span>
+        <span class="chip">VFX Editing</span>
+        <span class="chip">Website Dev</span>
+        <span class="chip">AI Chatbot</span>
+        <span class="chip">AI Call Agent</span>
+        <span class="chip">WhatsApp Automation</span>
+        <span class="chip">Bulk Calling</span>
+        <span class="chip">Lead Generation</span>
+      </div>
+
+      <div class="services-cta">
+        <a href="#pricing" class="btn-primary ripple-target" style="padding:13px 28px;border-radius:40px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          <i class="fas fa-tags"></i> View Pricing
+        </a>
+        <a href="https://wa.me/917038821854" class="ripple-target" style="background:#25D366;color:#fff;padding:13px 28px;border-radius:40px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(37,211,102,.3);">
+          <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA STRIP ==================== -->
+  <section class="section reveal" id="contact">
+    <div class="cta-strip">
+      <h2>Ready to Scale Your Brand?</h2>
+      <p>आमच्याशी संपर्क साधा — 24-48 तासांत तुमचा पहिला AI ad तयार.</p>
+      <div class="cta" style="margin-top:0">
+        <a href="https://wa.me/917038821854" class="whatsapp ripple-target"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+        <a href="tel:7038821854" class="call ripple-target"><i class="fas fa-phone"></i> Call: 7038821854</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== CONTACT / FOOTER ==================== -->
 <section class="contact">
-    <p>📞 7038821854</p>
-    <p>📧 moreshwar1234bhonde@gmail.com</p>
-    <p>🌐 neonaistudio.in</p>
-    <a href="https://wa.me/917038821854"><i class="fab fa-whatsapp"></i> Connect on WhatsApp</a>
-    <p style="margin-top: 20px; opacity:0.5;">© 2026 Neon AI Studio — AI first advertising</p>
+  <p>📞 7038821854</p>
+  <p>📧 moreshwar1234bhonde@gmail.com</p>
+  <p>🌐 neonaistudio.in</p>
+  <div class="foot-links">
+    <a href="https://wa.me/917038821854" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="mailto:moreshwar1234bhonde@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    <a href="tel:7038821854"><i class="fas fa-phone"></i> Call</a>
+  </div>
+  <a href="https://wa.me/917038821854"><i class="fab fa-whatsapp"></i> Connect on WhatsApp</a>
+  <p style="margin-top:20px;opacity:.5;font-size:.78rem;">© 2026 AI Nexus × Neon AI Studio — AI first advertising</p>
 </section>
 
-<a href="https://wa.me/917038821854" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/917038821854" class="whatsapp-float" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- Firebase CDN -->
+<div class="toast" id="toast"></div>
+
+<!-- ==================== MODAL: CREATE ==================== -->
+<div class="modal-overlay" id="createModal">
+  <div class="modal">
+    <button class="modal-close" data-close="createModal" aria-label="Close"><i class="fas fa-times"></i></button>
+
+    <div class="modal-step">
+      <div class="step-dot active" id="sd1"><span class="n">1</span> Configure</div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="sd2"><span class="n">2</span> Payment</div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="sd3"><span class="n">3</span> Create</div>
+    </div>
+
+    <h3>Create Your AI Video</h3>
+    <p class="m-sub">Choose duration & customize your cinematic video</p>
+
+    <div class="upload-zone" title="Coming soon">
+      <span class="lock-tag">DEMO</span>
+      <i class="fas fa-cloud-arrow-up"></i>
+      <b>Upload Images / Clips</b>
+      <small>Feature coming soon — disabled in demo</small>
+    </div>
+
+    <div class="label-row">
+      <b>Video Duration</b>
+      <span id="durHint">Select one option</span>
+    </div>
+    <div class="dur-grid" id="durGrid">
+      <button class="dur-btn" data-dur="30" data-price="350">
+        <i class="fas fa-check tick"></i>
+        <b>30 sec</b><small>₹350</small>
+      </button>
+      <button class="dur-btn" data-dur="60" data-price="500">
+        <i class="fas fa-check tick"></i>
+        <b>60 sec</b><small>₹500</small>
+      </button>
+      <button class="dur-btn" data-dur="custom" data-price="0">
+        <i class="fas fa-check tick"></i>
+        <b>Custom</b><small>Contact</small>
+      </button>
+    </div>
+
+    <div class="feat-list">
+      <div class="feat-row">
+        <div class="left">
+          <i class="fas fa-microphone-lines"></i>
+          <div><b>AI Voiceover</b><small>Multiple languages</small></div>
+        </div>
+        <span class="lock-tag">DEMO</span>
+      </div>
+      <div class="feat-row">
+        <div class="left">
+          <i class="fas fa-scissors"></i>
+          <div><b>Advanced Editing</b><small>Pro transitions & effects</small></div>
+        </div>
+        <span class="lock-tag">DEMO</span>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div>
+        <div class="lbl">Total</div>
+        <div style="font-size:.7rem;color:#9aa4c7;margin-top:2px;" id="sumLine">No duration selected</div>
+      </div>
+      <div class="amt" id="sumAmt">₹0</div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-a ghost ripple-target" data-close="createModal">Cancel</button>
+      <button class="btn-a primary ripple-target" id="proceedBtn" disabled>
+        <i class="fas fa-arrow-right"></i> Proceed
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODAL: PAYMENT ==================== -->
+<div class="modal-overlay" id="payModal">
+  <div class="modal">
+    <button class="modal-close" data-close="payModal" aria-label="Close"><i class="fas fa-times"></i></button>
+
+    <div class="modal-step">
+      <div class="step-dot done"><span class="n"><i class="fas fa-check"></i></span> Configure</div>
+      <div class="step-line"></div>
+      <div class="step-dot active" id="pd2"><span class="n">2</span> Payment</div>
+      <div class="step-line"></div>
+      <div class="step-dot"><span class="n">3</span> Create</div>
+    </div>
+
+    <h3>Complete Payment</h3>
+    <p class="m-sub">Secure checkout — 100% encrypted</p>
+
+    <div class="pay-summary">
+      <div class="l">
+        <b id="payPlanName">30 Sec Cinematic</b>
+        <small id="payPlanSub">AI Video Ad</small>
+      </div>
+      <div class="r" id="payAmt">₹350</div>
+    </div>
+
+    <div class="demo-note">
+      <i class="fas fa-triangle-exclamation"></i>
+      <span>This is a <b>DEMO payment page</b>. No real transaction will occur. Click "Pay Now" to see the demo animation.</span>
+    </div>
+
+    <div class="field">
+      <label>Full Name</label>
+      <input type="text" placeholder="John Doe" autocomplete="name">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com" autocomplete="email">
+    </div>
+    <div class="field">
+      <label>Card Number</label>
+      <input type="text" placeholder="4242 4242 4242 4242" maxlength="19" inputmode="numeric" autocomplete="cc-number">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Expiry</label>
+        <input type="text" placeholder="MM/YY" maxlength="5" inputmode="numeric" autocomplete="cc-exp">
+      </div>
+      <div class="field">
+        <label>CVV</label>
+        <input type="text" placeholder="123" maxlength="4" inputmode="numeric" autocomplete="cc-csc">
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-a ghost ripple-target" data-close="payModal"><i class="fas fa-arrow-left"></i> Back</button>
+      <button class="btn-a primary ripple-target" id="payNowBtn">
+        <i class="fas fa-lock"></i> Pay <span id="payBtnAmt">₹350</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODAL: 3D PROCESSING ==================== -->
+<div class="modal-overlay" id="procModal">
+  <div class="modal">
+    <div id="procView">
+      <div class="modal-step">
+        <div class="step-dot done"><span class="n"><i class="fas fa-check"></i></span> Configure</div>
+        <div class="step-line"></div>
+        <div class="step-dot done"><span class="n"><i class="fas fa-check"></i></span> Payment</div>
+        <div class="step-line"></div>
+        <div class="step-dot active"><span class="n">3</span> Create</div>
+      </div>
+
+      <h3>Creating Your AI Video</h3>
+      <p class="m-sub">Please wait — our AI is rendering your cinematic video</p>
+
+      <div class="proc-wrap">
+        <div class="cube-scene">
+          <div class="cube" id="cube">
+            <div class="face f1"><div><i class="fas fa-upload"></i>UPLOADING</div></div>
+            <div class="face f2"><div><i class="fas fa-brain"></i>AI RENDER</div></div>
+            <div class="face f3"><div><i class="fas fa-film"></i>EDITING</div></div>
+            <div class="face f4"><div><i class="fas fa-music"></i>VOICEOVER</div></div>
+            <div class="face f5"><div><i class="fas fa-wand-magic"></i>VFX</div></div>
+            <div class="face f6"><div><i class="fas fa-check"></i>FINALIZE</div></div>
+          </div>
+        </div>
+        <div class="proc-status" id="procStatus">Initializing…</div>
+        <div class="proc-sub" id="procSub">Preparing your project</div>
+        <div class="proc-bar"><div class="proc-bar-fill" id="procFill"></div></div>
+        <div class="proc-pct" id="procPct">0%</div>
+      </div>
+    </div>
+
+    <div id="successView" style="display:none;">
+      <div class="success-box">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h3>Demo Complete! 🎉</h3>
+        <p>
+          हा एक <b>demo animation</b> होता. Real AI video creation साठी आमच्याशी WhatsApp वर संपर्क साधा —
+          आम्ही 24-48 तासांत तुमचा cinematic video तयार करून देतो.
+        </p>
+        <div class="modal-actions">
+          <button class="btn-a ghost ripple-target" id="tryAgainBtn"><i class="fas fa-rotate"></i> Try Again</button>
+          <a href="https://wa.me/917038821854" class="btn-a primary ripple-target" target="_blank" rel="noopener" style="text-decoration:none;">
+            <i class="fab fa-whatsapp"></i> Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LIBS ==================== -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
-// ==================== PRELOADER WITH SMOOTH PROGRESS & VIDEO LOAD ====================
-(function() {
-    let progress = 0;
-    const progressFill = document.getElementById('progressFill');
-    const percentSpan = document.getElementById('loadingPercent');
-    const preloader = document.getElementById('preloader');
-    const video = document.getElementById('heroVideo');
-    let videoLoadCompleted = false;
-    let minTimeReached = false;
-    
-    // Function to update progress bar
-    function updateProgress(value) {
-        progress = Math.min(100, Math.max(0, value));
-        if (progressFill) {
-            progressFill.style.width = progress + '%';
-        }
-        if (percentSpan) {
-            percentSpan.innerText = Math.floor(progress) + '%';
-        }
-        // Check if we can finish preloader
-        checkComplete();
-    }
-    
-    // Increment progress smoothly
-    function animateProgress(target, duration) {
-        const start = progress;
-        const diff = target - start;
-        const startTime = performance.now();
-        
-        function step(now) {
-            const elapsed = now - startTime;
-            const t = Math.min(1, elapsed / duration);
-            const eased = 1 - Math.pow(1 - t, 2); // ease out quad
-            const current = start + (diff * eased);
-            updateProgress(current);
-            if (t < 1) {
-                requestAnimationFrame(step);
-            } else {
-                updateProgress(target);
-            }
-        }
-        requestAnimationFrame(step);
-    }
-    
-    // Complete preloader and show content
-    function completeLoading() {
-        if (!preloader) return;
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-            // Reveal body content with fade-in
-            document.body.classList.add('loaded');
-            // Ensure video plays after preloader (some browsers need this)
-            if (video) {
-                video.play().catch(e => console.log("Auto-play prevented:", e));
-            }
-            // Small toast hint for audio
-            const toast = document.createElement('div');
-            toast.className = 'audio-hint';
-            toast.innerHTML = '🔊 Video has audio — click volume icon to unmute if needed';
-            document.body.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                setTimeout(() => toast.remove(), 1000);
-            }, 4500);
-        }, 600);
-    }
-    
-    function checkComplete() {
-        if (videoLoadCompleted && progress >= 100) {
-            completeLoading();
-        } else if (progress >= 100 && !videoLoadCompleted) {
-            // wait for video
-            console.log("Progress complete, waiting for video readiness");
-        }
-    }
-    
-    // Simulate asset loading progress (images, fonts, etc)
-    let simulatedProgress = 0;
-    const simInterval = setInterval(() => {
-        if (simulatedProgress < 90) {
-            simulatedProgress += Math.random() * 12;
-            if (simulatedProgress > 90) simulatedProgress = 90;
-            updateProgress(simulatedProgress);
-        }
-    }, 180);
-    
-    // Wait for video metadata and canplay
-    if (video) {
-        // Handle video loading
-        const onVideoReady = () => {
-            if (videoLoadCompleted) return;
-            videoLoadCompleted = true;
-            // Jump to 100% smoothly
-            animateProgress(100, 400);
-            clearInterval(simInterval);
-            // Ensure video plays
-            video.play().catch(err => console.log("Video autoplay blocked:", err));
-        };
-        
-        if (video.readyState >= 3) {
-            onVideoReady();
-        } else {
-            video.addEventListener('canplaythrough', onVideoReady, { once: true });
-            video.addEventListener('loadedmetadata', onVideoReady, { once: true });
-            // fallback timeout (in case video never fires)
-            setTimeout(() => {
-                if (!videoLoadCompleted) {
-                    console.log("Video load fallback");
-                    onVideoReady();
-                }
-            }, 2500);
-        }
-        
-        // Also ensure video doesn't block if src fails
-        video.addEventListener('error', () => {
-            console.warn("Video failed to load, continuing anyway");
-            if (!videoLoadCompleted) {
-                videoLoadCompleted = true;
-                animateProgress(100, 300);
-                clearInterval(simInterval);
-            }
-        });
-    } else {
-        // No video element fallback
-        videoLoadCompleted = true;
-        clearInterval(simInterval);
-        animateProgress(100, 500);
-    }
-    
-    // Force min display 1.8 seconds for smooth experience
-    setTimeout(() => {
-        if (!videoLoadCompleted) {
-            // still waiting but ensure at least progress hits 100 if video not ready
-            if (progress < 100) {
-                animateProgress(100, 300);
-            }
-        }
-        // ensure minTime flag eventually triggers check if video loads late
-        if (!videoLoadCompleted) {
-            setTimeout(() => {
-                if (!videoLoadCompleted) {
-                    videoLoadCompleted = true;
-                    checkComplete();
-                }
-            }, 800);
-        }
-    }, 1800);
-    
-    // Additional window load guarantee
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            if (!videoLoadCompleted) {
-                videoLoadCompleted = true;
-                if (progress < 100) animateProgress(100, 200);
-                else checkComplete();
-            } else {
-                if (progress < 100) animateProgress(100, 200);
-                else checkComplete();
-            }
-            clearInterval(simInterval);
-        }, 300);
-    });
-})();
-
-// ==================== MOBILE MENU TOGGLE ====================
-const menuToggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-    // Close menu when clicking a link (optional)
-    navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
-    });
-}
-
-// ==================== FIREBASE CONFIG & AUTH ====================
-// Firebase configuration (using provided or fallback demo config)
-// Note: In production, use your own firebase config. Here we include a valid demo setup
-// that will work with Google auth if a project is set. If no firebase.js exists, we define config.
-// The original HTML had <script src="firebase.js">, but to avoid missing file issues,
-// we initialize Firebase with a proper config placeholder. If you have actual firebase.js, it will override.
-// To prevent "auth not defined" we will setup a default config only if firebase app exists.
-
-if (typeof firebase !== 'undefined' && !firebase.apps.length) {
-    // Demo Firebase config - replace with your own for production
-    const firebaseConfig = {
-        apiKey: "AIzaSyDummyKeyForDemoOnlyReplaceWithYourOwn",
-        authDomain: "neon-ai-studio.firebaseapp.com",
-        projectId: "neon-ai-studio",
-        storageBucket: "neon-ai-studio.appspot.com",
-        messagingSenderId: "123456789012",
-        appId: "1:123456789012:web:abcdef123456"
-    };
-    // Initialize only if config is present and not already initialized
-    try {
-        firebase.initializeApp(firebaseConfig);
-    } catch(e) { console.warn("Firebase init error", e); }
-}
-
-let auth = null;
-if (typeof firebase !== 'undefined' && firebase.auth) {
-    auth = firebase.auth();
-}
-
-// Google Login function
-window.googleLogin = function() {
-    if (!auth) {
-        alert("Firebase Auth not initialized. Please check configuration.");
-        return;
-    }
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
-        .then((result) => {
-            alert("Welcome " + result.user.displayName + "! You're now logged in.");
-        })
-        .catch((error) => {
-            console.error(error);
-            alert("Login error: " + error.message);
-        });
+/* =========================================================
+   ⚙️ CONFIG
+   ========================================================= */
+const SOCIALS = {
+  nexus: {
+    instagram: { url: "https://instagram.com/ai.nexus",     handle: "@ai.nexus" },
+    youtube:   { url: "https://youtube.com/@ainexus",        handle: "@ainexus" }
+  },
+  neon: {
+    instagram: { url: "https://instagram.com/neonaistudio",  handle: "@neonaistudio" },
+    youtube:   { url: "https://youtube.com/@neonaistudio",   handle: "@neonaistudio" }
+  }
 };
 
-// Attach login button event
-const loginBtn = document.getElementById('googleLoginBtn');
-if (loginBtn) {
-    loginBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (typeof window.googleLogin === 'function') {
-            window.googleLogin();
-        } else {
-            alert("Google Login is being set up. Please try again.");
-        }
+const IS_TOUCH = matchMedia('(hover:none)').matches;
+const IS_MOBILE = innerWidth < 768;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const HAPTIC = (ms = 12) => { if (navigator.vibrate && IS_TOUCH) try{ navigator.vibrate(ms); }catch(e){} };
+
+/* =========================================================
+   1. PRELOADER
+   ========================================================= */
+(function () {
+  const fill = document.getElementById('progressFill');
+  const pct  = document.getElementById('loadingPercent');
+  const pre  = document.getElementById('preloader');
+  let progress = 0, done = false;
+
+  const paint = v => {
+    progress = Math.min(100, Math.max(0, v));
+    fill.style.width = progress + '%';
+    pct.textContent = Math.floor(progress) + '%';
+  };
+
+  const tick = setInterval(() => {
+    if (progress < 92) paint(progress + Math.random() * 11);
+  }, 150);
+
+  function finish() {
+    if (done) return;
+    done = true;
+    clearInterval(tick);
+    paint(100);
+    setTimeout(() => {
+      pre.classList.add('hide');
+      setTimeout(() => {
+        pre.style.display = 'none';
+        document.body.classList.add('loaded');
+        initReveal();
+        init3D();
+
+        // audio hint
+        const hint = document.createElement('div');
+        hint.className = 'audio-hint';
+        hint.innerHTML = '🔇 Video is muted — tap the speaker icon to hear it';
+        document.body.appendChild(hint);
+        setTimeout(() => {
+          hint.style.opacity = '0';
+          setTimeout(() => hint.remove(), 800);
+        }, 4500);
+      }, 700);
+    }, 260);
+  }
+
+  window.addEventListener('load', () => setTimeout(finish, 350));
+  setTimeout(finish, 6000);
+})();
+
+
+/* =========================================================
+   2. SOCIAL LINKS + long-press copy
+   ========================================================= */
+(function () {
+  document.querySelectorAll('.social-row').forEach(row => {
+    const brand = row.dataset.brand;
+    const type  = row.dataset.type;
+    const data  = SOCIALS[brand] && SOCIALS[brand][type];
+    if (!data) return;
+    row.href = data.url;
+    const h = row.querySelector('.handle');
+    if (h) h.textContent = data.handle;
+
+    // long-press / right-click copies handle
+    let pressTimer;
+    row.addEventListener('touchstart', () => {
+      pressTimer = setTimeout(() => {
+        copyText(data.handle, `Copied ${data.handle}`);
+        HAPTIC(25);
+      }, 550);
+    }, {passive:true});
+    ['touchend','touchmove','touchcancel'].forEach(ev =>
+      row.addEventListener(ev, () => clearTimeout(pressTimer), {passive:true})
+    );
+    row.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      copyText(data.handle, `Copied ${data.handle}`);
     });
+  });
+})();
+
+
+/* =========================================================
+   3. MOBILE MENU + swipe to close
+   ========================================================= */
+(function () {
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('nav-menu');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    toggle.classList.toggle('active');
+    HAPTIC(10);
+  });
+
+  menu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      menu.classList.remove('active');
+      toggle.classList.remove('active');
+    })
+  );
+
+  document.addEventListener('click', e => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.remove('active');
+      toggle.classList.remove('active');
+    }
+  });
+
+  // swipe-right to close menu
+  let sx = 0;
+  menu.addEventListener('touchstart', e => sx = e.touches[0].clientX, {passive:true});
+  menu.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (dx > 60) { menu.classList.remove('active'); toggle.classList.remove('active'); }
+  }, {passive:true});
+})();
+
+
+/* =========================================================
+   4. SCROLL REVEAL
+   ========================================================= */
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || REDUCED) {
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => io.observe(el));
 }
 
-// Fallback for any missing firebase.js file (ensure no broken script error)
-// Also make sure video plays nicely after any interaction
-document.addEventListener('click', function enableAudioContext() {
-    const videoEl = document.getElementById('heroVideo');
-    if (videoEl && videoEl.paused) {
-        videoEl.play().catch(e => console.log("play failed"));
-    }
-}, { once: true });
 
-// Fix for video autoplay policies: ensure video tries to play when user interacts anywhere
-document.body.addEventListener('touchstart', function() {
-    const vid = document.getElementById('heroVideo');
-    if (vid && vid.paused) vid.play().catch(()=>{});
-}, { once: true });
+/* =========================================================
+   5. TOAST + COPY
+   ========================================================= */
+function copyText(text, msg) {
+  const show = () => toast(msg || 'Copied!');
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(show).catch(fallback);
+  } else { fallback(); }
+  function fallback() {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); show(); } catch (e) {}
+    ta.remove();
+  }
+}
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
 
-// Additional robust video autoplay attempt on load complete
-window.addEventListener('load', () => {
-    const vid = document.getElementById('heroVideo');
-    if (vid) {
-        setTimeout(() => {
-            vid.play().catch(e => console.log("Auto-play blocked, click to play"));
-        }, 500);
-    }
+
+/* =========================================================
+   6. SCROLL PROGRESS + NAV SCROLL STATE
+   ========================================================= */
+(function () {
+  const fill = document.getElementById('spFill');
+  const nav  = document.getElementById('navBar');
+  let ticking = false;
+  const update = () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    const p = h > 0 ? (scrollY / h) * 100 : 0;
+    fill.style.width = p + '%';
+    nav.classList.toggle('scrolled', scrollY > 24);
+    ticking = false;
+  };
+  addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+
+/* =========================================================
+   7. SMOOTH ANCHOR
+   ========================================================= */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#' || id.length < 2) return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    const navH = document.querySelector('nav').offsetHeight;
+    const top = target.getBoundingClientRect().top + window.pageYOffset - navH - 12;
+    window.scrollTo({ top, behavior: REDUCED ? 'auto' : 'smooth' });
+  });
 });
 
-// Make sure preloader is always dismissible after extreme timeout (fallback)
-setTimeout(() => {
-    const preloaderElem = document.getElementById('preloader');
-    if (preloaderElem && preloaderElem.style.display !== 'none') {
-        preloaderElem.style.opacity = '0';
-        setTimeout(() => {
-            if(preloaderElem) preloaderElem.style.display = 'none';
-            document.body.classList.add('loaded');
-        }, 400);
-    }
-}, 8000);
-</script>
 
-<!-- Fallback for firebase.js if missing (ensures auth variable) -->
-<script>
-    // Wait to ensure auth is defined
-    setTimeout(() => {
-        if (typeof auth === 'undefined' || !auth) {
-            if (typeof firebase !== 'undefined' && firebase.auth) {
-                auth = firebase.auth();
-            } else {
-                console.warn("Firebase auth not available - login will be disabled");
-                window.googleLogin = function() {
-                    alert("Firebase not configured. Please add valid Firebase config.");
-                };
-            }
-        }
-    }, 200);
+/* =========================================================
+   8. 3D BACKGROUND — THREE.JS
+   ========================================================= */
+let bgReady = false;
+function init3D() {
+  if (REDUCED || typeof THREE === 'undefined' || bgReady) return;
+  const canvas = document.getElementById('bg3d');
+  if (!canvas) return;
+  bgReady = true;
+
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias: !IS_MOBILE, powerPreference:'high-performance' });
+  } catch(e) { console.warn('WebGL unavailable', e); return; }
+
+  const DPR = Math.min(devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
+  renderer.setPixelRatio(DPR);
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.setClearColor(0x000000, 0);
+
+  const scene  = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(62, innerWidth/innerHeight, 0.1, 1000);
+  camera.position.z = 48;
+
+  /* ---------- Particle field ---------- */
+  const COUNT = IS_MOBILE ? 650 : 1600;
+  const positions = new Float32Array(COUNT * 3);
+  const colors    = new Float32Array(COUNT * 3);
+  const sizes     = new Float32Array(COUNT);
+
+  const palette = [
+    new THREE.Color('#a855f7'),
+    new THREE.Color('#22d3ee'),
+    new THREE.Color('#ff2bd6'),
+    new THREE.Color('#00eaff')
+  ];
+
+  const spread = 90;
+  for (let i = 0; i < COUNT; i++) {
+    const i3 = i * 3;
+    positions[i3]     = (Math.random() - 0.5) * spread * 2.2;
+    positions[i3 + 1] = (Math.random() - 0.5) * spread * 1.6;
+    positions[i3 + 2] = (Math.random() - 0.5) * spread;
+
+    const c = palette[(Math.random() * palette.length) | 0];
+    colors[i3]     = c.r;
+    colors[i3 + 1] = c.g;
+    colors[i3 + 2] = c.b;
+
+    sizes[i] = Math.random() * 1.6 + 0.5;
+  }
+
+  const pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  pGeo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+  pGeo.setAttribute('size',     new THREE.BufferAttribute(sizes, 1));
+
+  // round point shader
+  const pMat = new THREE.ShaderMaterial({
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    vertexColors: true,
+    uniforms: { uTime: { value: 0 }, uPixelRatio: { value: DPR } },
+    vertexShader: `
+      attribute float size;
+      varying vec3 vColor;
+      uniform float uTime;
+      uniform float uPixelRatio;
+      void main(){
+        vColor = color;
+        vec3 p = position;
+        p.y += sin(uTime * 0.5 + position.x * 0.08) * 1.2;
+        p.x += cos(uTime * 0.35 + position.z * 0.08) * 1.0;
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_PointSize = size * uPixelRatio * (240.0 / -mv.z);
+        gl_Position = projectionMatrix * mv;
+      }
+    `,
+    fragmentShader: `
+      varying vec3 vColor;
+      void main(){
+        float d = length(gl_PointCoord - vec2(0.5));
+        if (d > 0.5) discard;
+        float a = smoothstep(0.5, 0.0, d);
+        gl_FragColor = vec4(vColor, a * 0.9);
+      }
+    `
+  });
+
+  const points = new THREE.Points(pGeo, pMat);
+  scene.add(points);
+
+  /* ---------- Wireframe geometry layers ---------- */
+  const wireMat1 = new THREE.MeshBasicMaterial({
+    color: 0xa855f7, wireframe: true, transparent: true, opacity: 0.14
+  });
+  const ico = new THREE.Mesh(new THREE.IcosahedronGeometry(9, 1), wireMat1);
+  ico.position.set(-26, 6, -18);
+  scene.add(ico);
+
+  const wireMat2 = new THREE.MeshBasicMaterial({
+    color: 0x22d3ee, wireframe: true, transparent: true, opacity: 0.12
+  });
+  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(5, 1.5, 70, 10), wireMat2);
+  knot.position.set(28, -8, -22);
+  scene.add(knot);
+
+  const wireMat3 = new THREE.MeshBasicMaterial({
+    color: 0xff2bd6, wireframe: true, transparent: true, opacity: 0.09
+  });
+  const octa = new THREE.Mesh(new THREE.OctahedronGeometry(6, 0), wireMat3);
+  octa.position.set(6, 16, -30);
+  scene.add(octa);
+
+  /* ---------- Pointer parallax ---------- */
+  const target = { x: 0, y: 0 };
+  const current = { x: 0, y: 0 };
+
+  const setPointer = (x, y) => {
+    target.x = (x / innerWidth  - 0.5) * 2;
+    target.y = (y / innerHeight - 0.5) * 2;
+  };
+
+  addEventListener('mousemove', e => setPointer(e.clientX, e.clientY), {passive:true});
+  addEventListener('touchmove', e => {
+    if (e.touches[0]) setPointer(e.touches[0].clientX, e.touches[0].clientY);
+  }, {passive:true});
+
+  // Device orientation parallax on mobile
+  if (IS_TOUCH && window.DeviceOrientationEvent) {
+    addEventListener('deviceorientation', e => {
+      if (e.gamma == null || e.beta == null) return;
+      target.x = Math.max(-1, Math.min(1, e.gamma / 35));
+      target.y = Math.max(-1, Math.min(1, (e.beta - 45) / 45));
+    }, {passive:true});
+  }
+
+  /* ---------- Resize ---------- */
+  let resizeTO;
+  addEventListener('resize', () => {
+    clearTimeout(resizeTO);
+    resizeTO = setTimeout(() => {
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    }, 120);
+  }, {passive:true});
+
+  /* ---------- Pause when hidden ---------- */
+  let running = true;
+  document.addEventListener('visibilitychange', () => {
+    running = !document.hidden;
+    if (running) loop();
+  });
+
+  /* ---------- Animate ---------- */
+  const clock = new THREE.Clock();
+  function loop() {
+    if (!running) return;
+    requestAnimationFrame(loop);
+
+    const t = clock.getElapsedTime();
+
+    // easing for smooth parallax
+    current.x += (target.x - current.x) * 0.05;
+    current.y += (target.y - current.y) * 0.05;
+
+    pMat.uniforms.uTime.value = t;
+
+    points.rotation.y = t * 0.035 + current.x * 0.25;
+    points.rotation.x = current.y * 0.12;
+
+    ico.rotation.x   = t * 0.16;
+    ico.rotation.y   = t * 0.22 + current.x * 0.4;
+    ico.position.y   = 6 + Math.sin(t * 0.6) * 1.6;
+
+    knot.rotation.x  = t * 0.22;
+    knot.rotation.y  = -t * 0.18 + current.x * 0.35;
+    knot.position.y  = -8 + Math.cos(t * 0.5) * 1.8;
+
+    octa.rotation.x  = -t * 0.2;
+    octa.rotation.z  = t * 0.14;
+    octa.position.y  = 16 + Math.sin(t * 0.45 + 1) * 2;
+
+    camera.position.x += (current.x * 5 - camera.position.x) * 0.04;
+    camera.position.y += (-current.y * 4 - camera.position.y) * 0.04;
+    camera.lookAt(0, 0, 0);
+
+    renderer.render(scene, camera);
+  }
+  loop();
+}
+
+
+/* =========================================================
+   9. CURSOR GLOW (desktop)
+   ========================================================= */
+(function () {
+  const glow = document.getElementById('cursorGlow');
+  if (!glow || IS_TOUCH || REDUCED) return;
+  let gx = innerWidth/2, gy = innerHeight/2, cx = gx, cy = gy;
+
+  addEventListener('mousemove', e => { gx = e.clientX; gy = e.clientY; }, {passive:true});
+
+  (function animate() {
+    requestAnimationFrame(animate);
+    cx += (gx - cx) * 0.12;
+    cy += (gy - cy) * 0.12;
+    glow.style.transform = `translate(${cx}px, ${cy}px) translate(-50%,-50%)`;
+  })();
+})();
+
+
+/* =========================================================
+   10. 3D TILT CARDS (pointer + touch)
+   ========================================================= */
+(function () {
+  if (REDUCED) return;
+  const cards = document.querySelectorAll('.tilt');
+
+  const reset = el => {
+    el.style.transform = '';
+    el.style.transition = 'transform .6s cubic-bezier(.2,.9,.3,1.2), border-color .3s, box-shadow .35s';
+  };
+
+  cards.forEach(card => {
+    let rect = null;
+    let raf = null;
+    let tx = 0, ty = 0, mx = 0, my = 0;
+
+    const enter = () => {
+      rect = card.getBoundingClientRect();
+      card.style.transition = 'transform .12s ease-out, border-color .3s, box-shadow .35s';
+    };
+
+    const move = (clientX, clientY) => {
+      if (!rect) rect = card.getBoundingClientRect();
+      mx = clientX; my = clientY;
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        const px = (mx - rect.left) / rect.width;   // 0..1
+        const py = (my - rect.top)  / rect.height;  // 0..1
+        const rx = (0.5 - py) * 14;   // rotateX
+        const ry = (px - 0.5) * 16;   // rotateY
+        tx = px * 100; ty = py * 100;
+        card.style.transform =
+          `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px)`;
+        // dynamic glow follow
+        card.style.background =
+          `radial-gradient(600px circle at ${tx}% ${ty}%, rgba(34,211,238,.10), transparent 45%), rgba(255,255,255,.03)`;
+      });
+    };
+
+    const leave = () => { rect = null; reset(card); };
+
+    // pointer events (mouse + pen + touch via pointer events)
+    card.addEventListener('pointerenter', enter);
+    card.addEventListener('pointermove', e => {
+      if (e.pointerType === 'touch') return; // handled separately
+      move(e.clientX, e.clientY);
+    });
+    card.addEventListener('pointerleave', leave);
+
+    // touch support (no hover): tilt while dragging finger
+    card.addEventListener('touchstart', e => {
+      enter();
+      if (e.touches[0]) move(e.touches[0].clientX, e.touches[0].clientY);
+    }, {passive:true});
+    card.addEventListener('touchmove', e => {
+      if (e.touches[0]) move(e.touches[0].clientX, e.touches[0].clientY);
+    }, {passive:true});
+    card.addEventListener('touchend', leave, {passive:true});
+    card.addEventListener('touchcancel', leave, {passive:true});
+  });
+})();
+
+
+/* =========================================================
+   11. HERO PARALLAX LAYERS (pointer + gyro)
+   ========================================================= */
+(function () {
+  if (REDUCED) return;
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+  const layers = [...hero.querySelectorAll('[data-depth]')];
+  if (!layers.length) return;
+
+  let tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+
+  const set = (x, y) => {
+    tx = (x / innerWidth  - 0.5) * 2;
+    ty = (y / innerHeight - 0.5) * 2;
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = null;
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      layers.forEach(el => {
+        const d = parseFloat(el.dataset.depth) || 10;
+        el.style.transform =
+          `translate3d(${-cx * d}px, ${-cy * d}px, 0)`;
+      });
+    });
+  };
+
+  addEventListener('mousemove', e => set(e.clientX, e.clientY), {passive:true});
+  addEventListener('touchmove', e => {
+    if (e.touches[0]) set(e.touches[0].clientX, e.touches[0].clientY);
+  }, {passive:true});
+
+  // gyro tilt on mobile
+  if (IS_TOUCH && window.DeviceOrientationEvent) {
+    addEventListener('deviceorientation', e => {
+      if (e.gamma == null || e.beta == null) return;
+      const x = innerWidth/2  + (e.gamma / 40) * (innerWidth/2);
+      const y = innerHeight/2 + ((e.beta - 45) / 40) * (innerHeight/2);
+      set(x, y);
+    }, {passive:true});
+  }
+})();
+
+
+/* =========================================================
+   12. VIDEO 3D TILT (subtle)
+   ========================================================= */
+(function () {
+  if (REDUCED) return;
+  const box = document.getElementById('videoBox');
+  if (!box) return;
+
+  const onMove = (x, y) => {
+    const r = box.getBoundingClientRect();
+    const px = (x - r.left) / r.width  - 0.5;
+    const py = (y - r.top)  / r.height - 0.5;
+    box.style.transform =
+      `perspective(1200px) rotateX(${ -py * 6 }deg) rotateY(${ px * 8 }deg) scale(1.01)`;
+  };
+  const onLeave = () => { box.style.transform = ''; };
+
+  addEventListener('mousemove', e => {
+    const r = box.getBoundingClientRect();
+    if (e.clientY > r.top - 200 && e.clientY < r.bottom + 200) {
+      onMove(e.clientX, e.clientY);
+    }
+  }, {passive:true});
+  box.addEventListener('mouseleave', onLeave);
+})();
+
+
+/* =========================================================
+   13. RIPPLE EFFECT (buttons + links)
+   ========================================================= */
+(function () {
+  document.addEventListener('pointerdown', e => {
+    const el = e.target.closest('.ripple-target, .btn-primary, .pc-cta, .cta a, .btn-a, .login-btn');
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    // ensure positioned
+    const cs = getComputedStyle(el);
+    if (cs.position === 'static') el.style.position = 'relative';
+    if (cs.overflow !== 'hidden') el.style.overflow = 'hidden';
+
+    const rip = document.createElement('span');
+    rip.className = 'ripple';
+    const size = Math.max(r.width, r.height);
+    rip.style.width = rip.style.height = size + 'px';
+    rip.style.marginLeft = rip.style.marginTop = (-size/2) + 'px';
+    rip.style.left = (e.clientX - r.left) + 'px';
+    rip.style.top  = (e.clientY - r.top)  + 'px';
+    el.appendChild(rip);
+    setTimeout(() => rip.remove(), 720);
+    HAPTIC(8);
+  }, {passive:true});
+})();
+
+
+/* =========================================================
+   14. FIREBASE (safe init)
+   ========================================================= */
+let auth = null;
+if (typeof firebase !== 'undefined' && firebase.auth && !firebase.apps.length) {
+  const firebaseConfig = {
+    apiKey: "AIzaSyDummyKeyForDemoOnlyReplaceWithYourOwn",
+    authDomain: "neon-ai-studio.firebaseapp.com",
+    projectId: "neon-ai-studio",
+    storageBucket: "neon-ai-studio.appspot.com",
+    messagingSenderId: "123456789012",
+    appId: "1:123456789012:web:abcdef123456"
+  };
+  try { firebase.initializeApp(firebaseConfig); } catch(e) {}
+}
+if (typeof firebase !== 'undefined' && firebase.auth) auth = firebase.auth();
+
+window.googleLogin = function () {
+  if (!auth) {
+    alert("Firebase Auth not configured. Please add a valid Firebase config in the code.");
+    return;
+  }
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider)
+    .then(r => { toast("Welcome " + r.user.displayName + "!"); })
+    .catch(err => {
+      console.error(err);
+      toast("Login error: " + err.message);
+    });
+};
+const loginBtn = document.getElementById('googleLoginBtn');
+if (loginBtn) {
+  loginBtn.addEventListener('click', e => {
+    e.preventDefault();
+    window.googleLogin();
+  });
+}
+
+
+/* =========================================================
+   15. PURCHASE FLOW
+   ========================================================= */
+const state = { duration: null, price: 0 };
+const els = {
+  createModal: document.getElementById('createModal'),
+  payModal:    document.getElementById('payModal'),
+  procModal:   document.getElementById('procModal'),
+  durGrid:     document.getElementById('durGrid'),
+  proceedBtn:  document.getElementById('proceedBtn'),
+  sumAmt:      document.getElementById('sumAmt'),
+  sumLine:     document.getElementById('sumLine'),
+  durHint:     document.getElementById('durHint'),
+  payPlanName: document.getElementById('payPlanName'),
+  payAmt:      document.getElementById('payAmt'),
+  payBtnAmt:   document.getElementById('payBtnAmt'),
+  payNowBtn:   document.getElementById('payNowBtn'),
+  cube:        document.getElementById('cube'),
+  procStatus:  document.getElementById('procStatus'),
+  procSub:     document.getElementById('procSub'),
+  procFill:    document.getElementById('procFill'),
+  procPct:     document.getElementById('procPct'),
+  procView:    document.getElementById('procView'),
+  successView: document.getElementById('successView')
+};
+
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  HAPTIC(10);
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  if (!document.querySelector('.modal-overlay.open')) document.body.style.overflow = '';
+}
+document.querySelectorAll('[data-close]').forEach(btn => {
+  btn.addEventListener('click', () => closeModal(btn.dataset.close));
+});
+document.querySelectorAll('.modal-overlay').forEach(ov => {
+  ov.addEventListener('click', e => { if (e.target === ov) closeModal(ov.id); });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(o => closeModal(o.id));
+  }
+});
+
+/* Pricing button click */
+document.querySelectorAll('.pc-cta').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const plan = btn.dataset.plan;
+    state.duration = null; state.price = 0;
+    document.querySelectorAll('.dur-btn').forEach(b => b.classList.remove('sel'));
+    els.proceedBtn.disabled = true;
+    els.proceedBtn.innerHTML = '<i class="fas fa-arrow-right"></i> Proceed';
+    els.sumAmt.textContent = '₹0';
+    els.sumLine.textContent = 'No duration selected';
+    els.durHint.textContent = 'Select one option';
+
+    if (plan === '30' || plan === '60') {
+      const target = document.querySelector(`.dur-btn[data-dur="${plan}"]`);
+      if (target) target.click();
+    }
+    openModal('createModal');
+  });
+});
+
+/* Duration click */
+els.durGrid.addEventListener('click', e => {
+  const btn = e.target.closest('.dur-btn');
+  if (!btn) return;
+
+  document.querySelectorAll('.dur-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+
+  state.duration = btn.dataset.dur;
+  state.price = parseInt(btn.dataset.price, 10);
+
+  if (state.duration === 'custom') {
+    els.sumAmt.textContent = '₹—';
+    els.sumLine.textContent = 'Custom plan — contact for quote';
+    els.durHint.textContent = 'Custom';
+    els.proceedBtn.disabled = false;
+    els.proceedBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Contact Us';
+  } else {
+    els.sumAmt.textContent = '₹' + state.price;
+    els.sumLine.textContent = state.duration + ' Sec Cinematic Video';
+    els.durHint.textContent = state.duration + ' sec selected';
+    els.proceedBtn.disabled = false;
+    els.proceedBtn.innerHTML = '<i class="fas fa-arrow-right"></i> Proceed';
+  }
+  HAPTIC(8);
+});
+
+/* Proceed → Payment */
+els.proceedBtn.addEventListener('click', () => {
+  if (state.duration === 'custom') {
+    window.open('https://wa.me/917038821854', '_blank');
+    return;
+  }
+  if (!state.duration) return;
+
+  els.payPlanName.textContent = state.duration + ' Sec Cinematic';
+  els.payAmt.textContent = '₹' + state.price;
+  els.payBtnAmt.textContent = '₹' + state.price;
+
+  closeModal('createModal');
+  openModal('payModal');
+
+  document.getElementById('sd1').classList.add('done');
+  document.getElementById('sd2').classList.add('active');
+});
+
+/* Pay Now → 3D Processing */
+els.payNowBtn.addEventListener('click', () => {
+  closeModal('payModal');
+  openModal('procModal');
+
+  els.procView.style.display = 'block';
+  els.successView.style.display = 'none';
+  els.cube.classList.remove('stopped');
+  els.procFill.style.width = '0%';
+  els.procPct.textContent = '0%';
+
+  runProcessing();
+});
+
+let procTimer = null;
+function runProcessing() {
+  clearInterval(procTimer);
+
+  const stages = [
+    { at: 0,   status: 'Initializing…',     sub: 'Preparing your project' },
+    { at: 15,  status: 'Uploading Images…', sub: 'Analyzing your assets' },
+    { at: 35,  status: 'AI Rendering…',     sub: 'Generating cinematic frames' },
+    { at: 55,  status: 'Applying VFX…',     sub: 'Adding transitions & effects' },
+    { at: 75,  status: 'Adding Voiceover…', sub: 'Syncing audio & music' },
+    { at: 90,  status: 'Finalizing…',       sub: 'Almost done' },
+    { at: 100, status: 'Complete!',         sub: 'Your video is ready' }
+  ];
+
+  let p = 0;
+  procTimer = setInterval(() => {
+    p += Math.random() * 4 + 1.2;
+    if (p >= 100) p = 100;
+
+    els.procFill.style.width = p + '%';
+    els.procPct.textContent = Math.floor(p) + '%';
+
+    const stage = stages.slice().reverse().find(s => p >= s.at);
+    if (stage) {
+      els.procStatus.textContent = stage.status;
+      els.procSub.textContent = stage.sub;
+    }
+
+    if (p >= 100) {
+      clearInterval(procTimer);
+      els.cube.classList.add('stopped');
+      HAPTIC([20,40,20]);
+      setTimeout(() => {
+        els.procView.style.display = 'none';
+        els.successView.style.display = 'block';
+      }, 700);
+    }
+  }, 180);
+}
+
+document.getElementById('tryAgainBtn').addEventListener('click', () => {
+  closeModal('procModal');
+  els.procView.style.display = 'block';
+  els.successView.style.display = 'none';
+});
+
+/* Card inputs auto-format */
+document.querySelectorAll('input[maxlength="19"]').forEach(inp => {
+  inp.addEventListener('input', e => {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 16);
+    e.target.value = v.replace(/(.{4})/g, '$1 ').trim();
+  });
+});
+document.querySelectorAll('input[maxlength="5"]').forEach(inp => {
+  inp.addEventListener('input', e => {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 4);
+    if (v.length >= 3) v = v.slice(0, 2) + '/' + v.slice(2);
+    e.target.value = v;
+  });
+});
+document.querySelectorAll('input[maxlength="4"]').forEach(inp => {
+  inp.addEventListener('input', e => {
+    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+  });
+});
 </script>
 </body>
 </html>
