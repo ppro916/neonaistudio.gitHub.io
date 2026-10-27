@@ -1,0 +1,179 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://neonaistudio.in/#business",
+  "name": "AI Nexus × Neon AI Studio",
+  "alternateName": [
+    "AI Nexus",
+    "Neon AI Studio"
+  ],
+  "slogan": "Ideas into Impact",
+  "url": "https://neonaistudio.in/",
+  "logo": "https://neonaistudio.in/neonfevocon.png",
+  "image": "https://neonaistudio.in/og-image.jpg",
+  "telephone": "+91 9226520552",
+  "email": "moreshwar1234bhonde@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Moreshwar R. Bhonde"
+  },
+  "knowsLanguage": [
+    "en",
+    "mr",
+    "hi"
+  ],
+  "sameAs": [
+    "https://instagram.com/ai.nexus07"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Cinematic Video Creation"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Professional Advertisement Creation"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Graphics & Banner Designing"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Invitation Card Design"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Web Development"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Custom Software Development"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Promotional Call Automation"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "3D Modeling"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Logo Design & Brand Identity Kits"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Visiting Cards, Letterheads & Brochures"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "YouTube Thumbnails & Channel Art"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Wedding Invitation Videos & Save-the-Date Reels"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AI Product Photography"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Restaurant Digital Menus & QR Menu Cards"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Political & Election Campaign Creatives"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Real-Estate Walkthrough Videos & 3D Floor Plans"
+      }
+    }
+  ],
+  "knowsAbout": [
+    "Cinematic video production",
+    "Advertisement creation",
+    "AI video ads and reels",
+    "VFX editing",
+    "Graphic design",
+    "Banner design",
+    "Photo editing",
+    "Invitation cards",
+    "Social media posts",
+    "Logo design",
+    "Brand identity",
+    "Visiting cards and brochures",
+    "YouTube thumbnails",
+    "Wedding invitation videos",
+    "AI product photography",
+    "Restaurant QR menus",
+    "Political campaign creatives",
+    "Real-estate walkthrough videos",
+    "3D floor plans",
+    "3D modeling",
+    "Web development",
+    "Custom software development",
+    "Promotional call automation",
+    "WhatsApp automation",
+    "AI chatbots",
+    "Lead generation"
+  ]
+}

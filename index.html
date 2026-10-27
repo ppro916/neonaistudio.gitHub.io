@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#05050a">
+<meta name="theme-color" content="#04060C">
+<meta name="color-scheme" content="dark">
 <title>AI Nexus × Neon AI Studio | Cinematic Videos, Ads, Design &amp; Web – Ideas into Impact</title>
-<meta name="description" content="AI Nexus × Neon AI Studio – your creative partner in Maharashtra, India. Cinematic videos, AI video ads &amp; reels, logos &amp; branding, banners, invitation cards, wedding videos, photo editing, 3D modeling, websites, custom software and call/WhatsApp automation. Call 9226520552.">
+<meta name="description" content="AI Nexus × Neon AI Studio – your creative partner in Maharashtra, India. Cinematic videos, AI video ads &amp; reels, logos &amp; branding, banners, invitation cards, wedding videos, photo editing, 3D modeling, websites, custom software and call/WhatsApp automation. Video plans from ₹599. Call 9226520552.">
 <link rel="canonical" href="https://neonaistudio.in/">
 <meta name="author" content="Moreshwar R. Bhonde">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
-<!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Nexus × Neon AI Studio">
 <meta property="og:locale" content="en_IN">
@@ -26,17 +26,17 @@
 <meta name="twitter:description" content="Cinematic videos, ads, graphics, 3D, websites &amp; automation. Your creative partner.">
 <meta name="twitter:image" content="https://neonaistudio.in/og-image.jpg">
 
-<link rel="icon" type="image/png" href="neonfevocon.png">
-<link rel="apple-touch-icon" href="neonfevocon.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-<!-- Fonts: non-blocking load, display=swap -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/orbitron.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter.woff2" crossorigin>
 <link rel="preconnect" href="https://i.ytimg.com">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;900&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@700;900&display=swap"></noscript>
-<link rel="preload" as="image" href="https://i.ytimg.com/vi/XQsW4P6z_So/hqdefault.jpg">
+<link rel="dns-prefetch" href="https://cdn.babylonjs.com">
+
+<link rel="stylesheet" href="src/styles/tokens.css">
+<link rel="stylesheet" href="src/styles/typography.css">
+<link rel="stylesheet" href="src/styles/layout.css">
+<link rel="stylesheet" href="src/styles/components.css">
 
 <script type="application/ld+json">
 {
@@ -44,257 +44,219 @@
   "@type": "LocalBusiness",
   "@id": "https://neonaistudio.in/#business",
   "name": "AI Nexus × Neon AI Studio",
-  "alternateName": ["AI Nexus", "Neon AI Studio"],
+  "alternateName": [
+    "AI Nexus",
+    "Neon AI Studio"
+  ],
   "slogan": "Ideas into Impact",
   "url": "https://neonaistudio.in/",
   "logo": "https://neonaistudio.in/neonfevocon.png",
   "image": "https://neonaistudio.in/og-image.jpg",
   "telephone": "+91 9226520552",
   "email": "moreshwar1234bhonde@gmail.com",
-  "address": { "@type": "PostalAddress", "addressRegion": "Maharashtra", "addressCountry": "IN" },
-  "areaServed": { "@type": "Country", "name": "India" },
-  "founder": { "@type": "Person", "name": "Moreshwar R. Bhonde" },
-  "knowsLanguage": ["en", "mr", "hi"],
-  "sameAs": ["https://instagram.com/ai.nexus07"],
-  "makesOffer": [
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cinematic Video Creation"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Professional Advertisement Creation"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Graphics & Banner Designing"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Invitation Card Design"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web Development"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Software Development"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Promotional Call Automation"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"3D Modeling"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Logo Design & Brand Identity Kits"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Visiting Cards, Letterheads & Brochures"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"YouTube Thumbnails & Channel Art"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Wedding Invitation Videos & Save-the-Date Reels"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Product Photography"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Restaurant Digital Menus & QR Menu Cards"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Political & Election Campaign Creatives"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Real-Estate Walkthrough Videos & 3D Floor Plans"}}
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Moreshwar R. Bhonde"
+  },
+  "knowsLanguage": [
+    "en",
+    "mr",
+    "hi"
   ],
-  "knowsAbout": ["Cinematic video production","Advertisement creation","AI video ads and reels","VFX editing","Graphic design","Banner design","Photo editing","Invitation cards","Social media posts","Logo design","Brand identity","Visiting cards and brochures","YouTube thumbnails","Wedding invitation videos","AI product photography","Restaurant QR menus","Political campaign creatives","Real-estate walkthrough videos","3D floor plans","3D modeling","Web development","Custom software development","Promotional call automation","WhatsApp automation","AI chatbots","Lead generation"]
+  "sameAs": [
+    "https://instagram.com/ai.nexus07"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Cinematic Video Creation"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Professional Advertisement Creation"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Graphics & Banner Designing"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Invitation Card Design"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Web Development"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Custom Software Development"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Promotional Call Automation"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "3D Modeling"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Logo Design & Brand Identity Kits"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Visiting Cards, Letterheads & Brochures"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "YouTube Thumbnails & Channel Art"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Wedding Invitation Videos & Save-the-Date Reels"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AI Product Photography"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Restaurant Digital Menus & QR Menu Cards"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Political & Election Campaign Creatives"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Real-Estate Walkthrough Videos & 3D Floor Plans"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "STANDARD – Up to 30 / 32 sec – ₹599 / video",
+      "price": "599",
+      "priceCurrency": "INR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": 599,
+        "priceCurrency": "INR",
+        "unitText": "video"
+      },
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Video Plan – STANDARD (Up to 30 / 32 sec)"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "PREMIUM – Up to 60 / 65 sec – ₹1019 / video",
+      "price": "1019",
+      "priceCurrency": "INR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": 1019,
+        "priceCurrency": "INR",
+        "unitText": "video"
+      },
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Video Plan – PREMIUM (Up to 60 / 65 sec)"
+      }
+    }
+  ],
+  "knowsAbout": [
+    "Cinematic video production",
+    "Advertisement creation",
+    "AI video ads and reels",
+    "VFX editing",
+    "Graphic design",
+    "Banner design",
+    "Photo editing",
+    "Invitation cards",
+    "Social media posts",
+    "Logo design",
+    "Brand identity",
+    "Visiting cards and brochures",
+    "YouTube thumbnails",
+    "Wedding invitation videos",
+    "AI product photography",
+    "Restaurant QR menus",
+    "Political campaign creatives",
+    "Real-estate walkthrough videos",
+    "3D floor plans",
+    "3D modeling",
+    "Web development",
+    "Custom software development",
+    "Promotional call automation",
+    "WhatsApp automation",
+    "AI chatbots",
+    "Lead generation"
+  ]
 }
 </script>
-
-<style>
-:root{
-  --p:#a855f7; --c:#22d3ee; --c2:#00eaff; --k:#ff2bd6; --wa:#25D366;
-  --bg:#05050a; --card:rgba(255,255,255,.045); --line:rgba(255,255,255,.1);
-  --txt:#f4f4fb; --mut:#b9b9cc;
-  --sat:env(safe-area-inset-top,0px); --sab:env(safe-area-inset-bottom,0px);
-  --sal:env(safe-area-inset-left,0px); --sar:env(safe-area-inset-right,0px);
-  --head:'Orbitron',ui-sans-serif,system-ui,sans-serif;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
-body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans Devanagari',sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden;min-height:100dvh;-webkit-tap-highlight-color:transparent}
-@supports (overflow:clip){body{overflow-x:clip}}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(900px 500px at 15% -10%,rgba(168,85,247,.16),transparent 60%),
-             radial-gradient(800px 500px at 100% 20%,rgba(34,211,238,.11),transparent 60%),
-             radial-gradient(700px 500px at 50% 110%,rgba(255,43,214,.09),transparent 60%)}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--c2);outline-offset:3px;border-radius:8px}
-.skip{position:absolute;left:-999px;top:8px;z-index:200;background:#fff;color:#000;padding:10px 16px;border-radius:8px}
-.skip:focus{left:12px}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-#bg3d{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55}
-.wrap{position:relative;z-index:1;width:min(1180px,100%);margin:0 auto;padding-left:calc(18px + var(--sal));padding-right:calc(18px + var(--sar))}
-.grad{background:linear-gradient(90deg,var(--p),var(--c2),var(--k));-webkit-background-clip:text;background-clip:text;color:transparent}
-.icon{width:1.15em;height:1.15em;fill:currentColor;flex:none}
-
-/* cursor glow + progress */
-.cursor-glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:1;left:0;top:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(168,85,247,.16),transparent 65%);opacity:0;transition:opacity .3s}
-.scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120}
-.scroll-progress i{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--p),var(--c2),var(--k));box-shadow:0 0 12px var(--c2)}
-
-/* preloader */
-#preloader{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:var(--bg);transition:opacity .45s,visibility .45s;text-align:center;padding:20px}
-#preloader.done{opacity:0;visibility:hidden}
-.spin{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;border:3px solid rgba(255,255,255,.08);border-top-color:var(--c2);border-right-color:var(--p);animation:rot 1s linear infinite;box-shadow:0 0 24px rgba(0,234,255,.35)}
-@keyframes rot{to{transform:rotate(360deg)}}
-.pl-brand{font-family:var(--head);font-weight:900;letter-spacing:.12em;font-size:.95rem}
-.pl-dev{font-size:.8rem;color:var(--mut);margin-top:8px}
-.pl-bar{width:220px;height:4px;border-radius:4px;background:rgba(255,255,255,.08);margin:16px auto 6px;overflow:hidden}
-.pl-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--p),var(--c2));transition:width .15s}
-.pl-pct{font-family:var(--head);font-size:.8rem;color:var(--c2)}
-
-/* nav */
-.nav{position:sticky;top:0;z-index:100;padding-top:var(--sat);background:rgba(8,8,16,.62);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
-.logo{font-family:var(--head);font-weight:900;font-size:.92rem;letter-spacing:.06em;text-decoration:none;display:flex;align-items:center;gap:8px;min-height:44px;white-space:nowrap}
-.logo .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--p),var(--c2));box-shadow:0 0 16px rgba(168,85,247,.6);color:#05050a;font-size:16px}
-.logo .x{color:var(--k)}
-.menu{display:flex;gap:4px;list-style:none;align-items:center}
-.menu a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:12px;text-decoration:none;color:#dcdcf0;font-weight:600;font-size:.93rem;transition:background .2s,color .2s}
-.menu a:hover{background:rgba(255,255,255,.07);color:#fff}
-.menu .nav-call{background:linear-gradient(135deg,var(--p),#7c3aed);color:#fff;gap:8px;margin-left:6px}
-.burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:#fff;cursor:pointer;place-items:center}
-.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative;transition:transform .25s,background .25s}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0}
-.burger span::before{top:-6px}.burger span::after{top:6px}
-.burger[aria-expanded="true"] span{background:transparent}
-.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
-.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
-@media (max-width:900px){
-  .burger{display:grid}
-  .menu{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:2px;padding:10px calc(14px + var(--sar)) 16px calc(14px + var(--sal));background:rgba(8,8,16,.97);border-bottom:1px solid var(--line);display:none}
-  .menu.open{display:flex}
-  .menu a{min-height:48px;font-size:1rem}
-  .menu .nav-call{margin:6px 0 0;justify-content:center}
-}
-@media (max-width:380px){.logo{font-size:.78rem}.logo .dot{width:26px;height:26px}}
-
-/* buttons */
-.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:12px 24px;border-radius:999px;font-weight:700;font-size:.97rem;text-decoration:none;border:0;cursor:pointer;color:#fff;transition:transform .2s,box-shadow .2s;font-family:inherit}
-.btn:hover{transform:translateY(-2px)}
-.btn-p{background:linear-gradient(135deg,var(--p),#7c3aed 60%,var(--k));box-shadow:0 8px 28px rgba(168,85,247,.38)}
-.btn-wa{background:var(--wa);color:#04210f;box-shadow:0 8px 26px rgba(37,211,102,.3)}
-.btn-o{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18)}
-.ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.45);animation:rip .6s ease-out;pointer-events:none}
-@keyframes rip{to{transform:scale(4);opacity:0}}
-
-/* hero */
-.hero{position:relative;padding:56px 0 40px;text-align:center;overflow:hidden}
-.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.45;pointer-events:none;animation:float 12s ease-in-out infinite}
-.o1{width:300px;height:300px;background:var(--p);left:-80px;top:20px}
-.o2{width:260px;height:260px;background:var(--c);right:-70px;top:180px;animation-delay:-4s}
-.o3{width:220px;height:220px;background:var(--k);left:40%;bottom:-60px;animation-delay:-8s;opacity:.3}
-@keyframes float{50%{transform:translate(20px,-30px)}}
-.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid rgba(168,85,247,.45);background:rgba(168,85,247,.12);font-size:.85rem;font-weight:600;color:#e9d8ff}
-h1{font-family:var(--head);font-weight:900;line-height:1.08;margin:18px 0 10px;font-size:clamp(1.9rem,6.4vw,4.3rem);letter-spacing:.02em;text-shadow:0 0 30px rgba(168,85,247,.35)}
-h1 .a{display:block;background:linear-gradient(90deg,#c084fc,var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
-h1 .t{display:block;color:var(--k);font-size:.6em;margin:2px 0}
-h1 .b{display:block;background:linear-gradient(90deg,var(--c2),#fff,var(--k));-webkit-background-clip:text;background-clip:text;color:transparent}
-.tagline{font-family:var(--head);font-weight:700;font-size:clamp(1rem,2.6vw,1.45rem);letter-spacing:.18em;text-transform:uppercase;color:var(--c2);text-shadow:0 0 18px rgba(0,234,255,.5)}
-.sub{max-width:720px;margin:14px auto 0;color:var(--mut);font-size:1.03rem}
-.sub-mr{margin-top:6px;color:#e3d5ff;font-weight:500}
-.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0 34px}
-
-/* video facade */
-.vframe{position:relative;max-width:900px;margin:0 auto;border-radius:22px;padding:2px;transform-style:preserve-3d;transition:transform .25s ease-out}
-.vframe::before{content:"";position:absolute;inset:0;border-radius:22px;padding:2px;background:conic-gradient(from var(--ang,0deg),var(--p),var(--c2),var(--k),var(--p));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinb 6s linear infinite;filter:drop-shadow(0 0 10px rgba(0,234,255,.5))}
-@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
-@keyframes spinb{to{--ang:360deg}}
-.vbox{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#000}
-.vbox iframe,.vbox button,.vbox img{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vbox img{object-fit:cover}
-.vbox button{background:transparent;cursor:pointer;display:grid;place-items:center;color:#fff}
-.vbox button::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.6))}
-.play{position:relative;z-index:1;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:rgba(168,85,247,.85);box-shadow:0 0 0 10px rgba(168,85,247,.25),0 0 40px rgba(0,234,255,.6);transition:transform .2s}
-.vbox button:hover .play{transform:scale(1.08)}
-.vlabel{position:absolute;z-index:1;left:16px;bottom:12px;font-weight:700;font-size:.9rem;text-align:left}
-
-/* sections */
-section{position:relative;z-index:1}
-.sec{padding:64px 0}
-.sh{text-align:center;margin-bottom:30px}
-h2{font-family:var(--head);font-weight:900;font-size:clamp(1.35rem,3.6vw,2.2rem);letter-spacing:.03em;line-height:1.2}
-.sh p{color:var(--mut);margin-top:8px}
-.why ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:900px;margin:0 auto}
-.why li{padding:10px 18px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:600;font-size:.95rem}
-
-/* about banner */
-.about{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center}
-.poster{border-radius:20px;overflow:hidden;border:1px solid rgba(168,85,247,.4);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(168,85,247,.2)}
-.about h2{text-align:left}
-.about p{color:var(--mut);margin-top:12px}
-.about .mr{color:#e3d5ff}
-.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-.stats span{padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:.88rem;font-weight:600}
-@media (max-width:860px){.about{grid-template-columns:1fr}.about h2{text-align:center}}
-
-/* services */
-.group{margin-top:36px}
-.group h3{font-family:var(--head);font-size:1.02rem;letter-spacing:.08em;margin-bottom:14px;display:flex;align-items:center;gap:10px;color:#e9d8ff}
-.group h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(168,85,247,.6),transparent)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.card{position:relative;border-radius:18px;padding:20px 18px 18px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);display:flex;flex-direction:column;gap:6px;transform-style:preserve-3d;transition:transform .2s ease-out,border-color .2s,box-shadow .2s}
-.card:hover{border-color:rgba(0,234,255,.5);box-shadow:0 0 30px rgba(0,234,255,.14)}
-.card .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,rgba(168,85,247,.35),rgba(0,234,255,.25));border:1px solid rgba(255,255,255,.12);margin-bottom:6px}
-.card h4{font-size:1.05rem;font-weight:700;line-height:1.3}
-.card .mr{font-size:.9rem;color:#d9c2ff;font-weight:600}
-.card p{color:var(--mut);font-size:.9rem;flex:1}
-.enq{align-self:flex-start;margin-top:10px;min-height:44px;padding:10px 16px;border-radius:999px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.5);color:#7ff0ab;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:background .2s}
-.enq:hover{background:rgba(37,211,102,.22)}
-
-/* quote */
-.quote{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:start}
-.qinfo h2{text-align:left}
-.qinfo p{color:var(--mut);margin-top:10px}
-.qinfo ul{list-style:none;margin-top:16px;display:grid;gap:8px}
-.qinfo li{display:flex;gap:10px;align-items:center}
-.qinfo a{text-decoration:none;font-weight:600;min-height:44px;display:inline-flex;align-items:center;gap:8px}
-.qinfo a:hover{color:var(--c2)}
-form.qf{border-radius:20px;padding:22px;background:rgba(12,12,24,.75);border:1px solid rgba(168,85,247,.35);box-shadow:0 0 40px rgba(168,85,247,.12);display:grid;gap:14px}
-.qf label{font-weight:600;font-size:.9rem;display:block;margin-bottom:6px}
-.qf input,.qf select,.qf textarea{width:100%;min-height:48px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:#fff;font:inherit;font-size:16px}
-.qf select option{background:#12121f;color:#fff}
-.qf textarea{min-height:110px;resize:vertical}
-.qf input:focus,.qf select:focus,.qf textarea:focus{outline:none;border-color:var(--c2);box-shadow:0 0 0 3px rgba(0,234,255,.25)}
-.qf .note{font-size:.8rem;color:var(--mut)}
-.qf .err{color:#ff8fb8;font-size:.85rem;min-height:1em}
-@media (max-width:860px){.quote{grid-template-columns:1fr}.qinfo h2{text-align:center}.qinfo>p{text-align:center}}
-
-/* socials */
-.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:900px;margin:0 auto}
-.soc{display:flex;align-items:center;gap:14px;padding:18px;border-radius:18px;text-decoration:none;background:var(--card);border:1px solid var(--line);min-height:76px;transition:transform .2s,border-color .2s}
-.soc:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.3)}
-.soc .si{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;flex:none}
-.soc .si .icon{width:24px;height:24px}
-.soc b{display:block}
-.soc small{color:var(--mut)}
-.si.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
-.si.yt{background:#ff0033}
-.si.wa{background:var(--wa);color:#04210f}
-
-/* cta strip */
-.strip{border-radius:24px;padding:40px 22px;text-align:center;background:linear-gradient(135deg,rgba(168,85,247,.22),rgba(0,234,255,.12),rgba(255,43,214,.18));border:1px solid rgba(255,255,255,.14)}
-.strip p{color:#e3e3f3;margin-top:10px}
-.strip .cta{margin:22px 0 0}
-
-/* footer */
-footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:36px 0 calc(100px + var(--sab));text-align:center;color:var(--mut);font-size:.92rem}
-footer .flinks{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin:12px 0}
-footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:7px;color:#dcdcf0}
-footer a:hover{color:var(--c2)}
-footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:.08em}
-
-/* floating WA */
-.fwa{position:fixed;z-index:90;right:calc(18px + var(--sar));bottom:calc(18px + var(--sab));width:60px;height:60px;border-radius:50%;background:var(--wa);color:#04210f;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.45)}
-.fwa .icon{width:30px;height:30px}
-.fwa::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);animation:ping 2s cubic-bezier(0,0,.2,1) infinite;z-index:-1}
-@keyframes ping{75%,100%{transform:scale(1.7);opacity:0}}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
-.reveal.in{opacity:1;transform:none}
-.no-js .reveal{opacity:1;transform:none}
-
-@media (max-width:600px){
-  .sec{padding:48px 0}
-  .hero{padding-top:36px}
-  .cta .btn{flex:1 1 100%;max-width:340px}
-  .play{width:68px;height:68px}
-  .grid{grid-template-columns:1fr}
-  form.qf{padding:18px}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .reveal{opacity:1;transform:none}
-  .cursor-glow{display:none}
-}
-</style>
+<script>document.documentElement.className='js'</script>
 </head>
-<body class="no-js">
-<script>document.body.classList.remove('no-js')</script>
+<body>
 <a href="#main" class="skip">Skip to content</a>
 
-<!-- SVG icon sprite -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5a.6.6 0 0 0 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.2-.6-.4zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.9L.1 24l6.3-1.6A11.8 11.8 0 0 0 23.8 12a11.7 11.7 0 0 0-3.4-8.4z"/></symbol>
   <symbol id="i-ph" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.6 3.6a1 1 0 0 1-.3 1z"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></symbol>
@@ -303,61 +265,64 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
   <symbol id="i-web" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4a14 14 0 0 1 1.9 4h-3.8A14 14 0 0 1 12 4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4zm.8 2h3a15.7 15.7 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.4-3.6A15.7 15.7 0 0 0 8.1 8zM12 20a14 14 0 0 1-1.9-4h3.8A14 14 0 0 1 12 20zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.3 5.6a15.7 15.7 0 0 0 1.4-3.6h3a8 8 0 0 1-4.4 3.6zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4z"/></symbol>
 </svg>
 
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-<div class="scroll-progress" aria-hidden="true"><i id="spFill"></i></div>
-<canvas id="bg3d" aria-hidden="true"></canvas>
+<!-- 3D world (decorative; aria-hidden) -->
+<canvas id="world" aria-hidden="true" tabindex="-1"></canvas>
 
-<!-- PRELOADER (max ~1.5s) -->
-<div id="preloader" role="status" aria-label="Loading">
-  <div>
-    <div class="spin" aria-hidden="true"></div>
-    <div class="pl-brand"><span class="grad">AI NEXUS × NEON AI STUDIO</span></div>
-    <div class="pl-dev">⚡ www.NeonAiStudio.in ⚡</div>
-    <div class="pl-dev">👨‍💻 Developer: Moreshwar R. Bhonde</div>
-    <div class="pl-bar" aria-hidden="true"><i id="plFill"></i></div>
-    <div class="pl-pct" id="plPct">0%</div>
-  </div>
-</div>
+<!-- custom cursor (desktop fine-pointer only; created hidden) -->
+<div class="cur-glow" id="curGlow" aria-hidden="true"></div>
+<div class="cur-ring" id="curRing" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
 
-<header class="nav">
-  <nav class="wrap" aria-label="Main">
-    <a href="#top" class="logo" aria-label="AI Nexus × Neon AI Studio – home"><span class="dot" aria-hidden="true">⚡</span><span>AI NEXUS <span class="x">×</span> <span class="grad">NEON</span></span></a>
-    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+<div class="sprog" aria-hidden="true"><i id="spFill"></i></div>
+
+<header class="cmdbar-wrap" id="navWrap">
+  <nav class="cmdbar" id="cmdbar" aria-label="Main">
+    <a href="#top" class="logo" aria-label="AI Nexus × Neon AI Studio – home"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text">AI NEXUS <span class="x">×</span> NEON</span></a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
     <ul class="menu" id="menu">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#quote">Get a Quote</a></li>
-      <li><a href="#socials">Follow</a></li>
-      <li><a href="tel:+919226520552" class="nav-call"><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg>9226520552</a></li>
+      <li><a href="#about" data-nav="about" data-magnetic="60">About</a></li>
+      <li><a href="#services" data-nav="services" data-magnetic="60">Services</a></li>
+      <li><a href="#plans" data-nav="plans" data-magnetic="60">Video Plans</a></li>
+      <li><a href="#quote" data-nav="quote" data-magnetic="60">Get a Quote</a></li>
+      <li><a href="#socials" data-nav="socials" data-magnetic="60">Follow</a></li>
+      <li><a href="tel:+919226520552" class="nav-call" data-nav="call" data-magnetic="60"><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg><span class="mono">9226520552</span></a></li>
     </ul>
+    <span class="underglow" id="underglow" aria-hidden="true"></span>
   </nav>
 </header>
 
 <main id="main">
   <!-- HERO -->
   <section class="hero" id="top" aria-labelledby="h1">
-    <div class="orb o1" aria-hidden="true"></div>
-    <div class="orb o2" aria-hidden="true"></div>
-    <div class="orb o3" aria-hidden="true"></div>
-    <div class="wrap">
-      <span class="pill">🤝 Your Creative Partner</span>
-      <h1 id="h1"><span class="a">AI NEXUS</span><span class="t" aria-hidden="true">×</span><span class="sr-only">and</span><span class="b">NEON AI STUDIO</span></h1>
+    <div class="hero-visual" id="heroVisual" aria-hidden="true">
+      <picture class="hero-still" data-depth="1">
+        <source media="(max-width: 767px)" type="image/avif" srcset="assets/hero-core-m.avif">
+        <source media="(max-width: 767px)" type="image/webp" srcset="assets/hero-core-m.webp">
+        <source type="image/avif" srcset="assets/hero-core.avif">
+        <source type="image/webp" srcset="assets/hero-core.webp">
+        <img src="assets/hero-core.webp" alt="" width="1440" height="900" decoding="async" fetchpriority="high">
+      </picture>
+      <div class="hero-css" id="heroCss"></div>
+    </div>
+    <div class="wrap hero-copy">
+      <span class="eyebrow" data-reveal-line>Your Creative Partner</span>
+      <h1 id="h1" class="clip-reveal"><span class="l1">AI NEXUS <span class="t" aria-hidden="true">×</span><span class="sr-only">and</span></span> <span class="l2">NEON AI STUDIO</span></h1>
       <p class="tagline">Ideas into Impact</p>
       <p class="sub">Cinematic videos, ads &amp; reels, logos and branding, graphics and invitation cards, 3D, websites and smart automation — everything your brand needs, under one roof.</p>
       <p class="sub sub-mr" lang="mr">तुमच्या व्यवसायासाठी व्हिडिओ, जाहिरात, डिझाइन आणि वेबसाईट — सर्व एकाच ठिकाणी.</p>
-      
       <div class="cta">
-        <a href="#quote" class="btn btn-p">✨ Get a Quote</a>
-        <a href="https://wa.me/919226520552" class="btn btn-wa" target="_blank" rel="noopener" data-wa="Hi AI Nexus × Neon AI Studio! I'd like to know more about your services."><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-        <a href="tel:+919226520552" class="btn btn-o"><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg>Call 9226520552</a>
+        <a href="#quote" class="btn btn-p scan" data-magnetic="80" data-snap>Get a Quote</a>
+        <a href="https://wa.me/919226520552" class="btn btn-o" target="_blank" rel="noopener" data-wa="Hi AI Nexus × Neon AI Studio! I'd like to know more about your services." data-magnetic="80" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a href="tel:+919226520552" class="btn btn-o" data-magnetic="80" data-snap><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg>Call <span class="mono">9226520552</span></a>
       </div>
-
-      <div class="vframe tilt" data-tilt="6">
+    </div>
+    <div class="wrap showreel">
+      <div class="vframe card3d" data-tilt="6">
         <div class="vbox" id="vbox">
-          <button type="button" id="playBtn" aria-label="Play AI Nexus × Neon AI Studio showreel video">
-            <img src="https://i.ytimg.com/vi/XQsW4P6z_So/hqdefault.jpg" alt="Showreel thumbnail – AI Nexus × Neon AI Studio cinematic work" width="480" height="360" fetchpriority="high">
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="vlabel">▶ Watch our showreel</span>
+          <button type="button" id="playBtn" aria-label="Watch our showreel – play the AI Nexus × Neon AI Studio video" data-snap>
+            <img src="https://i.ytimg.com/vi/XQsW4P6z_So/hqdefault.jpg" alt="Showreel thumbnail – AI Nexus × Neon AI Studio cinematic work" width="480" height="360" decoding="async">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="vlabel">Watch our showreel</span>
           </button>
         </div>
       </div>
@@ -365,16 +330,16 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
   </section>
 
   <!-- WHY -->
-  <section class="sec why reveal" aria-labelledby="why-h">
+  <section class="sec why reveal" id="why" aria-labelledby="why-h">
     <div class="wrap">
-      <div class="sh"><h2 id="why-h">Why Choose <span class="grad">Us</span></h2></div>
-      <ul>
-        <li>✨ Ultra Cinematic Quality</li>
-        <li>⚡ Fast Delivery (24–48h)</li>
-        <li>🧠 AI-Powered Content</li>
-        <li>📈 Marketing-Focused Results</li>
-        <li>🤝 Personal Support on WhatsApp</li>
-        <li>📱 Complete Digital Suite</li>
+      <div class="sh"><h2 id="why-h">Why Choose <span class="hl">Us</span></h2></div>
+      <ul class="pills">
+        <li>Ultra Cinematic Quality</li>
+        <li>Fast Delivery (24–48h)</li>
+        <li>AI-Powered Content</li>
+        <li>Marketing-Focused Results</li>
+        <li>Personal Support on WhatsApp</li>
+        <li>Complete Digital Suite</li>
       </ul>
     </div>
   </section>
@@ -382,18 +347,18 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
   <!-- ABOUT / POSTER -->
   <section class="sec reveal" id="about" aria-labelledby="about-h">
     <div class="wrap about">
-      <figure class="poster tilt" data-tilt="4">
+      <figure class="poster card3d" data-tilt="4">
         <picture>
           <source srcset="ai-nexus-services-poster.webp" type="image/webp">
           <img src="ai-nexus-services-poster.jpg" width="1200" height="675" loading="lazy" decoding="async"
                alt="AI Nexus poster – Ideas into Impact: cinematic video creation, professional advertisements, promotional call automation, 3D modeling, custom software, web development, graphics designing, photo editing and banner designing. Contact 9226520552, NeonAiStudio.in">
         </picture>
       </figure>
-      <div>
-        <h2 id="about-h">Your <span class="grad">Creative Partner</span></h2>
+      <div class="about-copy">
+        <h2 id="about-h">Your <span class="hl">Creative Partner</span></h2>
         <p>AI Nexus × Neon AI Studio is a creative and tech studio led by <strong>Moreshwar R. Bhonde</strong>. We blend cinematic storytelling, design and AI tools to turn your ideas into content that gets noticed — from a shop's grand-opening banner to a full promotional video and website.</p>
         <p class="mr" lang="mr">छोट्या व्यवसायापासून मोठ्या ब्रँडपर्यंत — तुमची कल्पना, आमची क्रिएटिव्हिटी. चला, एकत्र काहीतरी भारी बनवूया!</p>
-        <div class="stats"><span>🎬 Video</span><span>🎨 Design</span><span>🪪 Branding &amp; Print</span><span>💻 Web &amp; Software</span><span>🤖 Automation</span><span>🧊 3D &amp; Real Estate</span><span>💍 Wedding Videos</span><span>🛍️ Product Photos</span></div>
+        <ul class="chips"><li>Video</li><li>Design</li><li>Branding &amp; Print</li><li>Web &amp; Software</li><li>Automation</li><li>3D &amp; Real Estate</li><li>Wedding Videos</li><li>Product Photos</li></ul>
       </div>
     </div>
   </section>
@@ -401,9 +366,73 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
   <!-- SERVICES -->
   <section class="sec" id="services" aria-labelledby="svc-h">
     <div class="wrap">
-      <div class="sh reveal"><h2 id="svc-h">Our <span class="grad">Services</span></h2><p>सर्व सेवा एकाच ठिकाणी · Tap <strong>Enquire</strong> to chat with us on WhatsApp</p></div>
-      <div id="svcGroups"></div>
-      <noscript><p style="text-align:center;margin-top:20px">Please WhatsApp us on <a href="https://wa.me/919226520552">9226520552</a> for the full list of services.</p></noscript>
+      <div class="sh reveal"><h2 id="svc-h">Our <span class="hl">Services</span></h2><p>सर्व सेवा एकाच ठिकाणी · Tap <strong>Enquire</strong> to chat with us on WhatsApp</p></div>
+      <div id="svcGroups">
+        <div class="group reveal" aria-labelledby="g-video-ads"><h3 id="g-video-ads">Video &amp; Ads</h3><div class="grid">
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">01</span><h4>Cinematic Video Creation</h4><div class="mr" lang="mr">सिनेमॅटिक व्हिडिओ</div><p>Story-driven cinematic videos for brands, events and promotions.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Cinematic%20Video%20Creation.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B8%E0%A4%BF%E0%A4%A8%E0%A5%87%E0%A4%AE%E0%A5%85%E0%A4%9F%E0%A4%BF%E0%A4%95%20%E0%A4%B5%E0%A5%8D%E0%A4%B9%E0%A4%BF%E0%A4%A1%E0%A4%BF%E0%A4%93%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Cinematic Video Creation on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">02</span><h4>Professional Advertisement Creation</h4><div class="mr" lang="mr">प्रोफेशनल जाहिरात</div><p>Ad films and promos that make your business stand out.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Professional%20Advertisement%20Creation.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%AB%E0%A5%87%E0%A4%B6%E0%A4%A8%E0%A4%B2%20%E0%A4%9C%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%B0%E0%A4%BE%E0%A4%A4%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Professional Advertisement Creation on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">03</span><h4>AI Video Ads &amp; Reels</h4><div class="mr" lang="mr">AI व्हिडिओ ॲड्स आणि रील्स</div><p>Scroll-stopping AI ads and reels for Instagram, YouTube &amp; Facebook.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20AI%20Video%20Ads%20%26%20Reels.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20AI%20%E0%A4%B5%E0%A5%8D%E0%A4%B9%E0%A4%BF%E0%A4%A1%E0%A4%BF%E0%A4%93%20%E0%A5%B2%E0%A4%A1%E0%A5%8D%E0%A4%B8%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20%E0%A4%B0%E0%A5%80%E0%A4%B2%E0%A5%8D%E0%A4%B8%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about AI Video Ads &amp; Reels on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">04</span><h4>VFX Editing</h4><div class="mr" lang="mr">VFX एडिटिंग</div><p>Visual effects, transitions and colour grading with a premium finish.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20VFX%20Editing.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20VFX%20%E0%A4%8F%E0%A4%A1%E0%A4%BF%E0%A4%9F%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about VFX Editing on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">05</span><h4>Wedding Invitation Videos &amp; Save-the-Date Reels</h4><div class="mr" lang="mr">लग्न निमंत्रण व्हिडिओ आणि सेव्ह-द-डेट रील्स</div><p>Beautiful video invites and save-the-date reels to share on WhatsApp &amp; Instagram.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Wedding%20Invitation%20Videos%20%26%20Save-the-Date%20Reels.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B2%E0%A4%97%E0%A5%8D%E0%A4%A8%20%E0%A4%A8%E0%A4%BF%E0%A4%AE%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%A3%20%E0%A4%B5%E0%A5%8D%E0%A4%B9%E0%A4%BF%E0%A4%A1%E0%A4%BF%E0%A4%93%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20%E0%A4%B8%E0%A5%87%E0%A4%B5%E0%A5%8D%E0%A4%B9-%E0%A4%A6-%E0%A4%A1%E0%A5%87%E0%A4%9F%20%E0%A4%B0%E0%A5%80%E0%A4%B2%E0%A5%8D%E0%A4%B8%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Wedding Invitation Videos &amp; Save-the-Date Reels on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+        </div></div>
+        <div class="group reveal" aria-labelledby="g-graphics-social-media"><h3 id="g-graphics-social-media">Graphics &amp; Social Media</h3><div class="grid">
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">06</span><h4>Graphics Designing</h4><div class="mr" lang="mr">ग्राफिक्स डिझायनिंग</div><p>Eye-catching designs for brands, campaigns and print.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Graphics%20Designing.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B8%20%E0%A4%A1%E0%A4%BF%E0%A4%9D%E0%A4%BE%E0%A4%AF%E0%A4%A8%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Graphics Designing on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">07</span><h4>Banner Designing</h4><div class="mr" lang="mr">बॅनर डिझायनिंग</div><p>Flex, hoarding and digital banners that grab attention.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Banner%20Designing.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AC%E0%A5%85%E0%A4%A8%E0%A4%B0%20%E0%A4%A1%E0%A4%BF%E0%A4%9D%E0%A4%BE%E0%A4%AF%E0%A4%A8%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Banner Designing on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">08</span><h4>Photo Editing</h4><div class="mr" lang="mr">फोटो एडिटिंग</div><p>Retouching, background changes and creative photo edits.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Photo%20Editing.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AB%E0%A5%8B%E0%A4%9F%E0%A5%8B%20%E0%A4%8F%E0%A4%A1%E0%A4%BF%E0%A4%9F%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Photo Editing on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">09</span><h4>Invitation Cards</h4><div class="mr" lang="mr">निमंत्रण पत्रिका</div><p>Wedding, birthday and event invitations – print &amp; digital.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Invitation%20Cards.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A8%E0%A4%BF%E0%A4%AE%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%A3%20%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%95%E0%A4%BE%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Invitation Cards on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">10</span><h4>Posters &amp; Social Media Posts</h4><div class="mr" lang="mr">पोस्टर्स आणि सोशल मीडिया पोस्ट</div><p>Ready-to-post creatives for your daily marketing.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Posters%20%26%20Social%20Media%20Posts.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AA%E0%A5%8B%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0%E0%A5%8D%E0%A4%B8%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20%E0%A4%B8%E0%A5%8B%E0%A4%B6%E0%A4%B2%20%E0%A4%AE%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE%20%E0%A4%AA%E0%A5%8B%E0%A4%B8%E0%A5%8D%E0%A4%9F%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Posters &amp; Social Media Posts on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">11</span><h4>Festival &amp; Grand Opening Creatives</h4><div class="mr" lang="mr">सण आणि उद्घाटन डिझाइन</div><p>Festival wishes and grand-opening designs for your business.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Festival%20%26%20Grand%20Opening%20Creatives.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B8%E0%A4%A3%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20%E0%A4%89%E0%A4%A6%E0%A5%8D%E0%A4%98%E0%A4%BE%E0%A4%9F%E0%A4%A8%20%E0%A4%A1%E0%A4%BF%E0%A4%9D%E0%A4%BE%E0%A4%87%E0%A4%A8%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Festival &amp; Grand Opening Creatives on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">12</span><h4>YouTube Thumbnails &amp; Channel Art</h4><div class="mr" lang="mr">YouTube थंबनेल आणि चॅनेल आर्ट</div><p>Click-worthy thumbnails, banners and logos for your channel.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20YouTube%20Thumbnails%20%26%20Channel%20Art.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20YouTube%20%E0%A4%A5%E0%A4%82%E0%A4%AC%E0%A4%A8%E0%A5%87%E0%A4%B2%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20%E0%A4%9A%E0%A5%85%E0%A4%A8%E0%A5%87%E0%A4%B2%20%E0%A4%86%E0%A4%B0%E0%A5%8D%E0%A4%9F%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about YouTube Thumbnails &amp; Channel Art on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">13</span><h4>Political &amp; Election Campaign Creatives</h4><div class="mr" lang="mr">राजकीय व निवडणूक प्रचार डिझाइन</div><p>Marathi banners, posts and videos for campaigns and candidates.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Political%20%26%20Election%20Campaign%20Creatives.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%95%E0%A5%80%E0%A4%AF%20%E0%A4%B5%20%E0%A4%A8%E0%A4%BF%E0%A4%B5%E0%A4%A1%E0%A4%A3%E0%A5%82%E0%A4%95%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%9A%E0%A4%BE%E0%A4%B0%20%E0%A4%A1%E0%A4%BF%E0%A4%9D%E0%A4%BE%E0%A4%87%E0%A4%A8%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Political &amp; Election Campaign Creatives on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+        </div></div>
+        <div class="group reveal" aria-labelledby="g-branding-print"><h3 id="g-branding-print">Branding &amp; Print</h3><div class="grid">
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">14</span><h4>Logo Design &amp; Brand Identity Kits</h4><div class="mr" lang="mr">लोगो डिझाइन आणि ब्रँड आयडेंटिटी</div><p>Logo, colours and fonts that give your business a strong identity.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Logo%20Design%20%26%20Brand%20Identity%20Kits.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B2%E0%A5%8B%E0%A4%97%E0%A5%8B%20%E0%A4%A1%E0%A4%BF%E0%A4%9D%E0%A4%BE%E0%A4%87%E0%A4%A8%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20%E0%A4%AC%E0%A5%8D%E0%A4%B0%E0%A4%81%E0%A4%A1%20%E0%A4%86%E0%A4%AF%E0%A4%A1%E0%A5%87%E0%A4%82%E0%A4%9F%E0%A4%BF%E0%A4%9F%E0%A5%80%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Logo Design &amp; Brand Identity Kits on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">15</span><h4>Visiting Cards, Letterheads &amp; Brochures</h4><div class="mr" lang="mr">व्हिजिटिंग कार्ड, लेटरहेड आणि ब्रोशर</div><p>Professional print stationery that makes a great first impression.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Visiting%20Cards%2C%20Letterheads%20%26%20Brochures.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B5%E0%A5%8D%E0%A4%B9%E0%A4%BF%E0%A4%9C%E0%A4%BF%E0%A4%9F%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%A1%2C%20%E0%A4%B2%E0%A5%87%E0%A4%9F%E0%A4%B0%E0%A4%B9%E0%A5%87%E0%A4%A1%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20%E0%A4%AC%E0%A5%8D%E0%A4%B0%E0%A5%8B%E0%A4%B6%E0%A4%B0%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Visiting Cards, Letterheads &amp; Brochures on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">16</span><h4>Restaurant Digital Menus &amp; QR Menu Cards</h4><div class="mr" lang="mr">डिजिटल मेनू आणि QR मेनू कार्ड</div><p>Attractive printed and QR-code menus for restaurants, cafés and hotels.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Restaurant%20Digital%20Menus%20%26%20QR%20Menu%20Cards.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%A1%E0%A4%BF%E0%A4%9C%E0%A4%BF%E0%A4%9F%E0%A4%B2%20%E0%A4%AE%E0%A5%87%E0%A4%A8%E0%A5%82%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20QR%20%E0%A4%AE%E0%A5%87%E0%A4%A8%E0%A5%82%20%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%A1%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Restaurant Digital Menus &amp; QR Menu Cards on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">17</span><h4>AI Product Photography (e-commerce)</h4><div class="mr" lang="mr">AI प्रॉडक्ट फोटोग्राफी</div><p>Studio-quality product photos with AI for Amazon, Meesho, Instagram &amp; your store.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20AI%20Product%20Photography%20(e-commerce).%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20AI%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%89%E0%A4%A1%E0%A4%95%E0%A5%8D%E0%A4%9F%20%E0%A4%AB%E0%A5%8B%E0%A4%9F%E0%A5%8B%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A5%80%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about AI Product Photography (e-commerce) on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+        </div></div>
+        <div class="group reveal" aria-labelledby="g-tech-automation"><h3 id="g-tech-automation">Tech &amp; Automation</h3><div class="grid">
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">18</span><h4>Web Development</h4><div class="mr" lang="mr">वेब डेव्हलपमेंट</div><p>Fast, mobile-friendly websites that bring you customers.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Web%20Development.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B5%E0%A5%87%E0%A4%AC%20%E0%A4%A1%E0%A5%87%E0%A4%B5%E0%A5%8D%E0%A4%B9%E0%A4%B2%E0%A4%AA%E0%A4%AE%E0%A5%87%E0%A4%82%E0%A4%9F%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Web Development on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">19</span><h4>Custom Software Development</h4><div class="mr" lang="mr">कस्टम सॉफ्टवेअर</div><p>Software built around your workflow — billing, records, dashboards.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Custom%20Software%20Development.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%95%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%AE%20%E0%A4%B8%E0%A5%89%E0%A4%AB%E0%A5%8D%E0%A4%9F%E0%A4%B5%E0%A5%87%E0%A4%85%E0%A4%B0%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Custom Software Development on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">20</span><h4>Promotional Call Automation</h4><div class="mr" lang="mr">प्रमोशनल कॉल ऑटोमेशन</div><p>Automated promotional calls to reach many customers at once.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Promotional%20Call%20Automation.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A5%8B%E0%A4%B6%E0%A4%A8%E0%A4%B2%20%E0%A4%95%E0%A5%89%E0%A4%B2%20%E0%A4%91%E0%A4%9F%E0%A5%8B%E0%A4%AE%E0%A5%87%E0%A4%B6%E0%A4%A8%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Promotional Call Automation on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">21</span><h4>WhatsApp Automation &amp; AI Chatbot</h4><div class="mr" lang="mr">WhatsApp ऑटोमेशन आणि AI चॅटबॉट</div><p>Auto-replies, broadcasts and AI chatbots that work 24×7.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20WhatsApp%20Automation%20%26%20AI%20Chatbot.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20WhatsApp%20%E0%A4%91%E0%A4%9F%E0%A5%8B%E0%A4%AE%E0%A5%87%E0%A4%B6%E0%A4%A8%20%E0%A4%86%E0%A4%A3%E0%A4%BF%20AI%20%E0%A4%9A%E0%A5%85%E0%A4%9F%E0%A4%AC%E0%A5%89%E0%A4%9F%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about WhatsApp Automation &amp; AI Chatbot on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">22</span><h4>Lead Generation</h4><div class="mr" lang="mr">लीड जनरेशन</div><p>Campaigns that bring genuine enquiries to your business.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Lead%20Generation.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B2%E0%A5%80%E0%A4%A1%20%E0%A4%9C%E0%A4%A8%E0%A4%B0%E0%A5%87%E0%A4%B6%E0%A4%A8%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Lead Generation on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+        </div></div>
+        <div class="group reveal" aria-labelledby="g-d-real-estate"><h3 id="g-d-real-estate">3D &amp; Real Estate</h3><div class="grid">
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">23</span><h4>3D Modeling</h4><div class="mr" lang="mr">3D मॉडलिंग</div><p>3D models and renders for buildings, products and visuals.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%203D%20Modeling.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%203D%20%E0%A4%AE%E0%A5%89%E0%A4%A1%E0%A4%B2%E0%A4%BF%E0%A4%82%E0%A4%97%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about 3D Modeling on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+          <article class="card card3d" data-tilt="8"><span class="idx mono" aria-hidden="true">24</span><h4>Real-Estate Walkthrough Videos &amp; 3D Floor Plans</h4><div class="mr" lang="mr">रिअल इस्टेट वॉकथ्रू व्हिडिओ आणि 3D फ्लोअर प्लॅन</div><p>Walkthrough videos and 3D floor plans that help sell projects faster.</p><a class="enq" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'm%20interested%20in%20Real-Estate%20Walkthrough%20Videos%20%26%203D%20Floor%20Plans.%20Please%20share%20details.%20(%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%B0%2C%20%E0%A4%AE%E0%A4%B2%E0%A4%BE%20%E0%A4%B0%E0%A4%BF%E0%A4%85%E0%A4%B2%20%E0%A4%87%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A5%87%E0%A4%9F%20%E0%A4%B5%E0%A5%89%E0%A4%95%E0%A4%A5%E0%A5%8D%E0%A4%B0%E0%A5%82%20%E0%A4%B5%E0%A5%8D%E0%A4%B9%E0%A4%BF%E0%A4%A1%E0%A4%BF%E0%A4%93%20%E0%A4%86%E0%A4%A3%E0%A4%BF%203D%20%E0%A4%AB%E0%A5%8D%E0%A4%B2%E0%A5%8B%E0%A4%85%E0%A4%B0%20%E0%A4%AA%E0%A5%8D%E0%A4%B2%E0%A5%85%E0%A4%A8%20%E0%A4%AC%E0%A4%A6%E0%A5%8D%E0%A4%A6%E0%A4%B2%20%E0%A4%AE%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A4%B5%E0%A5%80%20%E0%A4%86%E0%A4%B9%E0%A5%87.)" target="_blank" rel="noopener" aria-label="Enquire about Real-Estate Walkthrough Videos &amp; 3D Floor Plans on WhatsApp" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO PLANS -->
+  <section class="sec plans-sec" id="plans" aria-labelledby="plans-h">
+    <div class="wrap">
+      <div class="sh reveal"><h2 id="plans-h">Video <span class="hl">Plans</span></h2><p>Pick a plan and tap <strong>Get Plan</strong> — we continue on WhatsApp.</p></div>
+      <div class="plans" id="planMatrix">
+        <article class="plan card3d" data-plan="standard" data-tilt="6" aria-labelledby="plan-standard-h">
+          <div class="plan-face">
+            <h3 id="plan-standard-h" class="plan-name">STANDARD</h3>
+            <p class="plan-dur mono">Up to 30 / 32 sec</p>
+            <p class="plan-price"><span class="amt mono">₹599</span> <span class="per mono">/ video</span></p>
+            <button type="button" class="btn btn-p scan plan-btn" data-plan="standard" data-magnetic="80" data-snap><span class="lbl">Get Plan</span><span class="sr-only"> – STANDARD plan, Up to 30 / 32 sec, ₹599 / video</span></button>
+            <a class="proc-fallback" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'd%20like%20to%20get%20the%20STANDARD%20video%20plan%20(Up%20to%2030%20%2F%2032%20sec)%20at%20%E2%82%B9599%20%2F%20video.%20Please%20share%20the%20next%20steps." target="_blank" rel="noopener" hidden>Open WhatsApp</a>
+            <div class="proc" aria-hidden="true" hidden><div class="proc-stage"><span class="proc-ring"></span><span class="proc-ring r2"></span><span class="proc-core"></span><span class="proc-orbit"><i></i><i></i><i></i><i></i><i></i></span><svg class="proc-neural" viewBox="0 0 160 36" preserveAspectRatio="none"><path d="M0 18 L22 18 L30 6 L44 30 L58 12 L72 24 L86 18 L100 18 L110 4 L124 28 L138 14 L160 18"/></svg><span class="proc-scanline"></span></div><p class="proc-log mono"></p></div>
+          </div>
+        </article>
+        <article class="plan card3d premium" data-plan="premium" data-tilt="6" aria-labelledby="plan-premium-h">
+          <div class="plan-face">
+            <h3 id="plan-premium-h" class="plan-name">PREMIUM</h3>
+            <p class="plan-dur mono">Up to 60 / 65 sec</p>
+            <p class="plan-price"><span class="amt mono">₹1019</span> <span class="per mono">/ video</span></p>
+            <button type="button" class="btn btn-p scan plan-btn" data-plan="premium" data-magnetic="80" data-snap><span class="lbl">Get Plan</span><span class="sr-only"> – PREMIUM plan, Up to 60 / 65 sec, ₹1019 / video</span></button>
+            <a class="proc-fallback" href="https://wa.me/919226520552?text=Hi%20AI%20Nexus%20%C3%97%20Neon%20AI%20Studio!%20I'd%20like%20to%20get%20the%20PREMIUM%20video%20plan%20(Up%20to%2060%20%2F%2065%20sec)%20at%20%E2%82%B91019%20%2F%20video.%20Please%20share%20the%20next%20steps." target="_blank" rel="noopener" hidden>Open WhatsApp</a>
+            <div class="proc" aria-hidden="true" hidden><div class="proc-stage"><span class="proc-ring"></span><span class="proc-ring r2"></span><span class="proc-core"></span><span class="proc-orbit"><i></i><i></i><i></i><i></i><i></i></span><svg class="proc-neural" viewBox="0 0 160 36" preserveAspectRatio="none"><path d="M0 18 L22 18 L30 6 L44 30 L58 12 L72 24 L86 18 L100 18 L110 4 L124 28 L138 14 L160 18"/></svg><span class="proc-scanline"></span></div><p class="proc-log mono"></p></div>
+          </div>
+        </article>
+      </div>
+      <p class="sr-only" id="planStatus" role="status" aria-live="polite"></p>
     </div>
   </section>
 
@@ -411,22 +440,63 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
   <section class="sec reveal" id="quote" aria-labelledby="q-h">
     <div class="wrap quote">
       <div class="qinfo">
-        <h2 id="q-h">Get a <span class="grad">Quote</span></h2>
+        <h2 id="q-h">Get a <span class="hl">Quote</span></h2>
         <p>Every project is different — tell us what you need and we'll share a custom quote on WhatsApp, usually within a few hours.</p>
-        <p lang="mr" style="color:#e3d5ff">तुमची गरज सांगा, आम्ही लगेच कोटेशन पाठवू.</p>
-        <ul>
-          <li><a href="tel:+919226520552"><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg>+91 92265 20552</a></li>
-          <li><a href="https://wa.me/919226520552" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp 9226520552</a></li>
-          <li><a href="mailto:moreshwar1234bhonde@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-ml"/></svg>moreshwar1234bhonde@gmail.com</a></li>
-          <li><a href="https://neonaistudio.in/"><svg class="icon" aria-hidden="true"><use href="#i-web"/></svg>NeonAiStudio.in</a></li>
+        <p lang="mr" class="mr-soft">तुमची गरज सांगा, आम्ही लगेच कोटेशन पाठवू.</p>
+        <ul class="qlinks">
+          <li><a href="tel:+919226520552" data-snap><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg><span class="mono">+91 92265 20552</span></a></li>
+          <li><a href="https://wa.me/919226520552" target="_blank" rel="noopener" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp <span class="mono">9226520552</span></a></li>
+          <li><a href="mailto:moreshwar1234bhonde@gmail.com" data-snap><svg class="icon" aria-hidden="true"><use href="#i-ml"/></svg>moreshwar1234bhonde@gmail.com</a></li>
+          <li><a href="https://neonaistudio.in/" data-snap><svg class="icon" aria-hidden="true"><use href="#i-web"/></svg>NeonAiStudio.in</a></li>
         </ul>
       </div>
       <form class="qf" id="quoteForm" novalidate aria-describedby="qnote">
         <div><label for="qName">Your name</label><input id="qName" name="name" autocomplete="name" required maxlength="60" placeholder="e.g. Rahul Patil"></div>
-        <div><label for="qService">Service</label><select id="qService" name="service" required><option value="">Choose a service…</option></select></div>
+        <div><label for="qService">Service</label><select id="qService" name="service" required>
+          <option value="">Choose a service…</option>
+          <optgroup label="Video Plans">
+            <option value="STANDARD – Up to 30 / 32 sec – ₹599 / video">STANDARD – Up to 30 / 32 sec – ₹599 / video</option>
+            <option value="PREMIUM – Up to 60 / 65 sec – ₹1019 / video">PREMIUM – Up to 60 / 65 sec – ₹1019 / video</option>
+          </optgroup>
+          <optgroup label="Video &amp; Ads">
+            <option value="Cinematic Video Creation">Cinematic Video Creation · सिनेमॅटिक व्हिडिओ</option>
+            <option value="Professional Advertisement Creation">Professional Advertisement Creation · प्रोफेशनल जाहिरात</option>
+            <option value="AI Video Ads &amp; Reels">AI Video Ads &amp; Reels · AI व्हिडिओ ॲड्स आणि रील्स</option>
+            <option value="VFX Editing">VFX Editing · VFX एडिटिंग</option>
+            <option value="Wedding Invitation Videos &amp; Save-the-Date Reels">Wedding Invitation Videos &amp; Save-the-Date Reels · लग्न निमंत्रण व्हिडिओ आणि सेव्ह-द-डेट रील्स</option>
+          </optgroup>
+          <optgroup label="Graphics &amp; Social Media">
+            <option value="Graphics Designing">Graphics Designing · ग्राफिक्स डिझायनिंग</option>
+            <option value="Banner Designing">Banner Designing · बॅनर डिझायनिंग</option>
+            <option value="Photo Editing">Photo Editing · फोटो एडिटिंग</option>
+            <option value="Invitation Cards">Invitation Cards · निमंत्रण पत्रिका</option>
+            <option value="Posters &amp; Social Media Posts">Posters &amp; Social Media Posts · पोस्टर्स आणि सोशल मीडिया पोस्ट</option>
+            <option value="Festival &amp; Grand Opening Creatives">Festival &amp; Grand Opening Creatives · सण आणि उद्घाटन डिझाइन</option>
+            <option value="YouTube Thumbnails &amp; Channel Art">YouTube Thumbnails &amp; Channel Art · YouTube थंबनेल आणि चॅनेल आर्ट</option>
+            <option value="Political &amp; Election Campaign Creatives">Political &amp; Election Campaign Creatives · राजकीय व निवडणूक प्रचार डिझाइन</option>
+          </optgroup>
+          <optgroup label="Branding &amp; Print">
+            <option value="Logo Design &amp; Brand Identity Kits">Logo Design &amp; Brand Identity Kits · लोगो डिझाइन आणि ब्रँड आयडेंटिटी</option>
+            <option value="Visiting Cards, Letterheads &amp; Brochures">Visiting Cards, Letterheads &amp; Brochures · व्हिजिटिंग कार्ड, लेटरहेड आणि ब्रोशर</option>
+            <option value="Restaurant Digital Menus &amp; QR Menu Cards">Restaurant Digital Menus &amp; QR Menu Cards · डिजिटल मेनू आणि QR मेनू कार्ड</option>
+            <option value="AI Product Photography (e-commerce)">AI Product Photography (e-commerce) · AI प्रॉडक्ट फोटोग्राफी</option>
+          </optgroup>
+          <optgroup label="Tech &amp; Automation">
+            <option value="Web Development">Web Development · वेब डेव्हलपमेंट</option>
+            <option value="Custom Software Development">Custom Software Development · कस्टम सॉफ्टवेअर</option>
+            <option value="Promotional Call Automation">Promotional Call Automation · प्रमोशनल कॉल ऑटोमेशन</option>
+            <option value="WhatsApp Automation &amp; AI Chatbot">WhatsApp Automation &amp; AI Chatbot · WhatsApp ऑटोमेशन आणि AI चॅटबॉट</option>
+            <option value="Lead Generation">Lead Generation · लीड जनरेशन</option>
+          </optgroup>
+          <optgroup label="3D &amp; Real Estate">
+            <option value="3D Modeling">3D Modeling · 3D मॉडलिंग</option>
+            <option value="Real-Estate Walkthrough Videos &amp; 3D Floor Plans">Real-Estate Walkthrough Videos &amp; 3D Floor Plans · रिअल इस्टेट वॉकथ्रू व्हिडिओ आणि 3D फ्लोअर प्लॅन</option>
+          </optgroup>
+          <option value="Something else">Something else / Not sure</option>
+        </select></div>
         <div><label for="qMsg">Tell us about your project</label><textarea id="qMsg" name="message" maxlength="600" placeholder="Event / business, deadline, ideas… (Marathi, Hindi or English)"></textarea></div>
         <p class="err" id="qErr" role="alert"></p>
-        <button class="btn btn-wa" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Send on WhatsApp</button>
+        <button class="btn btn-p scan" type="submit" data-magnetic="80" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Send on WhatsApp</button>
         <p class="note" id="qnote">Opens WhatsApp with your message pre-filled. Nothing is stored on this website.</p>
       </form>
     </div>
@@ -435,11 +505,11 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
   <!-- SOCIALS -->
   <section class="sec reveal" id="socials" aria-labelledby="s-h">
     <div class="wrap">
-      <div class="sh"><h2 id="s-h">Follow <span class="grad">Our Work</span></h2><p lang="mr">Instagram आणि YouTube वर आमचे latest work पहा</p></div>
+      <div class="sh"><h2 id="s-h">Follow <span class="hl">Our Work</span></h2><p lang="mr">Instagram आणि YouTube वर आमचे latest work पहा</p></div>
       <div class="socials">
-        <a class="soc" href="https://instagram.com/ai.nexus07" target="_blank" rel="noopener" aria-label="Instagram @ai.nexus07 (opens in new tab)"><span class="si ig"><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg></span><span><b>Instagram</b><small>@ai.nexus07</small></span></a>
-        <a class="soc" id="ytLink" href="https://www.youtube.com/watch?v=XQsW4P6z_So" target="_blank" rel="noopener" aria-label="YouTube – Ai Nexus (opens in new tab)"><span class="si yt"><svg class="icon" aria-hidden="true"><use href="#i-yt"/></svg></span><span><b>YouTube</b><small>Ai Nexus</small></span></a>
-        <a class="soc" href="https://wa.me/919226520552" target="_blank" rel="noopener" aria-label="WhatsApp 9226520552 (opens in new tab)"><span class="si wa"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><small>9226520552</small></span></a>
+        <a class="soc card3d" data-tilt="5" href="https://instagram.com/ai.nexus07" target="_blank" rel="noopener" aria-label="Instagram @ai.nexus07 (opens in new tab)"><span class="si"><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg></span><span><b>Instagram</b><small class="mono">@ai.nexus07</small></span></a>
+        <a class="soc card3d" data-tilt="5" id="ytLink" href="https://www.youtube.com/watch?v=XQsW4P6z_So" target="_blank" rel="noopener" aria-label="YouTube – Ai Nexus (opens in new tab)"><span class="si"><svg class="icon" aria-hidden="true"><use href="#i-yt"/></svg></span><span><b>YouTube</b><small>Ai Nexus</small></span></a>
+        <a class="soc card3d" data-tilt="5" href="https://wa.me/919226520552" target="_blank" rel="noopener" aria-label="WhatsApp 9226520552 (opens in new tab)"><span class="si"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><small class="mono">9226520552</small></span></a>
       </div>
     </div>
   </section>
@@ -448,1056 +518,35 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
   <section class="sec reveal" id="contact" aria-labelledby="c-h">
     <div class="wrap">
       <div class="strip">
-        <h2 id="c-h">Let's <span class="grad">Create Together</span></h2>
+        <h2 id="c-h">Let's <span class="hl">Create Together</span></h2>
         <p lang="mr">आमच्याशी संपर्क साधा — तुमची कल्पना, आमचा इम्पॅक्ट.</p>
         <div class="cta">
-          <a href="https://wa.me/919226520552" class="btn btn-wa" target="_blank" rel="noopener" data-wa="Hi! Let's create together – I have a project in mind."><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp Now</a>
-          <a href="tel:+919226520552" class="btn btn-o"><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg>Call 9226520552</a>
+          <a href="https://wa.me/919226520552" class="btn btn-p scan" target="_blank" rel="noopener" data-wa="Hi! Let's create together – I have a project in mind." data-magnetic="80" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp Now</a>
+          <a href="tel:+919226520552" class="btn btn-o" data-magnetic="80" data-snap><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg>Call <span class="mono">9226520552</span></a>
         </div>
       </div>
     </div>
   </section>
 </main>
-AI Video Plans
-₹1019 -Upto 60/65 sec
-₹599 -Upto 30/32 sec
-
-<!-- Code start here. Html css js -->
-
-<style>
-    .plans-section {
-        width: 100%;
-        max-width: 1200px;
-        margin: auto;
-        padding: 60px 20px;
-        font-family: Arial, Helvetica, sans-serif;
-        box-sizing: border-box;
-    }
-
-    .plans-section *,
-    .plans-section *::before,
-    .plans-section *::after {
-        box-sizing: border-box;
-    }
-
-    .plans-header {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-    .plans-header h2 {
-        margin: 0 0 10px;
-        font-size: 40px;
-        color: #111827;
-    }
-
-    .plans-header p {
-        margin: 0;
-        color: #667085;
-        font-size: 16px;
-    }
-
-    .plans-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 28px;
-    }
-
-    .plan-card {
-        position: relative;
-        background: #ffffff;
-        border: 1px solid #e5e7eb;
-        border-radius: 22px;
-        padding: 32px;
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .plan-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
-    }
-
-    .diamond-card {
-        border: 2px solid #635bff;
-    }
-
-    .popular-badge {
-        position: absolute;
-        top: -14px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #635bff;
-        color: #ffffff;
-        padding: 7px 18px;
-        border-radius: 30px;
-        font-size: 12px;
-        font-weight: 700;
-        white-space: nowrap;
-    }
-
-    .offer-badge {
-        display: inline-block;
-        background: #ecfdf3;
-        color: #027a48;
-        padding: 7px 12px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: 700;
-        margin-bottom: 18px;
-    }
-
-    .plan-name {
-        font-size: 28px;
-        font-weight: 800;
-        color: #111827;
-        margin-bottom: 8px;
-    }
-
-    .plan-description {
-        color: #667085;
-        line-height: 1.6;
-        min-height: 50px;
-        margin: 0;
-    }
-
-    .price-area {
-        margin: 25px 0 10px;
-    }
-
-    .old-price {
-        color: #98a2b3;
-        text-decoration: line-through;
-        font-size: 18px;
-        margin-right: 8px;
-    }
-
-    .price {
-        color: #111827;
-        font-size: 42px;
-        font-weight: 800;
-    }
-
-    .price small {
-        font-size: 16px;
-        color: #667085;
-        font-weight: 500;
-    }
-
-    .payment-info {
-        color: #667085;
-        font-size: 13px;
-        line-height: 1.6;
-        margin: 0 0 24px;
-    }
-
-    .plan-button {
-        width: 100%;
-        min-height: 52px;
-        border: none;
-        border-radius: 12px;
-        background: #111827;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 700;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        transition: 0.25s ease;
-    }
-
-    .diamond-card .plan-button {
-        background: #635bff;
-    }
-
-    .plan-button:hover:not(:disabled) {
-        opacity: 0.9;
-    }
-
-    .plan-button:disabled {
-        cursor: not-allowed;
-        opacity: 0.85;
-    }
-
-    /* Loading Spinner */
-
-    .loading-spinner {
-        display: none;
-        width: 19px;
-        height: 19px;
-        border: 3px solid rgba(255, 255, 255, 0.35);
-        border-top-color: #ffffff;
-        border-radius: 50%;
-        animation: planSpin 0.8s linear infinite;
-    }
-
-    .plan-button.processing .loading-spinner {
-        display: inline-block;
-    }
-
-    @keyframes planSpin {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    /* Failed State */
-
-    .plan-button.failed {
-        background: #dc2626 !important;
-        color: #ffffff;
-    }
-
-    .error-message {
-        display: none;
-        margin-top: 12px;
-        padding: 12px;
-        border-radius: 10px;
-        background: #fef2f2;
-        color: #b91c1c;
-        text-align: center;
-        font-size: 13px;
-        font-weight: 600;
-        line-height: 1.5;
-    }
-
-    .error-message.show {
-        display: block;
-    }
-
-    .features-title {
-        margin: 28px 0 12px;
-        color: #344054;
-        font-size: 15px;
-        font-weight: 800;
-    }
-
-    .features {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .features li {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 8px 0;
-        color: #475467;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-
-    .check {
-        width: 20px;
-        height: 20px;
-        min-width: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: #ecfdf3;
-        color: #039855;
-        font-size: 12px;
-        font-weight: 800;
-    }
-
-    .credits {
-        margin-top: 18px;
-        padding: 12px;
-        background: #fff7ed;
-        color: #c2410c;
-        border-radius: 10px;
-        text-align: center;
-        font-size: 13px;
-        font-weight: 700;
-    }
-
-    @media (max-width: 800px) {
-        .plans-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .plans-header h2 {
-            font-size: 32px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .plans-section {
-            padding: 45px 15px;
-        }
-
-        .plan-card {
-            padding: 24px;
-        }
-
-        .plans-header h2 {
-            font-size: 28px;
-        }
-
-        .price {
-            font-size: 36px;
-        }
-    }
-</style>
-
-
-<section class="plans-section">
-
-    <div class="plans-header">
-        <h2>Choose Your Hosting Plan</h2>
-        <p>Powerful hosting plans for websites, businesses and growing brands.</p>
-    </div>
-
-
-    <div class="plans-grid">
-
-        <!-- Diamond Plan -->
-
-        <div class="plan-card diamond-card">
-
-            <div class="popular-badge">
-                MOST POPULAR
-            </div>
-
-            <div class="offer-badge">
-                Special Offer • 75% Off
-            </div>
-
-            <div class="plan-name">
-                Diamond Plan
-            </div>
-
-            <p class="plan-description">
-                Unlimited websites and mailboxes, for maximum flexibility.
-            </p>
-
-            <div class="price-area">
-                <span class="old-price">₹799</span>
-                <span class="price">
-                    ₹199 <small>/mo</small>
-                </span>
-            </div>
-
-            <p class="payment-info">
-                Today you pay ₹9,552 for 48 months.
-                Renews at ₹649/mo for the same term.
-                Cancel anytime.
-            </p>
-
-            <button
-                type="button"
-                class="plan-button"
-                onclick="startPlanProcessing(this, 'Diamond Plan')">
-
-                <span class="loading-spinner"></span>
-
-                <span class="button-text">
-                    Get Plan
-                </span>
-
-            </button>
-
-            <div class="error-message">
-                Failed to load.<br>
-                Check your internet connection.
-            </div>
-
-            <div class="credits">
-                Sale Season: Get 2x credits — 1000 instead of 500
-            </div>
-
-            <div class="features-title">
-                Plan Features
-            </div>
-
-            <ul class="features">
-
-                <li>
-                    <span class="check">✓</span>
-                    Unlimited websites
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Unlimited use
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    50 GB NVMe storage
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Daily backups + easy data restore
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    CDN included
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Priority 24/7 expert support
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Python support
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Node.js support
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Ecommerce available
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Unlimited mailboxes per website — free for 1 year
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Free AI email marketing for 1 year
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Up to 100 subscribers
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- Gold Plan -->
-
-        <div class="plan-card">
-
-            <div class="plan-name">
-                Gold Premium
-            </div>
-
-            <p class="plan-description">
-                Run websites smoothly. Great for creators and small brands.
-            </p>
-
-            <div class="price-area">
-                <span class="price">
-                    ₹139 <small>/mo</small>
-                </span>
-            </div>
-
-            <p class="payment-info">
-                Today you pay ₹6,672 for 24 months.
-                Renews at ₹449/mo for the same term.
-            </p>
-
-            <button
-                type="button"
-                class="plan-button"
-                onclick="startPlanProcessing(this, 'Gold Premium')">
-
-                <span class="loading-spinner"></span>
-
-                <span class="button-text">
-                    Get Plan
-                </span>
-
-            </button>
-
-            <div class="error-message">
-                Failed to load.<br>
-                Check your internet connection.
-            </div>
-
-            <div class="features-title">
-                Plan Features
-            </div>
-
-            <ul class="features">
-
-                <li>
-                    <span class="check">✓</span>
-                    3 websites
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    20 GB SSD storage
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Free weekly backups
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    CDN included
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    Python support
-                </li>
-
-                <li>
-                    <span class="check">✓</span>
-                    2 mailboxes per website — free for 1 year
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<script>
-
-function startPlanProcessing(button, planName) {
-
-    // Prevent clicking while already processing
-    if (button.disabled) {
-        return;
-    }
-
-    const card = button.closest(".plan-card");
-
-    const buttonText =
-        button.querySelector(".button-text");
-
-    const errorMessage =
-        card.querySelector(".error-message");
-
-
-    // Hide previous error
-    errorMessage.classList.remove("show");
-
-    button.classList.remove("failed");
-
-    // Start processing
-    button.disabled = true;
-
-    button.classList.add("processing");
-
-    buttonText.textContent = "Processing...";
-
-
-    /*
-        Processing time:
-        120000 milliseconds = 2 minutes
-    */
-
-    setTimeout(function () {
-
-        // Stop spinner
-        button.classList.remove("processing");
-
-        // Enable button
-        button.disabled = false;
-
-        // Failed state
-        button.classList.add("failed");
-
-        buttonText.textContent = "Failed to load";
-
-        // Show internet error
-        errorMessage.classList.add("show");
-
-
-        /*
-            Keep failed state visible for 5 seconds,
-            then reset the button.
-        */
-
-        setTimeout(function () {
-
-            button.classList.remove("failed");
-
-            buttonText.textContent = "Get Plan";
-
-            errorMessage.classList.remove("show");
-
-        }, 5000);
-
-    }, 120000);
-
-}
-
-</script>
-
-<!-- Code end here. Html css js -->
-
 
 <footer>
   <div class="wrap">
     <p class="brand">AI NEXUS × NEON AI STUDIO</p>
     <p>Ideas into Impact · Your Creative Partner</p>
     <div class="flinks">
-      <a href="tel:+919226520552"><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg>9226520552</a>
+      <a href="tel:+919226520552"><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg><span class="mono">9226520552</span></a>
       <a href="https://wa.me/919226520552" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
       <a href="mailto:moreshwar1234bhonde@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-ml"/></svg>Email</a>
       <a href="https://instagram.com/ai.nexus07" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
       <a href="https://neonaistudio.in/"><svg class="icon" aria-hidden="true"><use href="#i-web"/></svg>NeonAiStudio.in</a>
     </div>
-    <p style="font-size:.8rem;opacity:.75">© <span id="yr">2026</span> AI Nexus × Neon AI Studio · Developer: Moreshwar R. Bhonde</p>
+    <p class="legal">© <span id="yr">2026</span> AI Nexus × Neon AI Studio · Developer: Moreshwar R. Bhonde</p>
   </div>
 </footer>
 
-<a class="fwa" href="https://wa.me/919226520552" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-wa="Hi AI Nexus × Neon AI Studio!"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg></a>
+<a class="fwa" href="https://wa.me/919226520552" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-wa="Hi AI Nexus × Neon AI Studio!" data-snap><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg></a>
 
-<!-- Code start here. Html css js -->
-
-<div class="neon-ai-video-plans">
-  
-  <style>
-    .neon-ai-video-plans {
-      --neon: #00f5ff;
-      --purple: #8b5cf6;
-      --dark: #050816;
-      --card: rgba(10, 15, 35, 0.88);
-      
-      font-family: Arial, Helvetica, sans-serif;
-      width: 100%;
-      padding: 55px 20px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(0, 245, 255, .12), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, .15), transparent 30%),
-        var(--dark);
-      color: white;
-      overflow: hidden;
-      border-radius: 24px;
-    }
-    
-    .neon-ai-video-plans * {
-      box-sizing: border-box;
-    }
-    
-    .neon-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    .neon-title h2 {
-      margin: 0;
-      font-size: clamp(30px, 5vw, 48px);
-      font-weight: 900;
-      color: white;
-      text-shadow:
-        0 0 8px rgba(0, 245, 255, .8),
-        0 0 25px rgba(0, 245, 255, .45);
-    }
-    
-    .neon-title p {
-      margin: 12px 0 0;
-      color: #aab4d4;
-      font-size: 15px;
-    }
-    
-    .video-plans-grid {
-      max-width: 900px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-    
-    .video-plan-card {
-      position: relative;
-      padding: 35px 30px;
-      border-radius: 22px;
-      background: var(--card);
-      border: 1px solid rgba(0, 245, 255, .35);
-      box-shadow:
-        0 0 15px rgba(0, 245, 255, .08),
-        inset 0 0 30px rgba(0, 245, 255, .025);
-      overflow: hidden;
-      transition: .35s ease;
-    }
-    
-    .video-plan-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--neon);
-      box-shadow:
-        0 0 20px rgba(0, 245, 255, .25),
-        0 0 55px rgba(0, 245, 255, .10);
-    }
-    
-    .video-plan-card.premium {
-      border-color: rgba(139, 92, 246, .6);
-    }
-    
-    .video-plan-card.premium:hover {
-      border-color: var(--purple);
-      box-shadow:
-        0 0 25px rgba(139, 92, 246, .3),
-        0 0 60px rgba(139, 92, 246, .12);
-    }
-    
-    .plan-glow {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      right: -80px;
-      top: -80px;
-      background: var(--neon);
-      filter: blur(70px);
-      opacity: .15;
-      pointer-events: none;
-    }
-    
-    .premium .plan-glow {
-      background: var(--purple);
-    }
-    
-    .plan-label {
-      color: var(--neon);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
-    
-    .premium .plan-label {
-      color: #b69cff;
-    }
-    
-    .video-duration {
-      font-size: 20px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 25px;
-    }
-    
-    .price {
-      display: flex;
-      align-items: baseline;
-      gap: 5px;
-    }
-    
-    .price strong {
-      font-size: 46px;
-      font-weight: 900;
-      color: white;
-    }
-    
-    .price span {
-      color: #9ba7c7;
-      font-size: 14px;
-    }
-    
-    .plan-note {
-      margin-top: 15px;
-      color: #7783a5;
-      font-size: 12px;
-    }
-    
-    @media (max-width: 700px) {
-      .video-plans-grid {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-      }
-      
-      .neon-ai-video-plans {
-        padding: 45px 15px;
-      }
-    }
-  </style>
-  
-  
-  <div class="neon-title">
-    <h2>Neon AI Video Plans</h2>
-    <p>Professional AI-powered video creation plans</p>
-  </div>
-  
-  
-  <div class="video-plans-grid">
-    
-    <!-- 30 / 32 SEC PLAN -->
-    
-    <div class="video-plan-card">
-      
-      <div class="plan-glow"></div>
-      
-      <div class="plan-label">
-        Standard
-      </div>
-      
-      <div class="video-duration">
-        Up to 30 / 32 sec
-      </div>
-      
-      <div class="price">
-        <strong>₹599</strong>
-        <span>/ video</span>
-      </div>
-      
-      <div class="plan-note">
-        Perfect for short-form content
-      </div>
-      
-    </div>
-    
-    
-    <!-- 60 / 65 SEC PLAN -->
-    
-    <div class="video-plan-card premium">
-      
-      <div class="plan-glow"></div>
-      
-      <div class="plan-label">
-        Premium
-      </div>
-      
-      <div class="video-duration">
-        Up to 60 / 65 sec
-      </div>
-      
-      <div class="price">
-        <strong>₹1019</strong>
-        <span>/ video</span>
-      </div>
-      
-      <div class="plan-note">
-        Ideal for detailed AI videos
-      </div>
-      
-    </div>
-    
-  </div>
-  
-</div>
-
-<!-- Code end here. Html css js -->
-
-<script>
-/* ===== CONFIG ===== */
-// TODO: confirm the official "Ai Nexus" YouTube channel URL, e.g. "https://www.youtube.com/@yourhandle".
-// While empty, the YouTube card links to the showreel video instead.
-const YOUTUBE_URL = "";
-const WA_NUMBER = "919226520552";
-const SHOWREEL_ID = "XQsW4P6z_So";
-
-const SERVICES = [
-  { group: "🎬 Video & Ads", items: [
-    ["🎥","Cinematic Video Creation","सिनेमॅटिक व्हिडिओ","Story-driven cinematic videos for brands, events and promotions."],
-    ["📣","Professional Advertisement Creation","प्रोफेशनल जाहिरात","Ad films and promos that make your business stand out."],
-    ["🤖","AI Video Ads & Reels","AI व्हिडिओ ॲड्स आणि रील्स","Scroll-stopping AI ads and reels for Instagram, YouTube & Facebook."],
-    ["✨","VFX Editing","VFX एडिटिंग","Visual effects, transitions and colour grading with a premium finish."],
-    ["💍","Wedding Invitation Videos & Save-the-Date Reels","लग्न निमंत्रण व्हिडिओ आणि सेव्ह-द-डेट रील्स","Beautiful video invites and save-the-date reels to share on WhatsApp & Instagram."]
-  ]},
-  { group: "🎨 Graphics & Social Media", items: [
-    ["🖌️","Graphics Designing","ग्राफिक्स डिझायनिंग","Eye-catching designs for brands, campaigns and print."],
-    ["🪧","Banner Designing","बॅनर डिझायनिंग","Flex, hoarding and digital banners that grab attention."],
-    ["📸","Photo Editing","फोटो एडिटिंग","Retouching, background changes and creative photo edits."],
-    ["💌","Invitation Cards","निमंत्रण पत्रिका","Wedding, birthday and event invitations – print & digital."],
-    ["📱","Posters & Social Media Posts","पोस्टर्स आणि सोशल मीडिया पोस्ट","Ready-to-post creatives for your daily marketing."],
-    ["🎉","Festival & Grand Opening Creatives","सण आणि उद्घाटन डिझाइन","Festival wishes and grand-opening designs for your business."],
-    ["▶️","YouTube Thumbnails & Channel Art","YouTube थंबनेल आणि चॅनेल आर्ट","Click-worthy thumbnails, banners and logos for your channel."],
-    ["🗳️","Political & Election Campaign Creatives","राजकीय व निवडणूक प्रचार डिझाइन","Marathi banners, posts and videos for campaigns and candidates."]
-  ]},
-  { group: "🪪 Branding & Print", items: [
-    ["💠","Logo Design & Brand Identity Kits","लोगो डिझाइन आणि ब्रँड आयडेंटिटी","Logo, colours and fonts that give your business a strong identity."],
-    ["📇","Visiting Cards, Letterheads & Brochures","व्हिजिटिंग कार्ड, लेटरहेड आणि ब्रोशर","Professional print stationery that makes a great first impression."],
-    ["🍽️","Restaurant Digital Menus & QR Menu Cards","डिजिटल मेनू आणि QR मेनू कार्ड","Attractive printed and QR-code menus for restaurants, cafés and hotels."],
-    ["🛍️","AI Product Photography (e-commerce)","AI प्रॉडक्ट फोटोग्राफी","Studio-quality product photos with AI for Amazon, Meesho, Instagram & your store."]
-  ]},
-  { group: "💻 Tech & Automation", items: [
-    ["🌐","Web Development","वेब डेव्हलपमेंट","Fast, mobile-friendly websites that bring you customers."],
-    ["🧩","Custom Software Development","कस्टम सॉफ्टवेअर","Software built around your workflow — billing, records, dashboards."],
-    ["📞","Promotional Call Automation","प्रमोशनल कॉल ऑटोमेशन","Automated promotional calls to reach many customers at once."],
-    ["💬","WhatsApp Automation & AI Chatbot","WhatsApp ऑटोमेशन आणि AI चॅटबॉट","Auto-replies, broadcasts and AI chatbots that work 24×7."],
-    ["🎯","Lead Generation","लीड जनरेशन","Campaigns that bring genuine enquiries to your business."]
-  ]},
-  { group: "🧊 3D & Real Estate", items: [
-    ["🏠","3D Modeling","3D मॉडलिंग","3D models and renders for buildings, products and visuals."],
-    ["🏢","Real-Estate Walkthrough Videos & 3D Floor Plans","रिअल इस्टेट वॉकथ्रू व्हिडिओ आणि 3D फ्लोअर प्लॅन","Walkthrough videos and 3D floor plans that help sell projects faster."]
-  ]}
-];
-
-/* ===== helpers ===== */
-const $ = (s, r=document) => r.querySelector(s);
-const waLink = (text) => "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
-const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-/* ===== preloader (capped ~1.5s) ===== */
-(function(){
-  const pre = $("#preloader"), fill = $("#plFill"), pct = $("#plPct");
-  const start = performance.now(), MAX = 1500;
-  let done = false;
-  function finish(){ if(done) return; done = true; fill.style.width = "100%"; pct.textContent = "100%"; setTimeout(()=>pre.classList.add("done"), 150); }
-  function tick(now){ if(done) return; const p = Math.min(99, Math.round((now-start)/MAX*100)); fill.style.width = p+"%"; pct.textContent = p+"%"; if(now-start >= MAX) finish(); else requestAnimationFrame(tick); }
-  requestAnimationFrame(tick);
-  window.addEventListener("load", () => setTimeout(finish, Math.max(0, 600-(performance.now()-start))));
-  setTimeout(finish, MAX + 100);
-})();
-
-/* ===== YouTube link ===== */
-if (YOUTUBE_URL) $("#ytLink").href = YOUTUBE_URL;
-
-/* ===== services render ===== */
-(function(){
-  const host = $("#svcGroups"), sel = $("#qService");
-  let html = "";
-  SERVICES.forEach(g => {
-    html += '<div class="group reveal"><h3>' + g.group + '</h3><div class="grid">';
-    const og = document.createElement("optgroup"); og.label = g.group.replace(/^\S+\s/, "");
-    g.items.forEach(([ic,en,mr,desc]) => {
-      const msg = "Hi AI Nexus × Neon AI Studio! I'm interested in " + en + ". Please share details. (नमस्कार, मला " + mr + " बद्दल माहिती हवी आहे.)";
-      html += '<article class="card tilt" data-tilt="8"><div class="ic" aria-hidden="true">'+ic+'</div><h4>'+en+'</h4><div class="mr" lang="mr">'+mr+'</div><p>'+desc+'</p>'
-           + '<a class="enq" href="'+waLink(msg)+'" target="_blank" rel="noopener" aria-label="Enquire about '+en+' on WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Enquire</a></article>';
-      const o = document.createElement("option"); o.value = en; o.textContent = en + " · " + mr; og.appendChild(o);
-    });
-    html += "</div></div>";
-    sel.appendChild(og);
-  });
-  host.innerHTML = html;
-  const other = document.createElement("option"); other.value = "Something else"; other.textContent = "Something else / Not sure"; sel.appendChild(other);
-})();
-
-/* ===== generic WA prefill links ===== */
-document.querySelectorAll("[data-wa]").forEach(a => a.href = waLink(a.dataset.wa));
-
-/* ===== quote form → WhatsApp (nothing stored) ===== */
-$("#quoteForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const n = $("#qName").value.trim(), s = $("#qService").value, m = $("#qMsg").value.trim(), err = $("#qErr");
-  if (!n) { err.textContent = "Please enter your name."; $("#qName").focus(); return; }
-  if (!s) { err.textContent = "Please choose a service."; $("#qService").focus(); return; }
-  err.textContent = "";
-  const text = "Hi AI Nexus × Neon AI Studio!\nName: " + n + "\nService: " + s + (m ? "\nDetails: " + m : "") + "\n\nPlease share a quote.";
-  window.open(waLink(text), "_blank", "noopener");
-});
-
-/* ===== mobile menu ===== */
-(function(){
-  const b = $("#burger"), m = $("#menu");
-  const set = (open) => { m.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.setAttribute("aria-label", open ? "Close menu" : "Open menu"); };
-  b.addEventListener("click", () => set(!m.classList.contains("open")));
-  m.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && m.classList.contains("open")) { set(false); b.focus(); } });
-})();
-
-/* ===== video facade ===== */
-$("#playBtn").addEventListener("click", () => {
-  const f = document.createElement("iframe");
-  f.src = "https://www.youtube-nocookie.com/embed/" + SHOWREEL_ID + "?autoplay=1&rel=0&playsinline=1&loop=1&playlist=" + SHOWREEL_ID;
-  f.title = "AI Nexus × Neon AI Studio showreel";
-  f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-  f.allowFullscreen = true;
-  $("#vbox").replaceChildren(f);
-});
-
-/* ===== scroll progress ===== */
-(function(){
-  const fill = $("#spFill"); let ticking = false;
-  const upd = () => { const h = document.documentElement.scrollHeight - innerHeight; fill.style.transform = "scaleX(" + (h > 0 ? scrollY / h : 0) + ")"; ticking = false; };
-  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
-  upd();
-})();
-
-/* ===== reveal ===== */
-(function(){
-  const els = document.querySelectorAll(".reveal");
-  if (reduceMotion || !("IntersectionObserver" in window)) { els.forEach(el => el.classList.add("in")); return; }
-  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
-  els.forEach(el => io.observe(el));
-})();
-
-/* ===== ripple ===== */
-document.addEventListener("pointerdown", e => {
-  if (reduceMotion) return;
-  const t = e.target.closest(".btn"); if (!t) return;
-  const r = t.getBoundingClientRect(), d = Math.max(r.width, r.height), s = document.createElement("span");
-  s.className = "ripple"; s.style.cssText = "width:"+d+"px;height:"+d+"px;left:"+(e.clientX-r.left-d/2)+"px;top:"+(e.clientY-r.top-d/2)+"px";
-  t.appendChild(s); setTimeout(() => s.remove(), 650);
-});
-
-/* ===== desktop-only: cursor glow + 3D tilt ===== */
-if (finePointer && !reduceMotion) {
-  const g = $("#cursorGlow");
-  addEventListener("pointermove", e => { g.style.opacity = 1; g.style.transform = "translate(" + (e.clientX-170) + "px," + (e.clientY-170) + "px)"; }, { passive: true });
-  document.addEventListener("pointermove", e => {
-    const el = e.target.closest(".tilt");
-    document.querySelectorAll(".tilt.tilting").forEach(t => { if (t !== el) { t.classList.remove("tilting"); t.style.transform = ""; } });
-    if (!el) return;
-    const r = el.getBoundingClientRect(), max = +el.dataset.tilt || 6;
-    const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-    el.classList.add("tilting");
-    el.style.transform = "perspective(900px) rotateX(" + (-y*max) + "deg) rotateY(" + (x*max) + "deg)";
-  }, { passive: true });
-}
-
-$("#yr").textContent = new Date().getFullYear();
-
-/* ===== Three.js background: deferred, desktop & capable devices only ===== */
-(function(){
-  const conn = navigator.connection || {};
-  const capable = innerWidth >= 1024 && finePointer && !reduceMotion && !conn.saveData && (navigator.hardwareConcurrency || 4) >= 4;
-  if (!capable) return;
-  const boot = () => {
-    const s = document.createElement("script");
-    s.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
-    s.async = true; s.onload = initThree; document.head.appendChild(s);
-  };
-  addEventListener("load", () => ("requestIdleCallback" in window) ? requestIdleCallback(boot, { timeout: 2500 }) : setTimeout(boot, 1200));
-
-  function initThree(){
-    if (!window.THREE) return;
-    const canvas = $("#bg3d");
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: "low-power" });
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
-    const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(60, 1, .1, 100); cam.position.z = 14;
-    const N = 900, pos = new Float32Array(N*3), col = new Float32Array(N*3);
-    const pal = [new THREE.Color(0xa855f7), new THREE.Color(0x00eaff), new THREE.Color(0xff2bd6)];
-    for (let i = 0; i < N; i++) { pos[i*3] = (Math.random()-.5)*40; pos[i*3+1] = (Math.random()-.5)*26; pos[i*3+2] = (Math.random()-.5)*20; const c = pal[i%3]; col.set([c.r,c.g,c.b], i*3); }
-    const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos,3)); geo.setAttribute("color", new THREE.BufferAttribute(col,3));
-    const pts = new THREE.Points(geo, new THREE.PointsMaterial({ size: .07, vertexColors: true, transparent: true, opacity: .85 }));
-    scene.add(pts);
-    const shapes = [
-      new THREE.Mesh(new THREE.IcosahedronGeometry(2.2,1), new THREE.MeshBasicMaterial({ color: 0xa855f7, wireframe: true, transparent: true, opacity: .25 })),
-      new THREE.Mesh(new THREE.TorusKnotGeometry(1.3,.35,80,10), new THREE.MeshBasicMaterial({ color: 0x00eaff, wireframe: true, transparent: true, opacity: .2 })),
-      new THREE.Mesh(new THREE.OctahedronGeometry(1.6,0), new THREE.MeshBasicMaterial({ color: 0xff2bd6, wireframe: true, transparent: true, opacity: .25 }))
-    ];
-    shapes[0].position.set(-9,3,-2); shapes[1].position.set(9,-2,-3); shapes[2].position.set(6,6,-6);
-    shapes.forEach(m => scene.add(m));
-    let mx = 0, my = 0; addEventListener("pointermove", e => { mx = e.clientX/innerWidth-.5; my = e.clientY/innerHeight-.5; }, { passive: true });
-    const size = () => { renderer.setSize(innerWidth, innerHeight, false); cam.aspect = innerWidth/innerHeight; cam.updateProjectionMatrix(); };
-    size(); addEventListener("resize", size);
-    let run = true; document.addEventListener("visibilitychange", () => { run = !document.hidden; if (run) requestAnimationFrame(loop); });
-    function loop(t){
-      if (!run) return;
-      pts.rotation.y = t*.00003; pts.rotation.x = scrollY*.0002;
-      shapes.forEach((m,i) => { m.rotation.x += .002+i*.001; m.rotation.y += .003; });
-      cam.position.x += (mx*2 - cam.position.x)*.03; cam.position.y += (-my*2 - cam.position.y)*.03; cam.lookAt(0,0,0);
-      renderer.render(scene, cam); requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-  }
-})();
-
-
-
-
-
-</script>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<script type="module" src="src/main.js"></script>
 </body>
 </html>
