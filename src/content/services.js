@@ -117,6 +117,11 @@ export const SERVICES = [
         "Fast, mobile-friendly websites that bring you customers."
       ],
       [
+        "Web Hosting",
+        "वेब होस्टिंग",
+        "Fast, secure web hosting plans with NVMe/SSD storage, backups, CDN and free mailboxes."
+      ],
+      [
         "Custom Software Development",
         "कस्टम सॉफ्टवेअर",
         "Software built around your workflow — billing, records, dashboards."

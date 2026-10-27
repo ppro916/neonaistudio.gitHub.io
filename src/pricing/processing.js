@@ -11,6 +11,7 @@
  * @module pricing/processing
  */
 import { PLANS, planMessage } from "./plans.js";
+import { HOSTING, hostingMessage } from "./hostingPlans.js";
 import { waLink } from "../config.js";
 
 export const STATES = Object.freeze({ IDLE: "idle", PROCESSING: "processing", OPENING: "opening" });
@@ -22,7 +23,7 @@ const LOG = [
 const machines = new Map();
 let offs = [], live = null;
 
-function Machine(card, plan) {
+function Machine(card, plan, cfg) {
   const btn = card.querySelector(".plan-btn"), lbl = btn.querySelector(".lbl");
   const proc = card.querySelector(".proc"), logEl = card.querySelector(".proc-log"), fb = card.querySelector(".proc-fallback");
   let state = STATES.IDLE, timers = [], logI = 0;
@@ -35,7 +36,7 @@ function Machine(card, plan) {
     state = next;
     card.dataset.state = next;
     btn.setAttribute("aria-busy", String(next !== STATES.IDLE));
-    if (next === STATES.IDLE) { lbl.textContent = "Get Plan"; proc.hidden = true; btn.disabled = false; }
+    if (next === STATES.IDLE) { lbl.textContent = cfg.label; proc.hidden = true; btn.disabled = false; }
     if (next === STATES.PROCESSING) { lbl.textContent = "Processing..."; proc.hidden = false; btn.disabled = false; btn.setAttribute("aria-disabled", "true"); }
     if (next === STATES.OPENING) { lbl.textContent = "Opening WhatsApp"; }
     if (next === STATES.IDLE) btn.removeAttribute("aria-disabled");
@@ -51,7 +52,7 @@ function Machine(card, plan) {
     fb.hidden = true;
     logI = 0;
     set(STATES.PROCESSING);
-    announce("Processing your " + plan.name + " plan.");
+    announce("Processing your " + plan.name + (cfg.kind ? " " + cfg.kind : "") + " plan.");
     rotateLog();
     later(open, PROCESSING_MS);
   }
@@ -60,7 +61,7 @@ function Machine(card, plan) {
     set(STATES.OPENING);
     announce("Opening WhatsApp.");
     logEl.textContent = "> handoff complete";
-    const url = waLink(planMessage(plan));
+    const url = waLink(cfg.message(plan));
     let w = null;
     try { w = window.open(url, "_blank"); if (w) w.opener = null; } catch (e) { w = null; }
     later(() => {
@@ -73,14 +74,25 @@ function Machine(card, plan) {
   return { start, get state() { return state; }, dispose() { clear(); btn.removeEventListener("click", start); set(STATES.IDLE); } };
 }
 
+const VIDEO_CFG = { label: "Get Plan", message: planMessage, kind: "" };
+const HOSTING_CFG = { label: HOSTING.buttonLabel, message: hostingMessage, kind: "hosting" };
+
 /** @param {object} ctx */
 export function init(ctx) {
   live = document.getElementById("planStatus");
-  document.querySelectorAll(".plan[data-plan]").forEach(card => {
-    const plan = PLANS.find(p => p.id === card.dataset.plan);
-    if (plan) machines.set(card.dataset.plan, Machine(card, plan));
+  const fit = (card) => {
     const face = card.querySelector(".plan-face");
     if (face) { const set = () => face.style.setProperty("--ph", Math.max(200, face.offsetHeight - 6) + "px"); set(); window.addEventListener("resize", set); offs.push(() => window.removeEventListener("resize", set)); }
+  };
+  document.querySelectorAll(".plan[data-plan]").forEach(card => {
+    const plan = PLANS.find(p => p.id === card.dataset.plan);
+    if (plan) machines.set(card.dataset.plan, Machine(card, plan, VIDEO_CFG));
+    fit(card);
+  });
+  document.querySelectorAll(".plan[data-hosting]").forEach(card => {
+    const plan = HOSTING.plans.find(p => p.id === card.dataset.hosting);
+    if (plan) machines.set("hosting-" + plan.id, Machine(card, plan, HOSTING_CFG));
+    fit(card);
   });
 }
 /** Test hook: current state of a plan machine. */
