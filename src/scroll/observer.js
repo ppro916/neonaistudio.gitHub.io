@@ -20,7 +20,7 @@ export function observe(els, cb, opts = {}) {
 export function init(ctx) {
   const st = ctx.state;
   // active section for the nav
-  const ids = ["about", "services", "plans", "hosting", "quote", "socials", "contact"];
+  const ids = ["about", "services", "plans", "hosting", "security", "quote", "socials", "contact"];
   const secs = ids.map(id => document.getElementById(id)).filter(Boolean);
   observe(secs, (e) => {
     if (e.isIntersecting) { st.active = e.target.id; document.dispatchEvent(new CustomEvent("nexus:active", { detail: e.target.id })); }

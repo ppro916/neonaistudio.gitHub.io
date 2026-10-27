@@ -122,6 +122,11 @@ export const SERVICES = [
         "Fast, secure web hosting plans with NVMe/SSD storage, backups, CDN and free mailboxes."
       ],
       [
+        "Secured System (HTTPS)",
+        "सुरक्षित सिस्टम (HTTPS)",
+        "SSL certificate setup and automatic renewal, so your website opens with the trusted padlock."
+      ],
+      [
         "Custom Software Development",
         "कस्टम सॉफ्टवेअर",
         "Software built around your workflow — billing, records, dashboards."

@@ -12,6 +12,7 @@
  */
 import { PLANS, planMessage } from "./plans.js";
 import { HOSTING, hostingMessage } from "./hostingPlans.js";
+import { SECURITY, securityMessage } from "./securityPlan.js";
 import { waLink } from "../config.js";
 
 export const STATES = Object.freeze({ IDLE: "idle", PROCESSING: "processing", OPENING: "opening" });
@@ -75,6 +76,7 @@ function Machine(card, plan, cfg) {
 }
 
 const VIDEO_CFG = { label: "Get Plan", message: planMessage, kind: "" };
+const SECURITY_CFG = { label: SECURITY.buttonLabel, message: securityMessage, kind: "HTTPS security" };
 const HOSTING_CFG = { label: HOSTING.buttonLabel, message: hostingMessage, kind: "hosting" };
 
 /** @param {object} ctx */
@@ -92,6 +94,11 @@ export function init(ctx) {
   document.querySelectorAll(".plan[data-hosting]").forEach(card => {
     const plan = HOSTING.plans.find(p => p.id === card.dataset.hosting);
     if (plan) machines.set("hosting-" + plan.id, Machine(card, plan, HOSTING_CFG));
+    fit(card);
+  });
+  document.querySelectorAll(".plan[data-security]").forEach(card => {
+    const plan = SECURITY.plan;
+    machines.set("security-" + plan.id, Machine(card, plan, SECURITY_CFG));
     fit(card);
   });
 }
