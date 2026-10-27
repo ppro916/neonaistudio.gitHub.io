@@ -10,6 +10,7 @@
 <meta name="author" content="Moreshwar R. Bhonde">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
+<!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Nexus × Neon AI Studio">
 <meta property="og:locale" content="en_IN">
@@ -28,6 +29,7 @@
 <link rel="icon" type="image/png" href="neonfevocon.png">
 <link rel="apple-touch-icon" href="neonfevocon.png">
 
+<!-- Fonts: non-blocking load, display=swap -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://i.ytimg.com">
@@ -104,10 +106,12 @@ a{color:inherit}
 .grad{background:linear-gradient(90deg,var(--p),var(--c2),var(--k));-webkit-background-clip:text;background-clip:text;color:transparent}
 .icon{width:1.15em;height:1.15em;fill:currentColor;flex:none}
 
+/* cursor glow + progress */
 .cursor-glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:1;left:0;top:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(168,85,247,.16),transparent 65%);opacity:0;transition:opacity .3s}
 .scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120}
 .scroll-progress i{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--p),var(--c2),var(--k));box-shadow:0 0 12px var(--c2)}
 
+/* preloader */
 #preloader{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:var(--bg);transition:opacity .45s,visibility .45s;text-align:center;padding:20px}
 #preloader.done{opacity:0;visibility:hidden}
 .spin{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;border:3px solid rgba(255,255,255,.08);border-top-color:var(--c2);border-right-color:var(--p);animation:rot 1s linear infinite;box-shadow:0 0 24px rgba(0,234,255,.35)}
@@ -118,6 +122,7 @@ a{color:inherit}
 .pl-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--p),var(--c2));transition:width .15s}
 .pl-pct{font-family:var(--head);font-size:.8rem;color:var(--c2)}
 
+/* nav */
 .nav{position:sticky;top:0;z-index:100;padding-top:var(--sat);background:rgba(8,8,16,.62);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
 .logo{font-family:var(--head);font-weight:900;font-size:.92rem;letter-spacing:.06em;text-decoration:none;display:flex;align-items:center;gap:8px;min-height:44px;white-space:nowrap}
@@ -143,6 +148,7 @@ a{color:inherit}
 }
 @media (max-width:380px){.logo{font-size:.78rem}.logo .dot{width:26px;height:26px}}
 
+/* buttons */
 .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:12px 24px;border-radius:999px;font-weight:700;font-size:.97rem;text-decoration:none;border:0;cursor:pointer;color:#fff;transition:transform .2s,box-shadow .2s;font-family:inherit}
 .btn:hover{transform:translateY(-2px)}
 .btn-p{background:linear-gradient(135deg,var(--p),#7c3aed 60%,var(--k));box-shadow:0 8px 28px rgba(168,85,247,.38)}
@@ -151,6 +157,7 @@ a{color:inherit}
 .ripple{position:absolute;border-radius:50%;transform:scale(0);background:rgba(255,255,255,.45);animation:rip .6s ease-out;pointer-events:none}
 @keyframes rip{to{transform:scale(4);opacity:0}}
 
+/* hero */
 .hero{position:relative;padding:56px 0 40px;text-align:center;overflow:hidden}
 .orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.45;pointer-events:none;animation:float 12s ease-in-out infinite}
 .o1{width:300px;height:300px;background:var(--p);left:-80px;top:20px}
@@ -167,6 +174,7 @@ h1 .b{display:block;background:linear-gradient(90deg,var(--c2),#fff,var(--k));-w
 .sub-mr{margin-top:6px;color:#e3d5ff;font-weight:500}
 .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:26px 0 34px}
 
+/* video facade */
 .vframe{position:relative;max-width:900px;margin:0 auto;border-radius:22px;padding:2px;transform-style:preserve-3d;transition:transform .25s ease-out}
 .vframe::before{content:"";position:absolute;inset:0;border-radius:22px;padding:2px;background:conic-gradient(from var(--ang,0deg),var(--p),var(--c2),var(--k),var(--p));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinb 6s linear infinite;filter:drop-shadow(0 0 10px rgba(0,234,255,.5))}
 @property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
@@ -180,6 +188,7 @@ h1 .b{display:block;background:linear-gradient(90deg,var(--c2),#fff,var(--k));-w
 .vbox button:hover .play{transform:scale(1.08)}
 .vlabel{position:absolute;z-index:1;left:16px;bottom:12px;font-weight:700;font-size:.9rem;text-align:left}
 
+/* sections */
 section{position:relative;z-index:1}
 .sec{padding:64px 0}
 .sh{text-align:center;margin-bottom:30px}
@@ -188,6 +197,7 @@ h2{font-family:var(--head);font-weight:900;font-size:clamp(1.35rem,3.6vw,2.2rem)
 .why ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:900px;margin:0 auto}
 .why li{padding:10px 18px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:600;font-size:.95rem}
 
+/* about banner */
 .about{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center}
 .poster{border-radius:20px;overflow:hidden;border:1px solid rgba(168,85,247,.4);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(168,85,247,.2)}
 .about h2{text-align:left}
@@ -197,6 +207,7 @@ h2{font-family:var(--head);font-weight:900;font-size:clamp(1.35rem,3.6vw,2.2rem)
 .stats span{padding:8px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:.88rem;font-weight:600}
 @media (max-width:860px){.about{grid-template-columns:1fr}.about h2{text-align:center}}
 
+/* services */
 .group{margin-top:36px}
 .group h3{font-family:var(--head);font-size:1.02rem;letter-spacing:.08em;margin-bottom:14px;display:flex;align-items:center;gap:10px;color:#e9d8ff}
 .group h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(168,85,247,.6),transparent)}
@@ -210,6 +221,7 @@ h2{font-family:var(--head);font-weight:900;font-size:clamp(1.35rem,3.6vw,2.2rem)
 .enq{align-self:flex-start;margin-top:10px;min-height:44px;padding:10px 16px;border-radius:999px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.5);color:#7ff0ab;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:background .2s}
 .enq:hover{background:rgba(37,211,102,.22)}
 
+/* quote */
 .quote{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:start}
 .qinfo h2{text-align:left}
 .qinfo p{color:var(--mut);margin-top:10px}
@@ -227,6 +239,7 @@ form.qf{border-radius:20px;padding:22px;background:rgba(12,12,24,.75);border:1px
 .qf .err{color:#ff8fb8;font-size:.85rem;min-height:1em}
 @media (max-width:860px){.quote{grid-template-columns:1fr}.qinfo h2{text-align:center}.qinfo>p{text-align:center}}
 
+/* socials */
 .socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:900px;margin:0 auto}
 .soc{display:flex;align-items:center;gap:14px;padding:18px;border-radius:18px;text-decoration:none;background:var(--card);border:1px solid var(--line);min-height:76px;transition:transform .2s,border-color .2s}
 .soc:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.3)}
@@ -238,21 +251,25 @@ form.qf{border-radius:20px;padding:22px;background:rgba(12,12,24,.75);border:1px
 .si.yt{background:#ff0033}
 .si.wa{background:var(--wa);color:#04210f}
 
+/* cta strip */
 .strip{border-radius:24px;padding:40px 22px;text-align:center;background:linear-gradient(135deg,rgba(168,85,247,.22),rgba(0,234,255,.12),rgba(255,43,214,.18));border:1px solid rgba(255,255,255,.14)}
 .strip p{color:#e3e3f3;margin-top:10px}
 .strip .cta{margin:22px 0 0}
 
+/* footer */
 footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:36px 0 calc(100px + var(--sab));text-align:center;color:var(--mut);font-size:.92rem}
 footer .flinks{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin:12px 0}
 footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:7px;color:#dcdcf0}
 footer a:hover{color:var(--c2)}
 footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:.08em}
 
+/* floating WA */
 .fwa{position:fixed;z-index:90;right:calc(18px + var(--sar));bottom:calc(18px + var(--sab));width:60px;height:60px;border-radius:50%;background:var(--wa);color:#04210f;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.45)}
 .fwa .icon{width:30px;height:30px}
 .fwa::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);animation:ping 2s cubic-bezier(0,0,.2,1) infinite;z-index:-1}
 @keyframes ping{75%,100%{transform:scale(1.7);opacity:0}}
 
+/* reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
 .no-js .reveal{opacity:1;transform:none}
@@ -270,66 +287,6 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
   .reveal{opacity:1;transform:none}
   .cursor-glow{display:none}
 }
-
-/* ===== NEW: AI VIDEO PLANS ===== */
-.plans-section{width:100%;max-width:1200px;margin:auto;padding:60px 20px;box-sizing:border-box;position:relative;z-index:1}
-.plans-section *,.plans-section *::before,.plans-section *::after{box-sizing:border-box}
-.plans-header{text-align:center;margin-bottom:40px}
-.plans-header h2{margin:0 0 10px;font-family:var(--head);font-size:clamp(1.4rem,4vw,2.2rem);color:#fff}
-.plans-header p{margin:0;color:var(--mut);font-size:16px}
-.plans-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
-.plan-card{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(0,245,255,.35);border-radius:22px;padding:32px;box-shadow:0 12px 35px rgba(0,0,0,.35);transition:transform .3s ease,box-shadow .3s ease,border-color .3s}
-.plan-card:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(0,0,0,.5),0 0 40px rgba(0,234,255,.16);border-color:rgba(0,234,255,.6)}
-.diamond-card{border:2px solid rgba(139,92,246,.7);box-shadow:0 0 50px rgba(139,92,246,.18)}
-.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(95deg,var(--p),var(--c2));color:#05050a;padding:7px 18px;border-radius:30px;font-size:12px;font-weight:800;letter-spacing:1px;white-space:nowrap;box-shadow:0 0 20px rgba(0,234,255,.5)}
-.offer-badge{display:inline-block;background:rgba(34,197,94,.12);color:#7ff0ab;border:1px solid rgba(34,197,94,.35);padding:7px 12px;border-radius:8px;font-size:13px;font-weight:700;margin-bottom:18px}
-.plan-name{font-family:var(--head);font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:8px}
-.plan-description{color:var(--mut);line-height:1.6;min-height:50px;margin:0;font-size:.92rem}
-.price-area{margin:25px 0 10px}
-.old-price{color:#8b93ad;text-decoration:line-through;font-size:18px;margin-right:8px}
-.price{color:#fff;font-size:clamp(2rem,4vw,2.6rem);font-weight:800;font-family:var(--head);text-shadow:0 0 24px rgba(0,234,255,.25)}
-.price small{font-size:16px;color:var(--mut);font-weight:500;font-family:'Inter',sans-serif}
-.payment-info{color:var(--mut);font-size:13px;line-height:1.6;margin:0 0 24px}
-.plan-button{width:100%;min-height:52px;border:none;border-radius:12px;background:#111827;color:#fff;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:.25s ease;font-family:inherit}
-.diamond-card .plan-button{background:linear-gradient(95deg,var(--p),var(--c2));color:#05050a}
-.plan-button:hover:not(:disabled){opacity:.9;transform:translateY(-2px)}
-.plan-button:disabled{cursor:not-allowed;opacity:.85}
-.loading-spinner{display:none;width:19px;height:19px;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:planSpin .8s linear infinite}
-.diamond-card .loading-spinner{border:3px solid rgba(5,5,10,.3);border-top-color:#05050a}
-.plan-button.processing .loading-spinner{display:inline-block}
-@keyframes planSpin{to{transform:rotate(360deg)}}
-.plan-button.failed{background:#dc2626!important;color:#fff}
-.error-message{display:none;margin-top:12px;padding:12px;border-radius:10px;background:rgba(220,38,38,.1);color:#ff8fb8;border:1px solid rgba(220,38,38,.3);text-align:center;font-size:13px;font-weight:600;line-height:1.5}
-.error-message.show{display:block}
-.features-title{margin:28px 0 12px;color:#e3e3f3;font-size:15px;font-weight:800}
-.features{list-style:none;padding:0;margin:0}
-.features li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;color:var(--mut);font-size:14px;line-height:1.5}
-.check{width:20px;height:20px;min-width:20px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(34,197,94,.15);color:#7ff0ab;font-size:12px;font-weight:800}
-.credits{margin-top:18px;padding:12px;background:rgba(255,180,60,.08);color:#ffd58a;border:1px solid rgba(255,180,60,.25);border-radius:10px;text-align:center;font-size:13px;font-weight:700}
-@media (max-width:800px){.plans-grid{grid-template-columns:1fr}.plans-header h2{font-size:32px}}
-@media (max-width:480px){.plans-section{padding:45px 15px}.plan-card{padding:24px}.plans-header h2{font-size:28px}.price{font-size:36px}}
-
-/* ===== NEW: NEON AI VIDEO SIMPLE PLANS ===== */
-.neon-ai-video-plans{--neon:#00f5ff;--purple:#8b5cf6;--dark:#050816;--card:rgba(10,15,35,.88);font-family:Arial,Helvetica,sans-serif;width:100%;padding:55px 20px;background:radial-gradient(circle at 20% 20%,rgba(0,245,255,.12),transparent 30%),radial-gradient(circle at 80% 80%,rgba(139,92,246,.15),transparent 30%),var(--dark);color:#fff;overflow:hidden;border-radius:24px;position:relative;z-index:1;box-sizing:border-box}
-.neon-ai-video-plans *{box-sizing:border-box}
-.neon-title{text-align:center;margin-bottom:40px}
-.neon-title h2{margin:0;font-size:clamp(30px,5vw,48px);font-weight:900;color:#fff;text-shadow:0 0 8px rgba(0,245,255,.8),0 0 25px rgba(0,245,255,.45)}
-.neon-title p{margin:12px 0 0;color:#aab4d4;font-size:15px}
-.video-plans-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
-.video-plan-card{position:relative;padding:35px 30px;border-radius:22px;background:var(--card);border:1px solid rgba(0,245,255,.35);box-shadow:0 0 15px rgba(0,245,255,.08),inset 0 0 30px rgba(0,245,255,.025);overflow:hidden;transition:.35s ease}
-.video-plan-card:hover{transform:translateY(-8px);border-color:var(--neon);box-shadow:0 0 20px rgba(0,245,255,.25),0 0 55px rgba(0,245,255,.10)}
-.video-plan-card.premium{border-color:rgba(139,92,246,.6)}
-.video-plan-card.premium:hover{border-color:var(--purple);box-shadow:0 0 25px rgba(139,92,246,.3),0 0 60px rgba(139,92,246,.12)}
-.plan-glow{position:absolute;width:150px;height:150px;border-radius:50%;right:-80px;top:-80px;background:var(--neon);filter:blur(70px);opacity:.15;pointer-events:none}
-.premium .plan-glow{background:var(--purple)}
-.plan-label{color:var(--neon);font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:15px}
-.premium .plan-label{color:#b69cff}
-.video-duration{font-size:20px;font-weight:700;color:#fff;margin-bottom:25px}
-.price{display:flex;align-items:baseline;gap:5px}
-.price strong{font-size:46px;font-weight:900;color:#fff}
-.price span{color:#9ba7c7;font-size:14px}
-.plan-note{margin-top:15px;color:#7783a5;font-size:12px}
-@media (max-width:700px){.video-plans-grid{grid-template-columns:1fr;max-width:480px}.neon-ai-video-plans{padding:45px 15px}}
 </style>
 </head>
 <body class="no-js">
@@ -350,6 +307,7 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
 <div class="scroll-progress" aria-hidden="true"><i id="spFill"></i></div>
 <canvas id="bg3d" aria-hidden="true"></canvas>
 
+<!-- PRELOADER (max ~1.5s) -->
 <div id="preloader" role="status" aria-label="Loading">
   <div>
     <div class="spin" aria-hidden="true"></div>
@@ -368,7 +326,6 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
     <ul class="menu" id="menu">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#quote">Get a Quote</a></li>
       <li><a href="#socials">Follow</a></li>
       <li><a href="tel:+919226520552" class="nav-call"><svg class="icon" aria-hidden="true"><use href="#i-ph"/></svg>9226520552</a></li>
@@ -377,6 +334,7 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
 </header>
 
 <main id="main">
+  <!-- HERO -->
   <section class="hero" id="top" aria-labelledby="h1">
     <div class="orb o1" aria-hidden="true"></div>
     <div class="orb o2" aria-hidden="true"></div>
@@ -406,6 +364,7 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
     </div>
   </section>
 
+  <!-- WHY -->
   <section class="sec why reveal" aria-labelledby="why-h">
     <div class="wrap">
       <div class="sh"><h2 id="why-h">Why Choose <span class="grad">Us</span></h2></div>
@@ -420,6 +379,7 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
     </div>
   </section>
 
+  <!-- ABOUT / POSTER -->
   <section class="sec reveal" id="about" aria-labelledby="about-h">
     <div class="wrap about">
       <figure class="poster tilt" data-tilt="4">
@@ -444,78 +404,6 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
       <div class="sh reveal"><h2 id="svc-h">Our <span class="grad">Services</span></h2><p>सर्व सेवा एकाच ठिकाणी · Tap <strong>Enquire</strong> to chat with us on WhatsApp</p></div>
       <div id="svcGroups"></div>
       <noscript><p style="text-align:center;margin-top:20px">Please WhatsApp us on <a href="https://wa.me/919226520552">9226520552</a> for the full list of services.</p></noscript>
-    </div>
-  </section>
-
-  <!-- ===== AI VIDEO PLANS (merged, replacing old hosting only) ===== -->
-  <section id="pricing" aria-label="AI Video Plans" style="position:relative;z-index:1;">
-    <div class="plans-section">
-      <div class="plans-header">
-        <h2>AI Video Plans</h2>
-        <p>Professional AI-powered video creation plans</p>
-      </div>
-      <div class="plans-grid">
-        <!-- 30 / 32 sec -->
-        <div class="plan-card">
-          <div class="plan-name">Standard · 30/32 sec</div>
-          <p class="plan-description">Perfect for short-form content, reels and quick promos.</p>
-          <div class="price-area">
-            <span class="price">₹599 <small>/ video</small></span>
-          </div>
-          <ul class="features">
-            <li><span class="check">✓</span> Up to 30/32 seconds</li>
-            <li><span class="check">✓</span> Cinematic AI visuals</li>
-            <li><span class="check">✓</span> Music + transitions</li>
-            <li><span class="check">✓</span> Delivery in 24–48 hours</li>
-          </ul>
-          <button type="button" class="plan-button" onclick="window.open('https://wa.me/919226520552?text=Hi%2C%20I%20want%20the%2030%2F32%20sec%20AI%20video%20plan%20(%E2%82%B9599).','_blank');">
-            <span class="button-text">Book 30s Plan – ₹599</span>
-          </button>
-        </div>
-
-        <!-- 60 / 65 sec -->
-        <div class="plan-card diamond-card">
-          <div class="popular-badge">PREMIUM</div>
-          <div class="plan-name">Premium · 60/65 sec</div>
-          <p class="plan-description">Ideal for detailed AI videos, full ads and brand stories.</p>
-          <div class="price-area">
-            <span class="price">₹1019 <small>/ video</small></span>
-          </div>
-          <ul class="features">
-            <li><span class="check">✓</span> Up to 60/65 seconds</li>
-            <li><span class="check">✓</span> Advanced VFX &amp; AI effects</li>
-            <li><span class="check">✓</span> Premium voiceover ready</li>
-            <li><span class="check">✓</span> Priority delivery</li>
-          </ul>
-          <button type="button" class="plan-button" onclick="window.open('https://wa.me/919226520552?text=Hi%2C%20I%20want%20the%2060%2F65%20sec%20AI%20video%20plan%20(%E2%82%B91019).','_blank');">
-            <span class="button-text">Book 60s Plan – ₹1019</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Simple neon plans strip -->
-    <div class="neon-ai-video-plans">
-      <div class="neon-title">
-        <h2>Neon AI Video Plans</h2>
-        <p>Professional AI-powered video creation plans</p>
-      </div>
-      <div class="video-plans-grid">
-        <div class="video-plan-card">
-          <div class="plan-glow"></div>
-          <div class="plan-label">Standard</div>
-          <div class="video-duration">Up to 30 / 32 sec</div>
-          <div class="price"><strong>₹599</strong><span>/ video</span></div>
-          <div class="plan-note">Perfect for short-form content</div>
-        </div>
-        <div class="video-plan-card premium">
-          <div class="plan-glow"></div>
-          <div class="plan-label">Premium</div>
-          <div class="video-duration">Up to 60 / 65 sec</div>
-          <div class="price"><strong>₹1019</strong><span>/ video</span></div>
-          <div class="plan-note">Ideal for detailed AI videos</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -570,6 +458,10 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
     </div>
   </section>
 </main>
+AI Video Plans
+₹1019 -Upto 60/65 sec
+₹599 -Upto 30/32 sec
+
 <!-- Code start here. Html css js -->
 
 <style>
@@ -856,7 +748,7 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
 <section class="plans-section">
 
     <div class="plans-header">
-        <h2>Choose Your Plan</h2>
+        <h2>Choose Your Hosting Plan</h2>
         <p>Powerful hosting plans for websites, businesses and growing brands.</p>
     </div>
 
@@ -1150,6 +1042,8 @@ function startPlanProcessing(button, planName) {
 </script>
 
 <!-- Code end here. Html css js -->
+
+
 <footer>
   <div class="wrap">
     <p class="brand">AI NEXUS × NEON AI STUDIO</p>
@@ -1167,8 +1061,236 @@ function startPlanProcessing(button, planName) {
 
 <a class="fwa" href="https://wa.me/919226520552" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-wa="Hi AI Nexus × Neon AI Studio!"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg></a>
 
+<!-- Code start here. Html css js -->
+
+<div class="neon-ai-video-plans">
+  
+  <style>
+    .neon-ai-video-plans {
+      --neon: #00f5ff;
+      --purple: #8b5cf6;
+      --dark: #050816;
+      --card: rgba(10, 15, 35, 0.88);
+      
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+      padding: 55px 20px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 245, 255, .12), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, .15), transparent 30%),
+        var(--dark);
+      color: white;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+    
+    .neon-ai-video-plans * {
+      box-sizing: border-box;
+    }
+    
+    .neon-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .neon-title h2 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 900;
+      color: white;
+      text-shadow:
+        0 0 8px rgba(0, 245, 255, .8),
+        0 0 25px rgba(0, 245, 255, .45);
+    }
+    
+    .neon-title p {
+      margin: 12px 0 0;
+      color: #aab4d4;
+      font-size: 15px;
+    }
+    
+    .video-plans-grid {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+    
+    .video-plan-card {
+      position: relative;
+      padding: 35px 30px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid rgba(0, 245, 255, .35);
+      box-shadow:
+        0 0 15px rgba(0, 245, 255, .08),
+        inset 0 0 30px rgba(0, 245, 255, .025);
+      overflow: hidden;
+      transition: .35s ease;
+    }
+    
+    .video-plan-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--neon);
+      box-shadow:
+        0 0 20px rgba(0, 245, 255, .25),
+        0 0 55px rgba(0, 245, 255, .10);
+    }
+    
+    .video-plan-card.premium {
+      border-color: rgba(139, 92, 246, .6);
+    }
+    
+    .video-plan-card.premium:hover {
+      border-color: var(--purple);
+      box-shadow:
+        0 0 25px rgba(139, 92, 246, .3),
+        0 0 60px rgba(139, 92, 246, .12);
+    }
+    
+    .plan-glow {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      right: -80px;
+      top: -80px;
+      background: var(--neon);
+      filter: blur(70px);
+      opacity: .15;
+      pointer-events: none;
+    }
+    
+    .premium .plan-glow {
+      background: var(--purple);
+    }
+    
+    .plan-label {
+      color: var(--neon);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    
+    .premium .plan-label {
+      color: #b69cff;
+    }
+    
+    .video-duration {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 25px;
+    }
+    
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+    
+    .price strong {
+      font-size: 46px;
+      font-weight: 900;
+      color: white;
+    }
+    
+    .price span {
+      color: #9ba7c7;
+      font-size: 14px;
+    }
+    
+    .plan-note {
+      margin-top: 15px;
+      color: #7783a5;
+      font-size: 12px;
+    }
+    
+    @media (max-width: 700px) {
+      .video-plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+      
+      .neon-ai-video-plans {
+        padding: 45px 15px;
+      }
+    }
+  </style>
+  
+  
+  <div class="neon-title">
+    <h2>Neon AI Video Plans</h2>
+    <p>Professional AI-powered video creation plans</p>
+  </div>
+  
+  
+  <div class="video-plans-grid">
+    
+    <!-- 30 / 32 SEC PLAN -->
+    
+    <div class="video-plan-card">
+      
+      <div class="plan-glow"></div>
+      
+      <div class="plan-label">
+        Standard
+      </div>
+      
+      <div class="video-duration">
+        Up to 30 / 32 sec
+      </div>
+      
+      <div class="price">
+        <strong>₹599</strong>
+        <span>/ video</span>
+      </div>
+      
+      <div class="plan-note">
+        Perfect for short-form content
+      </div>
+      
+    </div>
+    
+    
+    <!-- 60 / 65 SEC PLAN -->
+    
+    <div class="video-plan-card premium">
+      
+      <div class="plan-glow"></div>
+      
+      <div class="plan-label">
+        Premium
+      </div>
+      
+      <div class="video-duration">
+        Up to 60 / 65 sec
+      </div>
+      
+      <div class="price">
+        <strong>₹1019</strong>
+        <span>/ video</span>
+      </div>
+      
+      <div class="plan-note">
+        Ideal for detailed AI videos
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+
+<!-- Code end here. Html css js -->
+
 <script>
 /* ===== CONFIG ===== */
+// TODO: confirm the official "Ai Nexus" YouTube channel URL, e.g. "https://www.youtube.com/@yourhandle".
+// While empty, the YouTube card links to the showreel video instead.
 const YOUTUBE_URL = "";
 const WA_NUMBER = "919226520552";
 const SHOWREEL_ID = "XQsW4P6z_So";
@@ -1210,12 +1332,13 @@ const SERVICES = [
   ]}
 ];
 
+/* ===== helpers ===== */
 const $ = (s, r=document) => r.querySelector(s);
 const waLink = (text) => "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-/* preloader capped ~1.5s */
+/* ===== preloader (capped ~1.5s) ===== */
 (function(){
   const pre = $("#preloader"), fill = $("#plFill"), pct = $("#plPct");
   const start = performance.now(), MAX = 1500;
@@ -1227,9 +1350,10 @@ const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
   setTimeout(finish, MAX + 100);
 })();
 
+/* ===== YouTube link ===== */
 if (YOUTUBE_URL) $("#ytLink").href = YOUTUBE_URL;
 
-/* services render */
+/* ===== services render ===== */
 (function(){
   const host = $("#svcGroups"), sel = $("#qService");
   let html = "";
@@ -1249,9 +1373,10 @@ if (YOUTUBE_URL) $("#ytLink").href = YOUTUBE_URL;
   const other = document.createElement("option"); other.value = "Something else"; other.textContent = "Something else / Not sure"; sel.appendChild(other);
 })();
 
+/* ===== generic WA prefill links ===== */
 document.querySelectorAll("[data-wa]").forEach(a => a.href = waLink(a.dataset.wa));
 
-/* quote form */
+/* ===== quote form → WhatsApp (nothing stored) ===== */
 $("#quoteForm").addEventListener("submit", e => {
   e.preventDefault();
   const n = $("#qName").value.trim(), s = $("#qService").value, m = $("#qMsg").value.trim(), err = $("#qErr");
@@ -1262,7 +1387,7 @@ $("#quoteForm").addEventListener("submit", e => {
   window.open(waLink(text), "_blank", "noopener");
 });
 
-/* mobile menu */
+/* ===== mobile menu ===== */
 (function(){
   const b = $("#burger"), m = $("#menu");
   const set = (open) => { m.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.setAttribute("aria-label", open ? "Close menu" : "Open menu"); };
@@ -1271,7 +1396,7 @@ $("#quoteForm").addEventListener("submit", e => {
   document.addEventListener("keydown", e => { if (e.key === "Escape" && m.classList.contains("open")) { set(false); b.focus(); } });
 })();
 
-/* video facade */
+/* ===== video facade ===== */
 $("#playBtn").addEventListener("click", () => {
   const f = document.createElement("iframe");
   f.src = "https://www.youtube-nocookie.com/embed/" + SHOWREEL_ID + "?autoplay=1&rel=0&playsinline=1&loop=1&playlist=" + SHOWREEL_ID;
@@ -1281,7 +1406,7 @@ $("#playBtn").addEventListener("click", () => {
   $("#vbox").replaceChildren(f);
 });
 
-/* scroll progress */
+/* ===== scroll progress ===== */
 (function(){
   const fill = $("#spFill"); let ticking = false;
   const upd = () => { const h = document.documentElement.scrollHeight - innerHeight; fill.style.transform = "scaleX(" + (h > 0 ? scrollY / h : 0) + ")"; ticking = false; };
@@ -1289,7 +1414,7 @@ $("#playBtn").addEventListener("click", () => {
   upd();
 })();
 
-/* reveal */
+/* ===== reveal ===== */
 (function(){
   const els = document.querySelectorAll(".reveal");
   if (reduceMotion || !("IntersectionObserver" in window)) { els.forEach(el => el.classList.add("in")); return; }
@@ -1297,7 +1422,7 @@ $("#playBtn").addEventListener("click", () => {
   els.forEach(el => io.observe(el));
 })();
 
-/* ripple */
+/* ===== ripple ===== */
 document.addEventListener("pointerdown", e => {
   if (reduceMotion) return;
   const t = e.target.closest(".btn"); if (!t) return;
@@ -1306,6 +1431,7 @@ document.addEventListener("pointerdown", e => {
   t.appendChild(s); setTimeout(() => s.remove(), 650);
 });
 
+/* ===== desktop-only: cursor glow + 3D tilt ===== */
 if (finePointer && !reduceMotion) {
   const g = $("#cursorGlow");
   addEventListener("pointermove", e => { g.style.opacity = 1; g.style.transform = "translate(" + (e.clientX-170) + "px," + (e.clientY-170) + "px)"; }, { passive: true });
@@ -1322,7 +1448,7 @@ if (finePointer && !reduceMotion) {
 
 $("#yr").textContent = new Date().getFullYear();
 
-/* 3D bg */
+/* ===== Three.js background: deferred, desktop & capable devices only ===== */
 (function(){
   const conn = navigator.connection || {};
   const capable = innerWidth >= 1024 && finePointer && !reduceMotion && !conn.saveData && (navigator.hardwareConcurrency || 4) >= 4;
@@ -1367,6 +1493,11 @@ $("#yr").textContent = new Date().getFullYear();
     requestAnimationFrame(loop);
   }
 })();
+
+
+
+
+
 </script>
 </body>
 </html>
