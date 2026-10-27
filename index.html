@@ -570,7 +570,586 @@ footer .brand{font-family:var(--head);font-weight:900;color:#fff;letter-spacing:
     </div>
   </section>
 </main>
+<!-- Code start here. Html css js -->
 
+<style>
+    .plans-section {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 60px 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+
+    .plans-section *,
+    .plans-section *::before,
+    .plans-section *::after {
+        box-sizing: border-box;
+    }
+
+    .plans-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .plans-header h2 {
+        margin: 0 0 10px;
+        font-size: 40px;
+        color: #111827;
+    }
+
+    .plans-header p {
+        margin: 0;
+        color: #667085;
+        font-size: 16px;
+    }
+
+    .plans-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+
+    .plan-card {
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 22px;
+        padding: 32px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .plan-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    .diamond-card {
+        border: 2px solid #635bff;
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #635bff;
+        color: #ffffff;
+        padding: 7px 18px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .offer-badge {
+        display: inline-block;
+        background: #ecfdf3;
+        color: #027a48;
+        padding: 7px 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    .plan-name {
+        font-size: 28px;
+        font-weight: 800;
+        color: #111827;
+        margin-bottom: 8px;
+    }
+
+    .plan-description {
+        color: #667085;
+        line-height: 1.6;
+        min-height: 50px;
+        margin: 0;
+    }
+
+    .price-area {
+        margin: 25px 0 10px;
+    }
+
+    .old-price {
+        color: #98a2b3;
+        text-decoration: line-through;
+        font-size: 18px;
+        margin-right: 8px;
+    }
+
+    .price {
+        color: #111827;
+        font-size: 42px;
+        font-weight: 800;
+    }
+
+    .price small {
+        font-size: 16px;
+        color: #667085;
+        font-weight: 500;
+    }
+
+    .payment-info {
+        color: #667085;
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0 0 24px;
+    }
+
+    .plan-button {
+        width: 100%;
+        min-height: 52px;
+        border: none;
+        border-radius: 12px;
+        background: #111827;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: 0.25s ease;
+    }
+
+    .diamond-card .plan-button {
+        background: #635bff;
+    }
+
+    .plan-button:hover:not(:disabled) {
+        opacity: 0.9;
+    }
+
+    .plan-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.85;
+    }
+
+    /* Loading Spinner */
+
+    .loading-spinner {
+        display: none;
+        width: 19px;
+        height: 19px;
+        border: 3px solid rgba(255, 255, 255, 0.35);
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: planSpin 0.8s linear infinite;
+    }
+
+    .plan-button.processing .loading-spinner {
+        display: inline-block;
+    }
+
+    @keyframes planSpin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Failed State */
+
+    .plan-button.failed {
+        background: #dc2626 !important;
+        color: #ffffff;
+    }
+
+    .error-message {
+        display: none;
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 10px;
+        background: #fef2f2;
+        color: #b91c1c;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+    .error-message.show {
+        display: block;
+    }
+
+    .features-title {
+        margin: 28px 0 12px;
+        color: #344054;
+        font-size: 15px;
+        font-weight: 800;
+    }
+
+    .features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 8px 0;
+        color: #475467;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .check {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #ecfdf3;
+        color: #039855;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    .credits {
+        margin-top: 18px;
+        padding: 12px;
+        background: #fff7ed;
+        color: #c2410c;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    @media (max-width: 800px) {
+        .plans-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .plans-header h2 {
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .plans-section {
+            padding: 45px 15px;
+        }
+
+        .plan-card {
+            padding: 24px;
+        }
+
+        .plans-header h2 {
+            font-size: 28px;
+        }
+
+        .price {
+            font-size: 36px;
+        }
+    }
+</style>
+
+
+<section class="plans-section">
+
+    <div class="plans-header">
+        <h2>Choose Your Plan</h2>
+        <p>Powerful hosting plans for websites, businesses and growing brands.</p>
+    </div>
+
+
+    <div class="plans-grid">
+
+        <!-- Diamond Plan -->
+
+        <div class="plan-card diamond-card">
+
+            <div class="popular-badge">
+                MOST POPULAR
+            </div>
+
+            <div class="offer-badge">
+                Special Offer • 75% Off
+            </div>
+
+            <div class="plan-name">
+                Diamond Plan
+            </div>
+
+            <p class="plan-description">
+                Unlimited websites and mailboxes, for maximum flexibility.
+            </p>
+
+            <div class="price-area">
+                <span class="old-price">₹799</span>
+                <span class="price">
+                    ₹199 <small>/mo</small>
+                </span>
+            </div>
+
+            <p class="payment-info">
+                Today you pay ₹9,552 for 48 months.
+                Renews at ₹649/mo for the same term.
+                Cancel anytime.
+            </p>
+
+            <button
+                type="button"
+                class="plan-button"
+                onclick="startPlanProcessing(this, 'Diamond Plan')">
+
+                <span class="loading-spinner"></span>
+
+                <span class="button-text">
+                    Get Plan
+                </span>
+
+            </button>
+
+            <div class="error-message">
+                Failed to load.<br>
+                Check your internet connection.
+            </div>
+
+            <div class="credits">
+                Sale Season: Get 2x credits — 1000 instead of 500
+            </div>
+
+            <div class="features-title">
+                Plan Features
+            </div>
+
+            <ul class="features">
+
+                <li>
+                    <span class="check">✓</span>
+                    Unlimited websites
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Unlimited use
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    50 GB NVMe storage
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Daily backups + easy data restore
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    CDN included
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Priority 24/7 expert support
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Python support
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Node.js support
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Ecommerce available
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Unlimited mailboxes per website — free for 1 year
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Free AI email marketing for 1 year
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Up to 100 subscribers
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- Gold Plan -->
+
+        <div class="plan-card">
+
+            <div class="plan-name">
+                Gold Premium
+            </div>
+
+            <p class="plan-description">
+                Run websites smoothly. Great for creators and small brands.
+            </p>
+
+            <div class="price-area">
+                <span class="price">
+                    ₹139 <small>/mo</small>
+                </span>
+            </div>
+
+            <p class="payment-info">
+                Today you pay ₹6,672 for 24 months.
+                Renews at ₹449/mo for the same term.
+            </p>
+
+            <button
+                type="button"
+                class="plan-button"
+                onclick="startPlanProcessing(this, 'Gold Premium')">
+
+                <span class="loading-spinner"></span>
+
+                <span class="button-text">
+                    Get Plan
+                </span>
+
+            </button>
+
+            <div class="error-message">
+                Failed to load.<br>
+                Check your internet connection.
+            </div>
+
+            <div class="features-title">
+                Plan Features
+            </div>
+
+            <ul class="features">
+
+                <li>
+                    <span class="check">✓</span>
+                    3 websites
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    20 GB SSD storage
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Free weekly backups
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    CDN included
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Python support
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    2 mailboxes per website — free for 1 year
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function startPlanProcessing(button, planName) {
+
+    // Prevent clicking while already processing
+    if (button.disabled) {
+        return;
+    }
+
+    const card = button.closest(".plan-card");
+
+    const buttonText =
+        button.querySelector(".button-text");
+
+    const errorMessage =
+        card.querySelector(".error-message");
+
+
+    // Hide previous error
+    errorMessage.classList.remove("show");
+
+    button.classList.remove("failed");
+
+    // Start processing
+    button.disabled = true;
+
+    button.classList.add("processing");
+
+    buttonText.textContent = "Processing...";
+
+
+    /*
+        Processing time:
+        120000 milliseconds = 2 minutes
+    */
+
+    setTimeout(function () {
+
+        // Stop spinner
+        button.classList.remove("processing");
+
+        // Enable button
+        button.disabled = false;
+
+        // Failed state
+        button.classList.add("failed");
+
+        buttonText.textContent = "Failed to load";
+
+        // Show internet error
+        errorMessage.classList.add("show");
+
+
+        /*
+            Keep failed state visible for 5 seconds,
+            then reset the button.
+        */
+
+        setTimeout(function () {
+
+            button.classList.remove("failed");
+
+            buttonText.textContent = "Get Plan";
+
+            errorMessage.classList.remove("show");
+
+        }, 5000);
+
+    }, 120000);
+
+}
+
+</script>
+
+<!-- Code end here. Html css js -->
 <footer>
   <div class="wrap">
     <p class="brand">AI NEXUS × NEON AI STUDIO</p>
