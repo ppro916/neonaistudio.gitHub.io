@@ -286,3 +286,8 @@ html.reduced .cmdbar::before, html.reduced .plan-face::before { animation: none;
 html.css-hero .hero-still { display: none; }
 html.tier-static:not(.css-hero) .chero .l-core, html.tier-static:not(.css-hero) .chero .l-glow { display: none; }
 html.css-hero #world { display: none; }
+
+/* service card links to dedicated SEO pages */
+.card .svc-a { color: inherit; text-decoration: none; }
+.card p .svc-a { color: var(--cyan-core); }
+.card .svc-a:hover { color: var(--cyan-core); }
