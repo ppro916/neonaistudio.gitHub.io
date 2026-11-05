@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://neonaistudio.in/sitemap.xml
+
+# Updated 2026-11-06
