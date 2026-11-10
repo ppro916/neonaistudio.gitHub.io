@@ -3,8 +3,8 @@
  * @module pricing/plans
  */
 export const PLANS = [
-  { id: "standard", name: "STANDARD", duration: "Up to 30 / 32 sec", price: 599, priceLabel: "₹599 / video" },
-  { id: "premium", name: "PREMIUM", duration: "Up to 60 / 65 sec", price: 1019, priceLabel: "₹1019 / video" },
+  { id: "standard", name: "STANDARD", duration: "Up to 30 / 32 sec", price: 599, priceLabel: "599 / video" },
+  { id: "premium", name: "PREMIUM", duration: "Up to 60 / 65 sec", price: 1019, priceLabel: "1019 / video" },
 ];
 
 /** Human label used in the dropdown and the WhatsApp message. */

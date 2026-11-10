@@ -5,7 +5,7 @@
  *
  * After editing, run `node tools/build-static.mjs` to refresh index.html.
  *
- * NOTE (owner to confirm): Gold Premium shows ₹139/mo but "₹6,672 for 24 months" (= ₹278/mo).
+ * NOTE (owner to confirm): Gold Premium shows 139/mo but "6,672 for 24 months" (= 278/mo).
  * Fix `todayTotal` (and/or `price`) below if the total should be different.
  * @module pricing/hostingPlans
  */
@@ -21,10 +21,10 @@ export const HOSTING = {
       name: "Diamond Plan Unlimited",
       subtitle: "Unlimited websites and mailboxes, for maximum flexibility.",
       oldPrice: 799,                            // shown struck through (omit for no strike-through)
-      price: 199,                               // ₹ per month
+      price: 199,                               // per month
       months: 48,                               // billing term
-      todayTotal: 9552,                         // ₹ charged today for the whole term
-      renewPrice: 649,                          // ₹ per month on renewal (same term)
+      todayTotal: 9552,                         // charged today for the whole term
+      renewPrice: 649,                          // per month on renewal (same term)
       cancelAnytime: true,
       highlight: "Sale Season: Get 2x credits, 1000 instead of 500",
       features: [
@@ -66,11 +66,11 @@ export const inr = (n) => {
   return rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + last3;
 };
 
-export const priceLabel = (p) => `₹${inr(p.price)}/mo`;
+export const priceLabel = (p) => `${inr(p.price)}/mo`;
 
-/** "Today you pay ₹9,552 for 48 months. Renews at ₹649/mo for the same term. Cancel anytime." */
+/** "Today you pay 9,552 for 48 months. Renews at 649/mo for the same term. Cancel anytime." */
 export const finePrint = (p) =>
-  `Today you pay ₹${inr(p.todayTotal)} for ${p.months} months. Renews at ₹${inr(p.renewPrice)}/mo for the same term.` +
+  `Today you pay ${inr(p.todayTotal)} for ${p.months} months. Renews at ${inr(p.renewPrice)}/mo for the same term.` +
   (p.cancelAnytime ? " Cancel anytime." : "");
 
 /** Prefilled WhatsApp text. */

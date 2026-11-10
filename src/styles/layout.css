@@ -108,3 +108,22 @@ footer p { margin-inline: auto; color: var(--text-dim); }
   .grid { grid-template-columns: 1fr; }
   .cta .btn { flex: 1 1 100%; }
 }
+
+/* SEO keyword panel: visible on first paint, then faded and removed so it does not affect the 3D layout. */
+#seo-keywords {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: auto;
+  pointer-events: none;
+  margin: 0;
+  padding: 16px 20px;
+  background: #04060C;
+  color: #c5cce0;
+  font-family: var(--f-ui, system-ui, sans-serif);
+  font-size: 13px;
+  line-height: 1.5;
+  transition: opacity 0.25s ease;
+}
+#seo-keywords p { margin: 0; max-width: none; }
+#seo-keywords.is-fading { opacity: 0; }

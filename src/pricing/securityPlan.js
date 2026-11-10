@@ -14,7 +14,7 @@ export const SECURITY = {
     id: "https",
     name: "Secured System",
     short: "Secured System (HTTPS)",
-    price: 2999,                                // ₹
+    price: 2999,
     benefits: [
       // [icon symbol id, bold lead, rest of the sentence]
       ["i-lock", "Encrypted connection", "everything sent between your visitors and your website, including forms, logins and payment details, is encrypted, so nobody can read it along the way."],
@@ -36,7 +36,7 @@ export const inr = (n) => {
   return rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + last3;
 };
 
-export const priceLabel = (p) => `₹${inr(p.price)}`;
+export const priceLabel = (p) => `${inr(p.price)}`;
 
 /** Prefilled WhatsApp text. */
 export const securityMessage = (p) =>
