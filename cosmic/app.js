@@ -18,16 +18,43 @@ if (fine) root.classList.add("fine");
 // ---------- page behaviours ----------
 safe(() => {
   $$("[data-wa]").forEach(a => { a.href = waLink(a.dataset.wa); });
-  const yr = $("#yr"); if (yr) yr.textContent = new Date().getFullYear();
+  $$(".yr, #yr").forEach(el => { el.textContent = new Date().getFullYear(); });
   const form = $("#quoteForm");
-  form && form.addEventListener("submit", (e) => {
+  if (!form) return;
+  // ---- spam protection (no third-party captcha): honeypot + minimum time-to-submit + validation + cooldown ----
+  const MIN_MS = 3000, COOLDOWN_MS = 60 * 1000, DAY_MAX = 6, KEY = "neon_quote_log";
+  const shownAt = Date.now();
+  const store = { get() { try { return JSON.parse(localStorage.getItem(KEY) || "[]").filter(t => Date.now() - t < 864e5); } catch (e) { return []; } },
+                  add(t) { try { const l = store.get(); l.push(t); localStorage.setItem(KEY, JSON.stringify(l.slice(-20))); } catch (e) {} } };
+  const urlCount = (t) => (t.match(/https?:\/\/|www\./gi) || []).length;
+  const thanks = (service, opened) => {
+    try { sessionStorage.setItem("neon_quote_service", service || ""); } catch (e) {}
+    const q = new URLSearchParams({ wa: opened ? "1" : "0" });
+    location.href = "thank-you.html?" + q.toString();
+  };
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const n = $("#qName").value.trim(), s = $("#qService").value, m = $("#qMsg").value.trim(), err = $("#qErr");
-    if (!n) { err.textContent = "Please enter your name."; $("#qName").focus(); return; }
-    if (!s) { err.textContent = "Please choose a service."; $("#qService").focus(); return; }
+    const err = $("#qErr"), hp = $("#qWebsite");
+    const n = $("#qName").value.trim().replace(/\s+/g, " "), s = $("#qService").value, m = $("#qMsg").value.trim();
+    const fail = (msg, el) => { err.textContent = msg; el && el.focus(); };
+    if (hp && hp.value) { thanks("", false); return; }                         // bot filled the hidden field: drop silently
+    if (Date.now() - shownAt < MIN_MS) return fail("That was quick! Please check your details and press Send again.");
+    if (n.length < 2 || n.length > 60 || !/\p{L}/u.test(n) || /[<>{}]|https?:|www\./i.test(n)) return fail("Please enter your name (2–60 letters).", $("#qName"));
+    if (!s) return fail("Please choose a service.", $("#qService"));
+    if (m.length > 600) return fail("Please keep the project details under 600 characters.", $("#qMsg"));
+    if (urlCount(m) > 2) return fail("Please include at most 2 links in your message.", $("#qMsg"));
+    const log = store.get(), last = log[log.length - 1] || 0, wait = COOLDOWN_MS - (Date.now() - last);
+    if (wait > 0) return fail(`You've just sent a request. Please wait ${Math.ceil(wait / 1000)} seconds, or message us directly on WhatsApp.`);
+    if (log.length >= DAY_MAX) return fail("You've sent several requests today. Please message us directly on WhatsApp: +91 9226520552.");
     err.textContent = "";
+    store.add(Date.now());
     const text = "Hi AI Nexus × Neon AI Studio!\nName: " + n + "\nService: " + s + (m ? "\nDetails: " + m : "") + "\n\nPlease share a quote.";
-    window.open(waLink(text), "_blank", "noopener");
+    const link = waLink(text);
+    try { sessionStorage.setItem("neon_quote_wa", link); } catch (e) {}
+    let w = null;
+    try { w = window.open(link, "_blank"); if (w) w.opener = null; } catch (e) { w = null; }
+    window.gtag && window.gtag("event", "generate_lead", { method: "whatsapp_quote_form" });
+    setTimeout(() => thanks(s, !!w), w ? 400 : 0);
   });
 });
 safe(() => processing.init({}));

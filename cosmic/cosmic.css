@@ -341,3 +341,39 @@ footer p{color:var(--dim);margin-inline:auto}
 .sec-id .host-badge{display:inline-block}
 .sec-id .plan-name{margin-top:2px}
 .links .svc-a{min-width:44px;justify-content:center}
+
+/* ===== checklist pass (11 Nov 2026): shared footer, FAQ accordion, form honeypot, consent banner ===== */
+.site-foot{text-align:left}
+.site-foot .brand,.site-foot>.wrap>p{text-align:center}
+.fcols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 28px;margin:30px auto 18px;max-width:1100px}
+.fcols .fsvc ul{columns:2;column-gap:20px}
+.fcols ul{list-style:none;margin:0;padding:0}
+.fcols li{break-inside:avoid}
+.fcols a{display:inline-flex;align-items:center;min-height:36px;color:var(--mid);text-decoration:none;font-size:.92rem}
+.fcols a:hover,.legal a:hover{color:#fff}
+.fh{font-family:var(--f-m);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)!important;margin:0 0 6px!important}
+.legal{text-align:center}.legal a{color:var(--mid);display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:900px){.fcols{grid-template-columns:1fr 1fr}.fcols .fsvc{grid-column:1/-1}}
+@media (max-width:420px){.fcols .fsvc ul{columns:1}}
+
+.faq{display:grid;gap:12px;max-width:980px}
+.faq-i{border-radius:16px;background:var(--glass);box-shadow:0 0 0 1px var(--line) inset;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:box-shadow .3s var(--ease)}
+.faq-i[open],.faq-i:hover{box-shadow:0 0 0 1px rgba(0,229,255,.38) inset,0 0 30px rgba(0,229,255,.08)}
+.faq-i summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:18px 20px;min-height:56px;font-family:var(--f-u);font-weight:600;color:#fff}
+.faq-i summary::-webkit-details-marker{display:none}
+.faq-n{color:var(--cyan);font-size:.8rem;opacity:.85}
+.faq-x{width:18px;height:18px;position:relative}
+.faq-x::before,.faq-x::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;border-radius:2px;background:var(--grad);transition:transform .3s var(--ease)}
+.faq-x::after{transform:rotate(90deg)}
+.faq-i[open] .faq-x::after{transform:rotate(0)}
+.faq-a{padding:0 20px 18px 56px}.faq-a p{margin:0;color:var(--mid)}
+.faq-a .svc-a{display:inline;padding:0;margin:0;min-height:0;word-break:break-all}
+.faq-more{margin-top:22px;color:var(--dim)}
+.reviews-soon{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px;color:var(--dim);font-size:.95rem}
+@media (max-width:600px){.faq-a{padding-left:20px}.faq-i summary{padding:16px}}
+
+.hp{position:absolute!important;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+
+.consent{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:150;width:min(640px,calc(100% - 24px));display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 16px;border-radius:16px;background:var(--glass2);box-shadow:0 0 0 1px var(--line) inset,0 20px 60px rgba(0,0,0,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:.9rem}
+.consent p{margin:0;flex:1 1 280px;color:var(--mid)}.consent a{color:var(--cyan)}
+.consent div{display:flex;gap:8px}.consent .btn{min-height:44px;padding:0 18px}

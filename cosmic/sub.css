@@ -1,0 +1,45 @@
+/* Inner pages (about, FAQ, service pages, services list, privacy, thank-you, 404, legacy shell) on the cosmic theme.
+   Loaded after cosmic.css. Visuals are CSS + the procedural WebGL canvas only: no raster images, no video. */
+.sp{padding:calc(var(--nav-h) + clamp(36px,6vw,72px)) 0 60px;position:relative;z-index:1}
+.sp .wrap{width:min(960px,100% - 2*clamp(16px,4vw,40px));margin-inline:auto;padding:clamp(22px,4vw,48px);border-radius:24px;background:rgba(5,8,20,.72);box-shadow:0 0 0 1px var(--line) inset,0 30px 80px rgba(0,0,0,.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.sp .bc{font-size:.86rem;color:var(--dim);margin-bottom:18px;font-family:var(--f-m)}
+.sp .bc a{color:var(--cyan);text-decoration:none;display:inline-flex;min-height:44px;align-items:center}
+.sp h1{font-family:var(--f-d);font-weight:800;font-size:clamp(1.9rem,1rem + 3.4vw,3.4rem);line-height:1.1;margin:0 0 12px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sp h2{font-size:clamp(1.25rem,1rem + 1.1vw,1.8rem);margin:42px 0 14px;color:#fff}
+.sp h3{margin:0 0 6px}
+.sp p,.sp li{color:var(--mid);line-height:1.7}.sp ul,.sp ol{padding-left:1.2em}.sp li{margin:4px 0}
+.sp strong{color:#fff}
+.sp .lead{font-size:1.12rem;color:var(--ink)}
+.sp .mr{color:var(--dim)}
+.sp a:not(.btn){color:var(--cyan)}
+.sp .pp,.sp .rel,.sp .svcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px}
+.sp .pc,.sp .rel a,.sp .svcgrid a,.sp .contactbox,.sp .card-x{background:rgba(255,255,255,.035);box-shadow:0 0 0 1px var(--line) inset;border-radius:16px;padding:18px;text-decoration:none}
+.sp .rel a,.sp .svcgrid a{color:#fff!important;display:block;transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
+.sp .rel a:hover,.sp .svcgrid a:hover{box-shadow:0 0 0 1px rgba(0,229,255,.5) inset,0 0 26px rgba(0,229,255,.12);transform:translateY(-2px)}
+.sp .amt{font-family:var(--f-d);font-size:1.5rem;color:var(--cyan);margin:0}
+.sp details{border-bottom:1px solid var(--line);padding:4px 0}
+.sp summary{cursor:pointer;color:#fff;font-weight:600;min-height:44px;display:flex;align-items:center;padding:8px 0}
+.sp .cta{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
+.sp .all{font-size:.9rem}
+.sp .contactbox{margin:18px 0}
+.sp table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.94rem}
+.sp th,.sp td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);color:var(--mid);vertical-align:top}
+.sp th{color:#fff;font-family:var(--f-u)}
+.sp .note{font-size:.88rem;color:var(--dim)}
+.site-foot{padding-bottom:60px}
+/* big procedural glyph used on 404 / thank-you */
+.glyph{display:block;margin:0 auto 18px;width:min(260px,62vw);height:auto;overflow:visible}
+.glyph .ring{fill:none;stroke:url(#gg);stroke-width:1.4;opacity:.8;transform-box:view-box;transform-origin:0 0;animation:gspin 18s linear infinite}
+.glyph .ring.r2{animation-duration:26s;animation-direction:reverse;opacity:.5}
+.glyph .core{fill:url(#gc)}
+.glyph text{font-family:var(--f-d);font-weight:900;fill:url(#gg);letter-spacing:.04em}
+@keyframes gspin{to{transform:rotate(360deg)}}
+.center{text-align:center}.center .cta{justify-content:center}
+.steps{counter-reset:s;list-style:none;padding:0!important;display:grid;gap:12px;text-align:left}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.035);box-shadow:0 0 0 1px var(--line) inset}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-m);color:var(--cyan);padding-top:2px}
+.legacy-bar{position:relative;z-index:2;margin:0;padding:10px 16px;text-align:center;font:500 .9rem/1.5 system-ui,sans-serif;background:#070a18;border-bottom:1px solid rgba(0,229,255,.25);color:#cfd8ff}
+.legacy-bar a{color:#00E5FF}
+@media (prefers-reduced-motion:reduce){.glyph .ring{animation:none}}
+/* aliases so page-specific rules written for the old token set keep working on the cosmic theme */
+:root{--bg-void:var(--void);--cyan-core:var(--cyan);--text-primary:var(--ink);--text-mid:var(--mid);--text-dim:var(--dim);--f-display:var(--f-d);--f-body:var(--f-b);--f-ui:var(--f-u);--fs-sm:.88rem;--fs-h3:clamp(1.25rem,1rem + 1.1vw,1.8rem);--scrim:rgba(255,255,255,.035);--r-lg:16px}
