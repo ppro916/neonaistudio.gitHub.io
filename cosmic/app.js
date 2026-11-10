@@ -4,6 +4,7 @@
  */
 import { waLink } from "../src/config.js";
 import * as processing from "../src/pricing/processing.js";
+import * as motion from "./motion.js";
 
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const root = document.documentElement;
@@ -58,6 +59,7 @@ safe(() => {
   });
 });
 safe(() => processing.init({}));
+safe(() => motion.init());
 
 // ---------- nav ----------
 safe(() => {
@@ -86,14 +88,14 @@ safe(() => {
 safe(() => {
   if (reduced) return;
   $$(".card3d").forEach(card => {
-    const max = +(card.dataset.tilt || 7); let raf = 0, tx = 0, ty = 0;
-    const apply = () => { raf = 0; card.style.transform = `perspective(900px) rotateX(${ty}deg) rotateY(${tx}deg) translateZ(0)`; };
+    const max = +(card.dataset.tilt || 7); let raf = 0, tx = 0, ty = 0, lift = 0;
+    const apply = () => { raf = 0; card.style.transform = `perspective(900px) translateY(${lift}px) rotateX(${ty}deg) rotateY(${tx}deg) translateZ(0)`; };
     card.addEventListener("pointermove", (e) => {
       const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
       card.style.setProperty("--mx", (x * 100).toFixed(1) + "%"); card.style.setProperty("--my", (y * 100).toFixed(1) + "%");
-      if (e.pointerType === "mouse") { tx = (x - .5) * 2 * max; ty = -(y - .5) * 2 * max; if (!raf) raf = requestAnimationFrame(apply); }
+      if (e.pointerType === "mouse") { lift = -4; tx = (x - .5) * 2 * max; ty = -(y - .5) * 2 * max; if (!raf) raf = requestAnimationFrame(apply); }
     });
-    card.addEventListener("pointerleave", () => { tx = ty = 0; if (!raf) raf = requestAnimationFrame(apply); });
+    card.addEventListener("pointerleave", () => { tx = ty = lift = 0; if (!raf) raf = requestAnimationFrame(apply); });
   });
   if (!fine) return;
   $$("[data-magnetic]").forEach(el => {
