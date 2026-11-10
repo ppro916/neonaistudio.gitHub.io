@@ -12,7 +12,7 @@
  */
 (function () {
   "use strict";
-  var GA_ID = ""; // e.g. "G-ABC123XYZ9"
+  var GA_ID = "G-PE77TSGQNB";
 
   var KEY = "neon_consent";
   var api = window.neonConsent = {
