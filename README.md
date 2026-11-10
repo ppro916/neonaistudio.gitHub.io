@@ -139,7 +139,7 @@ Source code is released under the [MIT License](LICENSE). Brand assets (logos, p
 
 ## Author
 
-**Moreshwar Bhonde** — AI & Data Science engineering student, AI-first developer, founder of AI Nexus × Neon AI Studio.
+**AI Nexus × Neon AI Studio** — AI video, web, app, branding, SEO and automation studio serving clients worldwide.
 
 - GitHub: [@ppro916](https://github.com/ppro916)
 - Website: [neonaistudio.in](https://neonaistudio.in)

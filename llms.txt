@@ -1,35 +1,61 @@
 # AI Nexus × Neon AI Studio
 
-> Creative and tech studio led by Moreshwar R. Bhonde. We deliver AI video generation, AI video ads & reels, cinematic and wedding invitation videos, graphics & logo design, AI product photography, web & app development, 3D modeling, real-estate walkthroughs, promotional call automation, and WhatsApp AI chatbots. We work with clients worldwide — priority markets Dubai & the UAE, Luxembourg and Kuwait, then the USA, Africa and Russia (plus India). Remote delivery via WhatsApp, email and call; English-first communication; timezone-friendly handoffs; custom international quotes on request. Video plans from ₹599 (STANDARD) and ₹1019 (PREMIUM). Typical short-video turnaround 24–48 hours.
+> AI Nexus × Neon AI Studio (also known as AI Nexus and Neon AI Studio, website neonaistudio.in) is a remote AI ad agency and digital marketing agency. It offers AI video ads and AI video production, video editing and animation, website and app development, logo, branding and graphic design, SEO and digital marketing, social media marketing, AI chatbots and automation, and web hosting with HTTPS security. It serves clients in India, the UAE (Dubai), Kuwait, Luxembourg, Japan, the USA, the UK, Canada, Australia, Germany, Singapore, Ireland, New Zealand, South Africa and worldwide. Orders are taken on WhatsApp at +91 9226520552. Prices are in INR: AI video from 599 per video, hosting from 139 per month, HTTPS set-up 2999.
 
-## Contact
-
-- Phone / WhatsApp: +91 9226520552
-- Email: moreshwar1234bhonde@gmail.com
+Key facts:
+- Brand: AI Nexus × Neon AI Studio (AI Nexus, Neon AI Studio)
 - Website: https://neonaistudio.in/
-- Instagram: https://instagram.com/ai.nexus07
-- Studio base: Maharashtra, India (remote delivery worldwide)
-- Priority markets: Dubai & UAE · Luxembourg · Kuwait · USA · Africa · Russia
+- WhatsApp / phone: +91 9226520552
+- Email: moreshwar1234bhonde@gmail.com
+- Instagram: https://instagram.com/ai.nexus07 (@ai.nexus07)
+- Based in Maharashtra, India; all work is delivered remotely worldwide.
 
-## Pages
+## Main pages
 
-- [Home](https://neonaistudio.in/): Main site – services, video plans, hosting, worldwide clients, quote form
-- [About](https://neonaistudio.in/about/): About Neon AI Studio × AI Nexus, Moreshwar R. Bhonde, international remote delivery
-- [FAQ](https://neonaistudio.in/faq/): AI video generation Dubai, ads UAE, prices, turnaround and how to order worldwide
+- [Home](https://neonaistudio.in/): services overview, video plans, hosting plans, Secured System (HTTPS), quote form
+- [All services](https://neonaistudio.in/services.html): every service, grouped into 9 categories
+- [About](https://neonaistudio.in/about/): about the studio and contact details
+- [FAQ](https://neonaistudio.in/faq/): prices, delivery, turnaround and how to order
+- [Full description for AI](https://neonaistudio.in/llms-full.txt): plain-text profile with all services, plans and countries
 
-## Services
+## Service categories
 
-- [AI Video Generation](https://neonaistudio.in/ai-video-generation/): AI video generation Dubai & worldwide — text-to-video from ₹599
-- [AI Video Ads & Reels](https://neonaistudio.in/ai-video-ads/): AI video ads UAE, Instagram, YouTube and Facebook
-- [Cinematic Video Creation](https://neonaistudio.in/cinematic-video/): Story-driven cinematic videos for international brands
-- [Wedding Invitation Videos](https://neonaistudio.in/wedding-invitation-videos/): Video invites and save-the-date reels
-- [Graphics Designing](https://neonaistudio.in/graphics-designing/): Posters, social posts, festival creatives
-- [Logo Design & Brand Identity](https://neonaistudio.in/logo-design/): Logos, colours, fonts and brand kits
-- [Banner Designing](https://neonaistudio.in/banner-design/): Shop and event banners
-- [AI Product Photography](https://neonaistudio.in/ai-product-photography/): Studio-quality product photos for e-commerce
-- [Web Development](https://neonaistudio.in/web-development/): Fast mobile-friendly websites and hosting
-- [App & Custom Software Development](https://neonaistudio.in/app-development/): Apps and workflow software
+- [AI Video Ads & AI Content](https://neonaistudio.in/services.html#ai-video): AI-generated video ads, UGC-style ads, avatar and spokesperson videos, AI reels and AI content for brands and businesses.
+- [Video Editing, Production & Animation](https://neonaistudio.in/services.html#video-production): Professional video editing, commercial and promotional video production, product videos, explainers, motion graphics and animation.
+- [Web Development & Website Design](https://neonaistudio.in/services.html#web-development): Fast, responsive business websites, ecommerce stores, landing pages, Shopify, WordPress, WooCommerce and custom web development.
+- [App Development](https://neonaistudio.in/services.html#app-development): Android, iOS, Flutter and React Native mobile apps, business and ecommerce apps, plus app UI/UX design.
+- [Branding, Logo & Graphic Design](https://neonaistudio.in/services.html#branding-design): Logo design, brand identity, graphic design, packaging, posters, flyers, banners, thumbnails, UI/UX and photo editing.
+- [SEO & Digital Marketing](https://neonaistudio.in/services.html#seo-digital-marketing): SEO, Google Ads, lead generation, email marketing, content marketing and full-service digital marketing for businesses worldwide.
+- [Social Media Marketing & Content](https://neonaistudio.in/services.html#social-media): Instagram, Facebook, Meta, TikTok, LinkedIn and YouTube marketing, ads management, content creation, reels and channel branding.
+- [Automation, AI & Software Development](https://neonaistudio.in/services.html#automation-ai-development): AI chatbots, AI automation and integration, workflow and marketing automation, SaaS, full-stack and custom software development.
+- [Hosting, Security & IT Solutions](https://neonaistudio.in/services.html#hosting-security): Web hosting plans, HTTPS/SSL security set-up, website maintenance and IT solutions for small businesses.
+
+## Service pages
+
+- [AI Video Generation](https://neonaistudio.in/ai-video-generation/): text-to-video and AI video generation
+- [AI Video Ads & Reels](https://neonaistudio.in/ai-video-ads/): AI ads for Instagram, YouTube and Facebook
+- [Cinematic Video Creation](https://neonaistudio.in/cinematic-video/): story-driven brand videos
+- [Wedding Invitation Videos](https://neonaistudio.in/wedding-invitation-videos/): video invitations and save-the-date reels
+- [Graphics Designing](https://neonaistudio.in/graphics-designing/): posters, social posts and creatives
+- [Logo Design & Brand Identity](https://neonaistudio.in/logo-design/): logos and brand kits
+- [Banner Designing](https://neonaistudio.in/banner-design/): shop and event banners
+- [AI Product Photography](https://neonaistudio.in/ai-product-photography/): ecommerce product photos
+- [Web Development](https://neonaistudio.in/web-development/): websites and hosting
+- [App & Custom Software Development](https://neonaistudio.in/app-development/): apps and custom software
 - [3D Modeling](https://neonaistudio.in/3d-modeling/): 3D models and renders
-- [Real-Estate Walkthrough Videos](https://neonaistudio.in/real-estate-walkthrough/): Walkthroughs and 3D floor plans
-- [Promotional Call Automation](https://neonaistudio.in/call-automation/): Automated promotional calls
-- [WhatsApp Automation & AI Chatbot](https://neonaistudio.in/whatsapp-chatbot/): Auto-replies, broadcasts and AI chatbots
+- [Real-Estate Walkthrough Videos](https://neonaistudio.in/real-estate-walkthrough/): walkthroughs and 3D floor plans
+- [Promotional Call Automation](https://neonaistudio.in/call-automation/): automated promotional calls
+- [WhatsApp Automation & AI Chatbot](https://neonaistudio.in/whatsapp-chatbot/): auto-replies, broadcasts and AI chatbots
+
+## Plans (INR)
+
+- STANDARD video: 599 per video, up to 30/32 seconds
+- PREMIUM video: 1019 per video, up to 60/65 seconds
+- Diamond Plan Unlimited hosting: 199 per month, 48-month term, renews at 649 per month
+- Gold Premium hosting: 139 per month, 24-month term, renews at 449 per month
+- Secured System (HTTPS / SSL set-up and renewal): 2999
+
+## Optional
+
+- [Sitemap](https://neonaistudio.in/sitemap.xml)
+- [Instagram](https://instagram.com/ai.nexus07)
