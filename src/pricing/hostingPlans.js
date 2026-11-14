@@ -15,6 +15,36 @@ export const HOSTING = {
   buttonLabel: "Choose plan",
   plans: [
     {
+      id: "deluxe",
+      featured: false,
+      badge: "Special offer • 61% off",
+      name: "Deluxe",
+      oldPrice: 849,
+      price: 329,
+      months: 12,                               // 1 year term; no prepaid total or renewal price provided
+      features: [
+        "50 GB NVMe storage",
+        "cPanel",
+        "Node.js",
+        "Free unlimited SSL",
+      ],
+    },
+    {
+      id: "ultimate",
+      featured: false,
+      badge: "Special offer • 63% off",
+      name: "Ultimate",
+      oldPrice: 1099,
+      price: 399,
+      months: 12,                               // 1 year term; no prepaid total or renewal price provided
+      features: [
+        "75 GB NVMe storage",
+        "cPanel",
+        "Node.js",
+        "Free unlimited SSL",
+      ],
+    },
+    {
       id: "diamond",
       featured: true,
       badge: "Special offer • 75% off",
@@ -54,36 +84,6 @@ export const HOSTING = {
       features: ["3 websites", "20 GB SSD storage", "Free weekly backups", "CDN"],
       buildWith: ["Python"],
       communicate: ["2 mailboxes per website - free for 1 year"],
-    },
-    {
-      id: "deluxe",
-      featured: false,
-      badge: "Special offer • 61% off",
-      name: "Deluxe",
-      oldPrice: 849,
-      price: 329,
-      months: 12,                               // 1 year term; no prepaid total or renewal price provided
-      features: [
-        "50 GB NVMe storage",
-        "cPanel",
-        "Node.js",
-        "Free unlimited SSL",
-      ],
-    },
-    {
-      id: "ultimate",
-      featured: false,
-      badge: "Special offer • 63% off",
-      name: "Ultimate",
-      oldPrice: 1099,
-      price: 399,
-      months: 12,                               // 1 year term; no prepaid total or renewal price provided
-      features: [
-        "75 GB NVMe storage",
-        "cPanel",
-        "Node.js",
-        "Free unlimited SSL",
-      ],
     },
   ],
 };
