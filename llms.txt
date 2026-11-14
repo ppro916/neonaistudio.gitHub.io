@@ -53,6 +53,8 @@ Key facts:
 - PREMIUM video: 1019 per video, up to 60/65 seconds
 - Diamond Plan Unlimited hosting: 199 per month, 48-month term, renews at 649 per month
 - Gold Premium hosting: 139 per month, 24-month term, renews at 449 per month
+- Deluxe hosting: 329 per month, 12-month term (1 year)
+- Ultimate hosting: 399 per month, 12-month term (1 year)
 - Secured System (HTTPS / SSL set-up and renewal): 2999
 
 ## Optional

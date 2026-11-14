@@ -55,6 +55,36 @@ export const HOSTING = {
       buildWith: ["Python"],
       communicate: ["2 mailboxes per website - free for 1 year"],
     },
+    {
+      id: "deluxe",
+      featured: false,
+      badge: "Special offer • 61% off",
+      name: "Deluxe",
+      oldPrice: 849,
+      price: 329,
+      months: 12,                               // 1 year term; no prepaid total or renewal price provided
+      features: [
+        "50 GB NVMe storage",
+        "cPanel",
+        "Node.js",
+        "Free unlimited SSL",
+      ],
+    },
+    {
+      id: "ultimate",
+      featured: false,
+      badge: "Special offer • 63% off",
+      name: "Ultimate",
+      oldPrice: 1099,
+      price: 399,
+      months: 12,                               // 1 year term; no prepaid total or renewal price provided
+      features: [
+        "75 GB NVMe storage",
+        "cPanel",
+        "Node.js",
+        "Free unlimited SSL",
+      ],
+    },
   ],
 };
 
@@ -68,10 +98,16 @@ export const inr = (n) => {
 
 export const priceLabel = (p) => `${inr(p.price)}/mo`;
 
-/** "Today you pay 9,552 for 48 months. Renews at 649/mo for the same term. Cancel anytime." */
-export const finePrint = (p) =>
-  `Today you pay ${inr(p.todayTotal)} for ${p.months} months. Renews at ${inr(p.renewPrice)}/mo for the same term.` +
-  (p.cancelAnytime ? " Cancel anytime." : "");
+/** Fine print under the price. Plans without todayTotal/renewPrice only show the term — never invent a total or renewal. */
+export const finePrint = (p) => {
+  if (p.todayTotal != null && p.renewPrice != null) {
+    return `Today you pay ${inr(p.todayTotal)} for ${p.months} months. Renews at ${inr(p.renewPrice)}/mo for the same term.` +
+      (p.cancelAnytime ? " Cancel anytime." : "");
+  }
+  if (p.months === 12) return "12-month term (1 year).";
+  if (p.months) return `${p.months}-month term.`;
+  return "";
+};
 
 /** Prefilled WhatsApp text. */
 export const hostingMessage = (p) =>

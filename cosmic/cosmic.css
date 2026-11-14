@@ -233,6 +233,8 @@ h1 .l2{display:block;background:linear-gradient(100deg,#00E5FF,#7FA0FF,#B26BFF,#
 .host-chips{list-style:none;padding:0;margin:8px 0;display:flex;gap:8px;flex-wrap:wrap}
 .host-chips li{padding:5px 12px;border-radius:8px;font-family:var(--f-m);font-size:.82rem;background:rgba(122,60,255,.16);box-shadow:0 0 0 1px rgba(122,60,255,.45) inset}
 .hosting-grid .plan-btn{order:0}
+.hosting-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1100px;margin-inline:auto}
+@media (max-width:699px){.hosting-grid{grid-template-columns:1fr}}
 
 /* security */
 .sec-sub{color:var(--dim);letter-spacing:.06em}

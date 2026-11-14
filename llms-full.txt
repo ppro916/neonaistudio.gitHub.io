@@ -1,6 +1,6 @@
 # AI Nexus × Neon AI Studio – full profile
 
-Last updated: 2026-11-11
+Last updated: 2026-11-14
 Website: https://neonaistudio.in/
 
 ## Who we are
@@ -25,6 +25,8 @@ On the website, every plan has a "Get Plan" button that opens WhatsApp with the 
 - PREMIUM video plan: 1019 INR per video, up to 60/65 seconds.
 - Diamond Plan Unlimited (web hosting): 199 INR per month on a 48-month term (9,552 INR for 48 months), renews at 649 INR per month. Unlimited websites and mailboxes, ecommerce, 50 GB NVMe storage, Python and Node.js.
 - Gold Premium (web hosting): 139 INR per month on a 24-month term, renews at 449 INR per month. 3 websites, 20 GB SSD storage, weekly backups, CDN, Python, 2 mailboxes.
+- Deluxe (web hosting): 329 INR per month on a 12-month term (1 year). 50 GB NVMe storage, cPanel, Node.js, free unlimited SSL.
+- Ultimate (web hosting): 399 INR per month on a 12-month term (1 year). 75 GB NVMe storage, cPanel, Node.js, free unlimited SSL.
 - Secured System (HyperText Transfer Protocol Secure, HTTPS): 2999 INR. SSL certificate set-up and automatic renewal, padlock in the browser, encrypted connection.
 Longer films, bulk packs and custom projects are quoted on WhatsApp.
 
@@ -453,7 +455,7 @@ AI chatbots, AI automation and integration, workflow and marketing automation, S
 
 Web hosting plans, HTTPS/SSL security set-up, website maintenance and IT solutions for small businesses.
 
-- Web Hosting (Diamond Plan Unlimited, Gold Premium)
+- Web Hosting (Diamond Plan Unlimited, Gold Premium, Deluxe, Ultimate)
 - Secured System – HTTPS / SSL Certificate Setup
 - IT Solutions for Small Business
 - QR Code Business Solutions
@@ -477,7 +479,7 @@ Q: How much does an AI video cost?
 A: The STANDARD plan is 599 INR per video (up to 30/32 seconds) and the PREMIUM plan is 1019 INR per video (up to 60/65 seconds). Longer films and bulk packs are quoted on WhatsApp.
 
 Q: What are your web hosting and security prices?
-A: Diamond Plan Unlimited hosting is 199 INR per month on a 48-month term (renews at 649 INR/month). Gold Premium hosting is 139 INR per month on a 24-month term (renews at 449 INR/month). The Secured System (HTTPS/SSL set-up) is 2999 INR.
+A: Diamond Plan Unlimited hosting is 199 INR per month on a 48-month term (renews at 649 INR/month). Gold Premium hosting is 139 INR per month on a 24-month term (renews at 449 INR/month). Deluxe hosting is 329 INR per month on a 12-month term (1 year). Ultimate hosting is 399 INR per month on a 12-month term (1 year). The Secured System (HTTPS/SSL set-up) is 2999 INR.
 
 Q: How fast is delivery?
 A: Short videos are typically delivered in 24–48 hours. Websites, apps and branding projects get a timeline when the brief is confirmed.
