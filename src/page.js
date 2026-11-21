@@ -24,7 +24,7 @@ export function init(ctx) {
     if (!n) { err.textContent = "Please enter your name."; $("#qName").focus(); return; }
     if (!s) { err.textContent = "Please choose a service."; $("#qService").focus(); return; }
     err.textContent = "";
-    const text = "Hi AI Nexus × Neon AI Studio!\nName: " + n + "\nService: " + s + (m ? "\nDetails: " + m : "") + "\n\nPlease share a quote.";
+    const text = "Hi Neon AI Studio × AI Nexus!\nName: " + n + "\nService: " + s + (m ? "\nDetails: " + m : "") + "\n\nPlease share a quote.";
     window.open(waLink(text), "_blank", "noopener");
   });
 
@@ -32,7 +32,7 @@ export function init(ctx) {
   on($("#playBtn"), "click", () => {
     const f = document.createElement("iframe");
     f.src = "https://www.youtube-nocookie.com/embed/" + SHOWREEL_ID + "?autoplay=1&rel=0&playsinline=1&loop=1&playlist=" + SHOWREEL_ID;
-    f.title = "AI Nexus × Neon AI Studio showreel";
+    f.title = "Neon AI Studio × AI Nexus showreel";
     f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     f.allowFullscreen = true;
     $("#vbox").replaceChildren(f);

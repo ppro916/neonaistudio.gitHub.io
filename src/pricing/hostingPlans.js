@@ -111,7 +111,7 @@ export const finePrint = (p) => {
 
 /** Prefilled WhatsApp text. */
 export const hostingMessage = (p) =>
-  `Hi AI Nexus × Neon AI Studio, I want the ${p.name} hosting (${priceLabel(p)}, ${p.months} months). Please share details.`;
+  `Hi Neon AI Studio × AI Nexus, I want the ${p.name} hosting (${priceLabel(p)}, ${p.months} months). Please share details.`;
 
 /** Dropdown / JSON-LD label. */
 export const hostingLabel = (p) => `${p.name} – hosting – ${priceLabel(p)} (${p.months} months)`;

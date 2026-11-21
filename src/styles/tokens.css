@@ -1,4 +1,4 @@
-/* Design tokens — AI Nexus × Neon AI Studio "2030" system.
+/* Design tokens — Neon AI Studio × AI Nexus "2030" system.
    90% void / 10% light. No linear gradients anywhere (radial / conic / shader only). Max 3 accents on screen. */
 @property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 @property --sx  { syntax: "<percentage>"; inherits: false; initial-value: -30%; }

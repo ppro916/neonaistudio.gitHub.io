@@ -168,4 +168,4 @@ export const SERVICES = [
 
 /** WhatsApp prefill for a service enquiry. */
 export const serviceMessage = (en, mr) =>
-  "Hi AI Nexus × Neon AI Studio! I'm interested in " + en + ". Please share details. (नमस्कार, मला " + mr + " बद्दल माहिती हवी आहे.)";
+  "Hi Neon AI Studio × AI Nexus! I'm interested in " + en + ". Please share details. (नमस्कार, मला " + mr + " बद्दल माहिती हवी आहे.)";

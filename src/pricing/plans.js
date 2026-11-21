@@ -12,4 +12,4 @@ export const planLabel = (p) => `${p.name} – ${p.duration} – ${p.priceLabel}
 
 /** Prefilled WhatsApp text naming plan, duration and price. */
 export const planMessage = (p) =>
-  `Hi AI Nexus × Neon AI Studio! I'd like to get the ${p.name} video plan (${p.duration}) at ${p.priceLabel}. Please share the next steps.`;
+  `Hi Neon AI Studio × AI Nexus! I'd like to get the ${p.name} video plan (${p.duration}) at ${p.priceLabel}. Please share the next steps.`;

@@ -40,7 +40,7 @@ export const priceLabel = (p) => `${inr(p.price)}`;
 
 /** Prefilled WhatsApp text. */
 export const securityMessage = (p) =>
-  `Hi AI Nexus × Neon AI Studio, I want the ${p.short} plan – ${priceLabel(p)}. Please share details.`;
+  `Hi Neon AI Studio × AI Nexus, I want the ${p.short} plan – ${priceLabel(p)}. Please share details.`;
 
 /** Dropdown / JSON-LD label. */
 export const securityLabel = (p) => `${p.short} – ${priceLabel(p)}`;

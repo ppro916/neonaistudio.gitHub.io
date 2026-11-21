@@ -1,6 +1,6 @@
-# AI Nexus × Neon AI Studio — Cinematic 3D Website
+# Neon AI Studio × AI Nexus — Cinematic 3D Website
 
-> Marketing site for **AI Nexus × Neon AI Studio** (an AI video, ads, graphics & web studio), built with **Babylon.js / WebGL**, custom **GLSL** shaders, scroll-driven storytelling and an adaptive performance system — no build step required.
+> Marketing site for **Neon AI Studio × AI Nexus** (an AI video, ads, graphics & web studio), built with **Babylon.js / WebGL**, custom **GLSL** shaders, scroll-driven storytelling and an adaptive performance system — no build step required.
 
 [![Live site](https://img.shields.io/badge/Live-neonaistudio.in-00e5ff?style=for-the-badge&logo=googlechrome&logoColor=white)](https://neonaistudio.in)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
@@ -135,11 +135,11 @@ This is a static site, so there are no server-side environment variables. Edit `
 
 ## License
 
-Source code is released under the [MIT License](LICENSE). Brand assets (logos, posters, hero images) belong to AI Nexus × Neon AI Studio and are not covered by the MIT grant.
+Source code is released under the [MIT License](LICENSE). Brand assets (logos, posters, hero images) belong to Neon AI Studio × AI Nexus and are not covered by the MIT grant.
 
 ## Author
 
-**AI Nexus × Neon AI Studio** — AI video, web, app, branding, SEO and automation studio serving clients worldwide.
+**Neon AI Studio × AI Nexus** — AI video, web, app, branding, SEO and automation studio serving clients worldwide.
 
 - GitHub: [@ppro916](https://github.com/ppro916)
 - Website: [neonaistudio.in](https://neonaistudio.in)

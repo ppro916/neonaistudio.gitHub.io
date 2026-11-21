@@ -49,7 +49,7 @@ safe(() => {
     if (log.length >= DAY_MAX) return fail("You've sent several requests today. Please message us directly on WhatsApp: +91 9226520552.");
     err.textContent = "";
     store.add(Date.now());
-    const text = "Hi AI Nexus × Neon AI Studio!\nName: " + n + "\nService: " + s + (m ? "\nDetails: " + m : "") + "\n\nPlease share a quote.";
+    const text = "Hi Neon AI Studio × AI Nexus!\nName: " + n + "\nService: " + s + (m ? "\nDetails: " + m : "") + "\n\nPlease share a quote.";
     const link = waLink(text);
     try { sessionStorage.setItem("neon_quote_wa", link); } catch (e) {}
     let w = null;

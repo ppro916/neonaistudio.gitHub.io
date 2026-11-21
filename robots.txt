@@ -1,4 +1,4 @@
-# AI Nexus × Neon AI Studio – all crawlers, including AI and search bots, are welcome.
+# Neon AI Studio × AI Nexus – all crawlers, including AI and search bots, are welcome.
 # Summary for AI: https://neonaistudio.in/llms.txt
 
 User-agent: GPTBot

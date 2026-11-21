@@ -4,7 +4,7 @@
     {
       "@type": "Organization",
       "@id": "https://neonaistudio.in/#organization",
-      "name": "AI Nexus × Neon AI Studio",
+      "name": "Neon AI Studio × AI Nexus",
       "alternateName": [
         "AI Nexus",
         "Neon AI Studio",
@@ -74,7 +74,7 @@
         "LocalBusiness"
       ],
       "@id": "https://neonaistudio.in/#business",
-      "name": "AI Nexus × Neon AI Studio",
+      "name": "Neon AI Studio × AI Nexus",
       "alternateName": [
         "AI Nexus",
         "Neon AI Studio"
@@ -317,7 +317,7 @@
       "@type": "WebSite",
       "@id": "https://neonaistudio.in/#website",
       "url": "https://neonaistudio.in/",
-      "name": "AI Nexus × Neon AI Studio",
+      "name": "Neon AI Studio × AI Nexus",
       "alternateName": [
         "AI Nexus",
         "Neon AI Studio"
@@ -331,7 +331,7 @@
       "@type": "WebPage",
       "@id": "https://neonaistudio.in/#webpage",
       "url": "https://neonaistudio.in/",
-      "name": "AI Video Ads, Websites, Apps & SEO | AI Nexus × Neon AI Studio",
+      "name": "AI Video Ads, Websites, Apps & SEO | Neon AI Studio × AI Nexus",
       "description": "AI video ads & video production, website & app development, logo & branding, SEO & digital marketing. Remote agency for Dubai, Kuwait, UK, USA & worldwide.",
       "isPartOf": {
         "@id": "https://neonaistudio.in/#website"
@@ -344,7 +344,7 @@
     {
       "@type": "OfferCatalog",
       "@id": "https://neonaistudio.in/#services",
-      "name": "Services – AI Nexus × Neon AI Studio",
+      "name": "Services – Neon AI Studio × AI Nexus",
       "url": "https://neonaistudio.in/services.html",
       "itemListElement": [
         {
@@ -3216,7 +3216,7 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What services does AI Nexus × Neon AI Studio offer?",
+          "name": "What services does Neon AI Studio × AI Nexus offer?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "AI video ads and AI video production, video editing and animation, website and ecommerce development, mobile app development, logo, branding and graphic design, SEO and digital marketing, social media marketing, AI chatbots and automation, and web hosting with HTTPS security. The full list is at https://neonaistudio.in/services.html."
