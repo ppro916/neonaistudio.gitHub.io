@@ -47,7 +47,6 @@ html.gl-on .hero-visual { opacity: 0; }
 .hero h1 .t { color: var(--cyan-core); }
 .tagline { font-family: var(--f-ui); font-weight: 600; letter-spacing: 0.02em; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.35rem); color: var(--cyan-core); margin: 18px 0 14px; }
 .sub { color: var(--text-mid); margin-bottom: 8px; }
-.sub-mr { color: var(--text-dim); }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .showreel { z-index: 1; }
 .vframe { max-width: 720px; border-radius: var(--r-lg); }
@@ -61,7 +60,6 @@ html.gl-on .hero-visual { opacity: 0; }
 .about-copy p { color: var(--text-mid); }
 .about-copy h2 { margin-bottom: 18px; }
 .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-.mr, .mr-soft { color: var(--text-dim); }
 
 /* ---------- Services ---------- */
 .group { margin-top: clamp(30px, 4vw, 52px); }

@@ -80,7 +80,6 @@ html.rv .reveal.in { opacity: 1; translate: 0 0; }
 .plan.premium.hot::after, .plan.featured::after { background: conic-gradient(from var(--ang), var(--cyan-core), var(--violet-aura), var(--electric-blue), var(--cyan-core)); animation: angSpin 8s linear infinite; }
 .idx { font-size: 0.75rem; color: var(--cyan-core); letter-spacing: 0.12em; transform: translateZ(14px); }
 .card h4 { transform: translateZ(18px); }
-.card .mr { font-size: var(--fs-sm); color: var(--text-dim); }
 .card p { font-size: var(--fs-sm); color: var(--text-mid); margin: 4px 0 12px; flex: 1; }
 .enq { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: var(--r-sm); border: 1px solid rgba(0, 229, 255, 0.4); color: var(--cyan-core); font-family: var(--f-ui); font-weight: 600; font-size: 0.9rem; transform: translateZ(22px); transition: background-color 0.3s var(--ease), color 0.3s var(--ease); }
 .enq:hover { background: var(--cyan-core); color: #001317; }

@@ -10,7 +10,6 @@
 .sp p,.sp li{color:var(--mid);line-height:1.7}.sp ul,.sp ol{padding-left:1.2em}.sp li{margin:4px 0}
 .sp strong{color:#fff}
 .sp .lead{font-size:1.12rem;color:var(--ink)}
-.sp .mr{color:var(--dim)}
 .sp a:not(.btn){color:var(--cyan)}
 .sp .pp,.sp .rel,.sp .svcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px}
 .sp .pc,.sp .rel a,.sp .svcgrid a,.sp .contactbox,.sp .card-x{background:rgba(255,255,255,.035);box-shadow:0 0 0 1px var(--line) inset;border-radius:16px;padding:18px;text-decoration:none}
