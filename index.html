@@ -643,7 +643,7 @@
 
         <div class="nx-form-wrap" id="nx-review-form">
           <h3>Write a review</h3>
-          <p class="nx-form-note">Share your experience. Your review will appear after approval.</p>
+          <p class="nx-form-note">Share your experience. Your review will appear on this page right away.</p>
 
           <form id="nx-form" class="nx-form" novalidate>
             <div class="nx-hp" aria-hidden="true">
@@ -697,8 +697,8 @@
 
         <script>
         (function () {
+          var NX_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-d0Rodw0sahyFSOYYnVf9Dg-zO6jip98qxTlKPeqWcY-H0RL6jRIsFipqeHjFahU/exec';
           var NX_REVIEWS_URL = '/reviews.json';
-          var NX_FORMSUBMIT_URL = 'https://formsubmit.co/ajax/ai.nexus4405@gmail.com';
           var NX_LOCAL_KEY = 'nx-pending-review';
           var SERVICES = ['App Development', 'Software Development', 'Website Development', 'Other'];
           var TEXT_MIN = 10;
@@ -787,6 +787,30 @@
               if (item.id != null && item.id !== '') row.id = item.id;
               out.push(row);
             }
+            return out;
+          }
+
+          function reviewKey(item) {
+            return String(item.name || '').trim().toLowerCase() + '|' + String(item.text || '').trim().toLowerCase();
+          }
+
+          function mergeReviewLists(primary, secondary) {
+            var seen = {};
+            var out = [];
+            var lists = [primary || [], secondary || []];
+            for (var i = 0; i < lists.length; i++) {
+              var list = lists[i];
+              for (var j = 0; j < list.length; j++) {
+                var item = list[j];
+                var key = reviewKey(item);
+                if (!key || key === '|' || seen[key]) continue;
+                seen[key] = true;
+                out.push(item);
+              }
+            }
+            out.sort(function (a, b) {
+              return String(b.date || '').localeCompare(String(a.date || ''));
+            });
             return out;
           }
 
@@ -923,22 +947,80 @@
             listEl.innerHTML = html;
           }
 
-          function loadReviews() {
+          function fetchStaticReviews() {
             var url = NX_REVIEWS_URL + (NX_REVIEWS_URL.indexOf('?') === -1 ? '?' : '&') + 'v=' + Date.now();
-            fetch(url, { credentials: 'omit', cache: 'no-store' })
+            return fetch(url, { credentials: 'omit', cache: 'no-store' })
               .then(function (res) {
                 if (!res.ok) throw new Error('bad status');
                 return res.json();
               })
               .then(function (data) {
-                lastRaw = data;
-                render(data);
+                return approvedReviews(normalizeList(data));
               })
               .catch(function () {
+                return null;
+              });
+          }
+
+          function fetchScriptReviews() {
+            return new Promise(function (resolve, reject) {
+              var cb = 'nxReviewsCb' + String(Date.now()) + String(Math.floor(Math.random() * 100000));
+              var script = document.createElement('script');
+              var done = false;
+              var timer = setTimeout(function () {
+                if (done) return;
+                done = true;
+                cleanup();
+                reject(new Error('timeout'));
+              }, 15000);
+              function cleanup() {
+                clearTimeout(timer);
+                try { delete window[cb]; } catch (e) { window[cb] = undefined; }
+                if (script.parentNode) script.parentNode.removeChild(script);
+              }
+              window[cb] = function (data) {
+                if (done) return;
+                done = true;
+                cleanup();
+                resolve(data);
+              };
+              script.async = true;
+              script.src = NX_SCRIPT_URL + (NX_SCRIPT_URL.indexOf('?') === -1 ? '?' : '&') + 'callback=' + encodeURIComponent(cb) + '&v=' + Date.now();
+              script.onerror = function () {
+                if (done) return;
+                done = true;
+                cleanup();
+                reject(new Error('jsonp failed'));
+              };
+              document.head.appendChild(script);
+            }).then(function (data) {
+              return approvedReviews(normalizeList(data));
+            });
+          }
+
+          function loadReviews() {
+            var staticP = fetchStaticReviews();
+            var scriptP = fetchScriptReviews().then(function (list) {
+              return { ok: true, list: list };
+            }).catch(function () {
+              return { ok: false, list: [] };
+            });
+            return Promise.all([staticP, scriptP]).then(function (parts) {
+              var staticList = parts[0];
+              var scriptRes = parts[1];
+              if (!scriptRes.ok && staticList === null) {
                 statusEl.hidden = false;
                 statusEl.textContent = 'Reviews could not be loaded right now. Please refresh the page.';
+                lastRaw = [];
                 render([]);
-              });
+                return;
+              }
+              statusEl.hidden = true;
+              statusEl.textContent = '';
+              var merged = mergeReviewLists(scriptRes.list || [], staticList || []);
+              lastRaw = merged;
+              render(merged);
+            });
           }
 
           function setPicker(value, previewTo) {
@@ -1063,32 +1145,21 @@
             if (payload.website) {
               return Promise.resolve({ ok: true, honeypot: true });
             }
-            return fetch(NX_FORMSUBMIT_URL, {
+            return fetch(NX_SCRIPT_URL, {
               method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
+              mode: 'no-cors',
+              credentials: 'omit',
+              cache: 'no-store',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
               body: JSON.stringify({
                 name: payload.name,
                 city: payload.city,
                 service: payload.service,
                 rating: payload.rating,
-                review: payload.text,
-                _subject: 'New website review – Neon AI Studio × AI Nexus',
-                _template: 'table',
-                _captcha: 'false'
+                text: payload.text
               })
-            }).then(function (res) {
-              return res.json().catch(function () { return {}; }).then(function (data) {
-                if (res.ok && data && data.success === false) {
-                  return { ok: false, error: data.message || 'Could not send the review. Please try again.' };
-                }
-                if (res.ok || (data && (data.success === true || data.message))) {
-                  return { ok: true };
-                }
-                return { ok: false, error: (data && data.message) || 'Could not send the review. Please try again.' };
-              });
+            }).then(function () {
+              return { ok: true };
             });
           }
 
@@ -1115,6 +1186,7 @@
                       date: new Date().toISOString()
                     });
                     render(lastRaw);
+                    setTimeout(function () { loadReviews(); }, 2000);
                   }
                   showThanks();
                 } else {
