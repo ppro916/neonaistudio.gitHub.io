@@ -691,7 +691,7 @@
           </form>
 
           <div class="nx-thanks" id="nx-thanks" role="status">
-            <p>Thank you. Your review will appear after approval.</p>
+            <p>Thank you! Your review has been posted.</p>
           </div>
         </div>
 
@@ -699,10 +699,12 @@
         (function () {
           var NX_REVIEWS_URL = '/reviews.json';
           var NX_FORMSUBMIT_URL = 'https://formsubmit.co/ajax/ai.nexus4405@gmail.com';
+          var NX_LOCAL_KEY = 'nx-pending-review';
           var SERVICES = ['App Development', 'Software Development', 'Website Development', 'Other'];
           var TEXT_MIN = 10;
           var TEXT_MAX = 800;
           var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          var lastRaw = [];
 
           var root = document.getElementById('nx-reviews');
           if (!root || root.getAttribute('data-nx-ready')) return;
@@ -774,16 +776,58 @@
               var name = String(item.name || '').trim();
               var text = String(item.text || item.review || '').trim();
               if (!name || !text || !(rating >= 1 && rating <= 5)) continue;
-              out.push({
+              var row = {
                 name: name,
                 city: String(item.city || '').trim(),
                 service: String(item.service || '').trim(),
                 rating: Math.round(rating),
                 text: text,
                 date: item.date || ''
-              });
+              };
+              if (item.id != null && item.id !== '') row.id = item.id;
+              out.push(row);
             }
             return out;
+          }
+
+          function readLocalReview() {
+            try {
+              var raw = localStorage.getItem(NX_LOCAL_KEY);
+              if (!raw) return null;
+              var parsed = JSON.parse(raw);
+              var list = approvedReviews([parsed]);
+              return list.length ? list[0] : null;
+            } catch (e) {
+              return null;
+            }
+          }
+
+          function saveLocalReview(item) {
+            try {
+              localStorage.setItem(NX_LOCAL_KEY, JSON.stringify(item));
+            } catch (e) {}
+          }
+
+          function clearLocalReview() {
+            try {
+              localStorage.removeItem(NX_LOCAL_KEY);
+            } catch (e) {}
+          }
+
+          function sameReviewText(a, b) {
+            return String(a || '').trim() === String(b || '').trim();
+          }
+
+          function mergeLocalReview(published) {
+            var local = readLocalReview();
+            if (!local) return published;
+            for (var i = 0; i < published.length; i++) {
+              if (sameReviewText(published[i].text, local.text)) {
+                clearLocalReview();
+                return published;
+              }
+            }
+            return [local].concat(published);
           }
 
           function injectJsonLd(reviews) {
@@ -839,8 +883,9 @@
           }
 
           function render(raw) {
-            var reviews = approvedReviews(normalizeList(raw));
-            injectJsonLd(reviews);
+            var published = approvedReviews(normalizeList(raw));
+            injectJsonLd(published);
+            var reviews = mergeLocalReview(published);
             var sum = 0;
             for (var i = 0; i < reviews.length; i++) sum += reviews[i].rating;
             var n = reviews.length;
@@ -879,12 +924,14 @@
           }
 
           function loadReviews() {
-            fetch(NX_REVIEWS_URL, { credentials: 'omit', cache: 'no-store' })
+            var url = NX_REVIEWS_URL + (NX_REVIEWS_URL.indexOf('?') === -1 ? '?' : '&') + 'v=' + Date.now();
+            fetch(url, { credentials: 'omit', cache: 'no-store' })
               .then(function (res) {
                 if (!res.ok) throw new Error('bad status');
                 return res.json();
               })
               .then(function (data) {
+                lastRaw = data;
                 render(data);
               })
               .catch(function () {
@@ -1058,6 +1105,17 @@
             submitReview(payload)
               .then(function (res) {
                 if (res && res.ok) {
+                  if (!res.honeypot) {
+                    saveLocalReview({
+                      name: payload.name,
+                      city: payload.city,
+                      service: payload.service,
+                      rating: payload.rating,
+                      text: payload.text,
+                      date: new Date().toISOString()
+                    });
+                    render(lastRaw);
+                  }
                   showThanks();
                 } else {
                   document.getElementById('nx-err-form').textContent = (res && res.error) || 'Could not send the review. Please try again.';
