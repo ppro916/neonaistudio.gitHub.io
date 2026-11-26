@@ -1,0 +1,42 @@
+/* Local presence line and mobile sticky WhatsApp/Call bar */
+.local-line{
+  color:var(--mid, rgba(234,242,255,.78));
+  max-width:56ch;
+  margin:12px 0 0;
+  font-size:1em;
+  line-height:1.55;
+}
+.hero-copy .local-line{margin:12px 0 0}
+.sp .local-line{
+  margin:0 0 1em;
+  color:var(--ink, #EAF2FF);
+}
+.local-line a{color:var(--cyan, #00E5FF);text-decoration:none}
+.local-line a:hover{text-decoration:underline}
+
+.sticky-cta{display:none}
+
+@media (max-width:699px){
+  .sticky-cta{
+    display:flex;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:120;
+    gap:8px;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    background:rgba(9,12,28,.88);
+    box-shadow:0 -1px 0 rgba(160,190,255,.14),0 -16px 40px rgba(0,0,0,.4);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+  .sticky-cta .btn{
+    flex:1 1 0;
+    min-height:48px;
+    justify-content:center;
+  }
+  body{
+    padding-bottom:calc(72px + env(safe-area-inset-bottom, 0px));
+  }
+}
